@@ -1,0 +1,1469 @@
+/* ==========================================================================
+   USELESS PROJECTS 2026 - GITAM OFFICIAL BRANDED DESIGN SYSTEM
+   ========================================================================== */
+
+:root {
+  /* Official GITAM Primary Palette */
+  --gitam-green: #007367;
+  --dark-green: #004740;
+  
+  /* Official GITAM Secondary Palette */
+  --antique-white: #F4E4C9;
+  --light-green: #8BCBB7;
+  --gold-beige: #A58255;
+  --kind-coral: #DD736E;
+  --mellow-yellow: #E0B541;
+  --wide-blue: #5E95CD;
+
+  /* Theme Mapping */
+  --bg-dark: #002e29;
+  --bg-darker: #001f1b;
+  --bg-card: rgba(0, 71, 64, 0.85);
+  --bg-card-hover: rgba(0, 115, 103, 0.95);
+  
+  --text-main: #F4E4C9;
+  --text-muted: #8BCBB7;
+  --border-color: #007367;
+  --border-highlight: #DD736E;
+
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'JetBrains Mono', monospace;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Neo-Brutalist Shadows using GITAM Palette */
+  --shadow-coral: 6px 6px 0px #DD736E;
+  --shadow-yellow: 6px 6px 0px #E0B541;
+  --shadow-blue: 6px 6px 0px #5E95CD;
+  --shadow-light-green: 6px 6px 0px #8BCBB7;
+  --shadow-gold: 6px 6px 0px #A58255;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  line-height: 1.6;
+  background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(circle at 50% 0%, var(--dark-green) 0%, var(--bg-darker) 85%),
+    linear-gradient(rgba(139, 203, 183, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 203, 183, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 36px 36px, 36px 36px;
+}
+
+/* Chaos Canvas overlay */
+#chaosCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Utility Classes */
+.text-gitam-green { color: var(--gitam-green); }
+.text-coral { color: var(--kind-coral); }
+.text-yellow { color: var(--mellow-yellow); }
+.text-light-green { color: var(--light-green); }
+.text-blue { color: var(--wide-blue); }
+
+.badge-gitam {
+  background: var(--gitam-green);
+  color: var(--antique-white);
+  font-family: var(--font-mono);
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  border: 1px solid var(--light-green);
+}
+
+.badge-coral {
+  background: var(--kind-coral);
+  color: #000;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+/* TOP TICKER */
+.ticker-wrap {
+  width: 100%;
+  background: var(--mellow-yellow);
+  color: var(--dark-green);
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.85rem;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 8px 0;
+  border-bottom: 3px solid var(--dark-green);
+}
+
+.ticker-content {
+  display: inline-block;
+  animation: ticker 30s linear infinite;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* NAVIGATION & EMERGING HANGING ROPE TAG RIG */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(0, 47, 41, 0.96);
+  backdrop-filter: blur(14px);
+  border-bottom: 3px solid var(--gitam-green);
+  padding: 0;
+  height: 56px;
+  min-height: 56px;
+  overflow: visible !important;
+}
+
+.navbar .nav-container {
+  max-width: 100%;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+  overflow: visible !important;
+  position: relative;
+}
+
+.nav-left-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.brand-logo {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  margin-right: 0;
+  flex-shrink: 0;
+}
+
+.brand-logo:hover {
+  transform: translateY(-1px) scale(1.03);
+  filter: drop-shadow(0 0 12px rgba(245, 230, 204, 0.55));
+}
+
+.header-logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  background: none;
+  border: none;
+}
+
+/* THE HORIZONTAL RAIL EMERGING FROM THE LOGO - INSIDE THE COMPACT NAVBAR */
+.hanging-rail-rig {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  margin: 0 16px 0 6px;
+  overflow: visible !important;
+}
+
+.rail-track {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(180deg, #ffe082 0%, #c8952d 35%, #855f1a 70%, #422d00 100%);
+  border: 1px solid #231602;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.65);
+  z-index: 2;
+}
+
+/* Coupler joint emerging directly out of GITAM logo */
+.rail-track::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 10px;
+  height: 12px;
+  background: linear-gradient(135deg, #fff2b2, #c8952d 50%, #4a3007 100%);
+  border: 1.5px solid #291a02;
+  border-radius: 2px;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Coupler cap at right end */
+.rail-track::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 10px;
+  height: 12px;
+  background: linear-gradient(135deg, #fff2b2, #c8952d 50%, #4a3007 100%);
+  border: 1.5px solid #291a02;
+  border-radius: 2px;
+  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.6);
+}
+
+/* HANGING ROPE TAGS - ANCHORED EXACTLY AT RAIL TRACK & EXTENDING INTO MAIN PAGE */
+.hanging-nav-links {
+  position: absolute;
+  top: 50%; /* Anchored directly to the rail centerline */
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 12px;
+  z-index: 1001;
+  pointer-events: none;
+  overflow: visible !important;
+}
+
+/* Individual Hanging Tag Unit (Swings from top where rope meets the bar) */
+.hanging-tag-unit {
+  pointer-events: auto;
+  position: relative;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  text-align: center !important;
+  text-decoration: none;
+  transform-origin: top center;
+  transition: filter 0.2s ease;
+  cursor: pointer;
+  overflow: visible !important;
+}
+
+/* HIGH-QUALITY BRAIDED TWINE / JUTE ROPE */
+.rope-line {
+  width: 6px;
+  margin: 0 auto -5px auto !important;
+  align-self: center !important;
+  background-image: url('rope.png');
+  background-size: 6px auto;
+  background-repeat: repeat-y;
+  filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.7));
+  position: relative;
+  z-index: 2;
+}
+
+/* Rope knot wrapping around the elevated bar */
+.rope-line::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 8px;
+  background-image: url('rope.png');
+  background-size: 10px auto;
+  border-radius: 3px;
+  border: 1px solid #3d2710;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  z-index: 3;
+}
+
+/* Staggered Ropes: Rail is at y=28px, navbar bottom is at y=56px (delta 28px).
+   All ropes extend past 28px so cards hang freely inside the main hero section */
+.tag-1 .rope-line { height: 46px; } /* Extends 18px below green line */
+.tag-2 .rope-line { height: 84px; } /* Extends 56px below green line */
+.tag-3 .rope-line { height: 48px; } /* Extends 20px below green line */
+.tag-4 .rope-line { height: 76px; } /* Extends 48px below green line */
+.tag-5 .rope-line { height: 56px; } /* Extends 28px below green line */
+
+/* REALISTIC HARMONIC PENDULUM SWINGING (Natural Gravitational Kinematics) */
+.tag-1 { animation: realPendulum1 3.3s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; }
+.tag-2 { animation: realPendulum2 4.3s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; }
+.tag-3 { animation: realPendulum3 2.8s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; }
+.tag-4 { animation: realPendulum4 4.0s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; }
+.tag-5 { animation: realPendulum5 3.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; }
+
+@keyframes realPendulum1 {
+  0% { transform: rotate(-3.5deg); }
+  100% { transform: rotate(3.5deg); }
+}
+
+@keyframes realPendulum2 {
+  0% { transform: rotate(4.2deg); }
+  100% { transform: rotate(-3.8deg); }
+}
+
+@keyframes realPendulum3 {
+  0% { transform: rotate(-2.8deg); }
+  100% { transform: rotate(3.2deg); }
+}
+
+@keyframes realPendulum4 {
+  0% { transform: rotate(3.8deg); }
+  100% { transform: rotate(-3.4deg); }
+}
+
+@keyframes realPendulum5 {
+  0% { transform: rotate(-3.2deg); }
+  100% { transform: rotate(3.2deg); }
+}
+
+/* Interactive Hover Swivel */
+.hanging-tag-unit:hover {
+  animation: excitedSwing 0.75s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate !important;
+  z-index: 1002;
+}
+
+@keyframes excitedSwing {
+  0% { transform: rotate(-5.5deg) scale(1.06); }
+  100% { transform: rotate(5.5deg) scale(1.06); }
+}
+
+/* LASER-CUT MAKERSPACE BIRCH PLYWOOD CARDS */
+.tag-card {
+  position: relative;
+  margin: 0 auto !important;
+  align-self: center !important;
+  background-color: #eedcc6;
+  background-image: 
+    linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(90, 50, 20, 0.08) 100%),
+    url('wood-texture.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #5a3818; /* Charred laser-cut edge */
+  border-radius: 5px;
+  padding: 4px 13px 6px 13px;
+  box-shadow: 
+    0 12px 24px -2px rgba(0, 0, 0, 0.75),
+    0 4px 8px rgba(0, 0, 0, 0.45),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    inset 0 -1.5px 2px rgba(60, 30, 10, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  min-width: 108px;
+}
+
+/* Brass Rivet / Punched Hole in the Wooden Plank */
+.tag-hole {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #001f1b, #000);
+  border: 1.5px solid #d4a23d;
+  box-shadow: 
+    inset 0 1px 2px rgba(0, 0, 0, 0.9), 
+    0 0 0 1px #4a3410,
+    0 1px 2px rgba(0, 0, 0, 0.6);
+  margin: 0 auto 3px auto !important;
+  position: relative;
+  z-index: 3;
+}
+
+/* Twine knot loop through the brass hole */
+.tag-hole::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 6px;
+  background-image: url('rope.png');
+  background-size: 8px auto;
+  border-radius: 2px;
+  border: 1px solid #4a3410;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+  z-index: 4;
+}
+
+/* Laser-Engraved Pyrography Dark Pine Text on Birch Wood */
+.tag-text {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.84rem;
+  color: #112821;
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.65);
+  line-height: 1.25;
+}
+
+/* Active Wooden Card State (Polished Lacquer + GITAM Green Border) */
+.hanging-tag-unit.active .tag-card {
+  border: 2px solid var(--gitam-green);
+  box-shadow: 
+    0 0 16px rgba(0, 115, 103, 0.55),
+    0 12px 26px rgba(0, 0, 0, 0.8),
+    inset 0 1px 1px rgba(255, 255, 255, 0.85);
+}
+
+.hanging-tag-unit.active .tag-text {
+  color: #004740;
+  font-weight: 900;
+}
+
+
+.hanging-tag-unit:hover .tag-card {
+  filter: brightness(1.08);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.85);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+  padding-top: 0;
+}
+
+.nav-actions .btn-primary {
+  padding: 8px 18px;
+  font-size: 0.88rem;
+}
+
+.nav-actions .btn-chaos {
+  padding: 7px 12px;
+  font-size: 0.82rem;
+}
+
+.nav-actions .btn-icon {
+  padding: 6px 10px;
+  font-size: 1.05rem;
+}
+
+/* BUTTONS */
+.btn-primary {
+  background: var(--kind-coral);
+  color: #000;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border: 3px solid var(--dark-green);
+  box-shadow: var(--shadow-yellow);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0px var(--mellow-yellow);
+  background: #e6837e;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--light-green);
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border: 3px solid var(--light-green);
+  box-shadow: var(--shadow-coral);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-secondary:hover {
+  background: var(--light-green);
+  color: var(--dark-green);
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0px var(--kind-coral);
+}
+
+.btn-forbidden {
+  background: var(--kind-coral);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  padding: 12px 20px;
+  border: 3px solid var(--antique-white);
+  box-shadow: 4px 4px 0px var(--dark-green);
+  cursor: pointer;
+  animation: pulseForbidden 1.5s infinite;
+}
+
+@keyframes pulseForbidden {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+.btn-chaos {
+  background: var(--mellow-yellow);
+  color: var(--dark-green);
+  font-family: var(--font-mono);
+  font-weight: 800;
+  padding: 8px 14px;
+  border: 2px solid var(--dark-green);
+  cursor: pointer;
+  box-shadow: 3px 3px 0px var(--dark-green);
+}
+
+.btn-icon {
+  background: var(--dark-green);
+  border: 2px solid var(--gitam-green);
+  color: var(--antique-white);
+  padding: 8px 12px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-lg { padding: 16px 32px; font-size: 1.1rem; }
+.btn-xl { padding: 18px 36px; font-size: 1.2rem; }
+.btn-block { width: 100%; justify-content: center; }
+
+/* HERO SECTION */
+.hero-section {
+  position: relative;
+  padding: 125px 0 70px 0;
+  overflow: hidden;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(221, 115, 110, 0.15);
+  border: 1px solid var(--kind-coral);
+  color: var(--kind-coral);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 50px;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  line-height: 1.05;
+  font-weight: 900;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  color: var(--antique-white);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--light-green);
+  max-width: 650px;
+  margin-bottom: 36px;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+/* GAMES HUB SECTION */
+.games-hub-section {
+  background: rgba(0, 47, 41, 0.6);
+  border-top: 3px solid var(--gitam-green);
+  padding: 80px 0;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 32px;
+}
+
+.game-card {
+  background: var(--bg-card);
+  border: 3px solid var(--gitam-green);
+  box-shadow: var(--shadow-coral);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.game-header {
+  margin-bottom: 20px;
+}
+
+.game-icon {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.game-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--antique-white);
+}
+
+.game-desc {
+  font-size: 0.9rem;
+  color: var(--light-green);
+}
+
+/* CLICKER GAME */
+.clicker-box {
+  background: var(--bg-darker);
+  border: 2px solid var(--gitam-green);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.clicker-score-num {
+  font-family: var(--font-mono);
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--mellow-yellow);
+}
+
+.clicker-achievement {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: var(--light-green);
+  margin-top: 6px;
+  min-height: 26px;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.2s ease;
+}
+
+.clicker-achievement.milestone-pop {
+  animation: milestonePop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: var(--mellow-yellow);
+  font-weight: 800;
+  text-shadow: 0 0 12px rgba(255, 234, 159, 0.6);
+}
+
+@keyframes milestonePop {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.18); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.clicker-btn {
+  background: var(--kind-coral);
+  color: #000;
+  border: 3px solid #000;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  padding: 16px;
+  width: 100%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 4px 4px 0px #000;
+  margin-top: 12px;
+}
+
+.clicker-btn:active {
+  transform: scale(0.97);
+}
+
+/* SEMICOLON CATCHER CANVAS */
+.catcher-canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background: #001714;
+  border: 2px solid var(--gitam-green);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#catcherCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* SWITCHBOARD MATRIX */
+.switchboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.matrix-switch {
+  background: var(--dark-green);
+  color: var(--antique-white);
+  border: 2px solid var(--gitam-green);
+  padding: 12px;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.matrix-switch.active {
+  background: var(--mellow-yellow);
+  color: var(--dark-green);
+  border-color: #000;
+}
+
+.lamp-status {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--kind-coral);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   3D CYLINDRICAL CHAOS WHEEL DRUM (SLOT MACHINE)
+   ========================================================================== */
+.slot-machine-console {
+  background: var(--bg-card);
+  border: 4px solid var(--gitam-green);
+  box-shadow: 10px 10px 0px var(--dark-green);
+  border-radius: 16px;
+  padding: 36px 44px;
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.slot-marquee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: var(--bg-darker);
+  border: 2px solid var(--mellow-yellow);
+  padding: 10px 24px;
+  border-radius: 8px;
+  margin-bottom: 28px;
+}
+
+.marquee-light {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--mellow-yellow);
+  box-shadow: 0 0 10px var(--mellow-yellow);
+  animation: blinkLights 0.8s infinite alternate;
+}
+
+@keyframes blinkLights {
+  0% { opacity: 0.35; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+
+.marquee-text {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: var(--antique-white);
+  text-transform: uppercase;
+}
+
+/* 3D Horizontal Drum Assembly (Matching Cylindrical Slot Wheel) */
+.slot-drum-assembly {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 30px auto 35px auto;
+  max-width: 860px;
+  padding-left: 50px; /* balances left 44px + 50px with right 94px to keep reels dead-center */
+  padding-right: 0;
+}
+
+/* Left & Right Metallic Gold Caps */
+.drum-end-cap {
+  width: 44px;
+  height: 140px;
+  background: linear-gradient(to right, #614210, #c8952d 35%, #f9e28c 60%, #b88523 90%, #573a0c);
+  border: 3px solid #332104;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+}
+
+.drum-end-cap.left-cap {
+  border-radius: 40px 0 0 40px;
+  box-shadow: -8px 10px 16px rgba(0, 0, 0, 0.6);
+}
+
+.drum-end-cap.right-cap.coin-arcade-cap {
+  width: 94px;
+  border-radius: 0 40px 40px 0;
+  box-shadow: 6px 10px 16px rgba(0, 0, 0, 0.6);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 8px;
+  overflow: visible;
+}
+
+.cap-hub {
+  width: 20px;
+  height: 52px;
+  border-radius: 12px;
+  background: radial-gradient(circle at 35% 35%, #fff5bd, #d4a034 60%, #523508);
+  border: 2px solid #291a02;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.7);
+}
+
+/* The Horizontal 3-Reel Cylindrical Barrel */
+.drum-barrel {
+  flex: 1;
+  height: 140px;
+  background: linear-gradient(to bottom, 
+    #7a5416 0%, 
+    #dfb04e 7%, 
+    #f9e28c 14%, 
+    #b48020 20%, 
+    #382405 24%, 
+    #171003 76%, 
+    #a67318 80%, 
+    #f9e28c 87%, 
+    #be8b25 94%, 
+    #5e3f0c 100%
+  );
+  border-top: 3px solid #332104;
+  border-bottom: 3px solid #332104;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 6px 0;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.65);
+}
+
+.drum-divider {
+  width: 14px;
+  height: 140px;
+  background: linear-gradient(to right, #4a3007, #c8952d 35%, #ffea9f 55%, #9b6c16 85%, #382405);
+  border-left: 1px solid #1f1402;
+  border-right: 1px solid #1f1402;
+  flex-shrink: 0;
+  z-index: 5;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Individual Reel Window */
+.drum-reel-window {
+  flex: 1;
+  height: 124px;
+  background: #001f1b;
+  position: relative;
+  overflow: hidden;
+  border-top: 2px solid #1a1002;
+  border-bottom: 2px solid #1a1002;
+}
+
+/* Curvature & Glare Effect Overlay (Creates authentic 3D cylinder depth) */
+.drum-reel-glare {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to bottom, 
+    rgba(0, 0, 0, 0.92) 0%, 
+    rgba(0, 0, 0, 0.35) 22%, 
+    rgba(255, 255, 255, 0.09) 46%, 
+    rgba(255, 255, 255, 0.09) 54%, 
+    rgba(0, 0, 0, 0.35) 78%, 
+    rgba(0, 0, 0, 0.92) 100%
+  );
+  pointer-events: none;
+  z-index: 3;
+  box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.9);
+}
+
+/* Animated Reel Strip */
+.drum-reel-strip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.15s ease-out;
+}
+
+.drum-reel-strip.spinning {
+  animation: reelSpinBlur 0.09s linear infinite;
+  filter: blur(1.5px);
+}
+
+@keyframes reelSpinBlur {
+  0% { transform: translateY(-40px); }
+  100% { transform: translateY(40px); }
+}
+
+.reel-item {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--antique-white);
+  text-align: center;
+  padding: 8px 12px;
+  line-height: 1.3;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
+  word-break: break-word;
+}
+
+/* Arcade Coin Slot & Spin Button (Mounted on Right Cap) */
+.slot-coin-unit {
+  position: relative;
+  width: 72px;
+  height: 48px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.coin-entry-bezel {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3d2703, #9e721d 25%, #ffeaa7 50%, #9e721d 75%, #3d2703 100%);
+  border: 1.5px solid #201302;
+  border-radius: 6px;
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.8), 
+    inset 0 -1px 2px rgba(0, 0, 0, 0.8), 
+    0 3px 6px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 4px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.slot-coin-unit:hover .coin-entry-bezel {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px var(--mellow-yellow), inset 0 1px 2px #fff;
+}
+
+.coin-slot-header {
+  font-family: var(--font-mono);
+  font-size: 0.48rem;
+  font-weight: 900;
+  color: #1f1402;
+  letter-spacing: 0.6px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.coin-slot-frame {
+  width: 32px;
+  height: 12px;
+  background: linear-gradient(to bottom, #100a01, #382405);
+  border: 1px solid #140b01;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.coin-slot-slit {
+  width: 24px;
+  height: 3.5px;
+  background: #000;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 2px #000, 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.coin-slot-denom {
+  font-family: var(--font-mono);
+  font-size: 0.42rem;
+  font-weight: 800;
+  color: #3d2703;
+  margin-top: 2px;
+  letter-spacing: 0.3px;
+  line-height: 1;
+}
+
+/* 3D Flying Gold Coin Animation */
+.flying-insert-coin {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 25;
+}
+
+.coin-body {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fffde6 0%, #ffd700 50%, #b8860b 80%, #5c4308 100%);
+  border: 1.5px solid #3b2803;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.7), inset 0 1px 2px #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4a3507;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.flying-insert-coin.inserting {
+  animation: coinInsertDrop 0.58s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes coinInsertDrop {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-28px) scale(0.6) rotateY(0deg) rotateX(10deg);
+  }
+  25% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-12px) scale(1.25) rotateY(180deg) rotateX(30deg);
+    box-shadow: 0 0 16px #ffd700;
+  }
+  55% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(4px) scale(1.0) rotateY(360deg) rotateX(50deg);
+  }
+  78% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(14px) scale(0.65) rotateY(540deg) rotateX(75deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(22px) scale(0.2) rotateY(720deg) rotateX(90deg);
+  }
+}
+
+/* Arcade Big Round Spin Button */
+.slot-arcade-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  outline: none;
+  margin-top: 2px;
+  transition: transform 0.1s ease;
+}
+
+.arcade-btn-rim {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fff2b2, #c8952d 40%, #4a3007 80%, #201302 100%);
+  border: 2px solid #291a02;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7), inset 0 2px 3px rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease;
+}
+
+.arcade-btn-dome {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ff8e88 0%, #ee3a33 45%, #9b130f 80%, #4a0604 100%);
+  border: 1.5px solid #360503;
+  box-shadow: 
+    0 3px 8px rgba(0, 0, 0, 0.8), 
+    0 0 10px rgba(238, 58, 51, 0.5), 
+    inset 0 2px 4px rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s ease;
+}
+
+.arcade-btn-text {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.9), 0 1px 2px #000;
+  letter-spacing: 1px;
+}
+
+.slot-arcade-btn:hover .arcade-btn-dome {
+  transform: scale(1.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9), 0 0 18px #ee3a33, inset 0 2px 4px #fff;
+}
+
+.slot-arcade-btn:active .arcade-btn-dome,
+.slot-arcade-btn.pressed .arcade-btn-dome {
+  transform: scale(0.9) translateY(2px);
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.9), 0 0 8px #ee3a33;
+}
+
+/* Jackpot Mission Active State */
+.slot-marquee.mission-active {
+  border-color: #ffd700;
+  box-shadow: 0 0 24px rgba(255, 215, 0, 0.5);
+  animation: pulseMissionBorder 0.4s infinite alternate;
+}
+
+@keyframes pulseMissionBorder {
+  0% { border-color: #ffd700; box-shadow: 0 0 14px rgba(255, 215, 0, 0.4); }
+  100% { border-color: #ff3b30; box-shadow: 0 0 24px rgba(255, 59, 48, 0.6); }
+}
+
+.slot-marquee.mission-active .marquee-light {
+  animation: blinkMissionLights 0.2s infinite alternate;
+}
+
+@keyframes blinkMissionLights {
+  0% { background: #ff3b30; box-shadow: 0 0 12px #ff3b30; }
+  100% { background: #ffd700; box-shadow: 0 0 16px #ffd700; }
+}
+
+.readout-status.mission-active {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  animation: pulseStatusText 0.3s infinite alternate;
+}
+
+@keyframes pulseStatusText {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.04); }
+}
+
+/* Digital Readout Display Screen */
+.slot-readout-card {
+  background: var(--bg-darker);
+  border: 2px solid var(--gitam-green);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-top: 20px;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.readout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1px dashed var(--gitam-green);
+  padding-bottom: 6px;
+}
+
+.readout-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--light-green);
+}
+
+.readout-status {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--mellow-yellow);
+}
+
+.readout-text {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--antique-white);
+  line-height: 1.45;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+}
+
+.slot-controls {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+/* SECTIONS COMMON */
+.section {
+  padding: 80px 0;
+  position: relative;
+  border-top: 2px solid var(--border-color);
+}
+
+.section-header { margin-bottom: 48px; }
+.section-header.center { text-align: center; }
+
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--light-green);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--antique-white);
+}
+
+.section-desc {
+  font-size: 1.15rem;
+  color: var(--light-green);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* SUBMIT PAGE STYLES */
+.submit-container {
+  max-width: 800px;
+  margin: 70px auto 80px auto;
+}
+
+.submit-card {
+  background: var(--bg-card);
+  border: 4px solid var(--gitam-green);
+  box-shadow: var(--shadow-coral);
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--antique-white);
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+  background: var(--bg-darker);
+  border: 2px solid var(--gitam-green);
+  color: var(--antique-white);
+  padding: 14px;
+  font-family: var(--font-mono);
+  border-radius: 6px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  border-color: var(--mellow-yellow);
+}
+
+/* REFERENCES PAGE STYLES */
+.references-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.ref-card {
+  background: var(--bg-card);
+  border: 3px solid var(--gitam-green);
+  box-shadow: var(--shadow-blue);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ref-img-placeholder {
+  width: 100%;
+  height: 180px;
+  background: var(--bg-darker);
+  border: 2px dashed var(--gitam-green);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.ref-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--antique-white);
+  margin-bottom: 8px;
+}
+
+.ref-desc {
+  font-size: 0.95rem;
+  color: var(--light-green);
+  margin-bottom: 16px;
+}
+
+.ref-origin {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--gold-beige);
+  font-weight: 700;
+}
+
+/* FOOTER */
+.footer {
+  background: var(--bg-darker);
+  border-top: 3px solid var(--gitam-green);
+  padding: 50px 0 30px 0;
+  color: var(--antique-white);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 6px 0;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: rgba(0, 47, 41, 0.75);
+  border: 2px solid var(--gitam-green);
+  border-radius: 8px;
+  color: var(--antique-white);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.social-btn svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.social-btn:hover {
+  transform: translate(-2px, -2px);
+}
+
+.social-btn:hover svg {
+  transform: scale(1.15) rotate(-3deg);
+}
+
+.social-btn.social-insta:hover {
+  border-color: #E1306C;
+  color: #FFFFFF;
+  background: rgba(225, 48, 108, 0.22);
+  box-shadow: 5px 5px 0px #E1306C, 0 0 18px rgba(225, 48, 108, 0.35);
+}
+
+.social-btn.social-linkedin:hover {
+  border-color: #0A66C2;
+  color: #FFFFFF;
+  background: rgba(10, 102, 194, 0.22);
+  box-shadow: 5px 5px 0px #0A66C2, 0 0 18px rgba(10, 102, 194, 0.35);
+}
+
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--light-green);
+  border-top: 1px solid var(--gitam-green);
+  padding-top: 20px;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .hero-title { font-size: 2.8rem; }
+  .nav-links { display: none; }
+  .games-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .header-logo-img { height: 36px; }
+}

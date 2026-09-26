@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GITAM — USELESS PROJECTS 2026 | Over-Engineering Hackathon</title>
+  <meta name="description"
+    content="Official GITAM Useless Projects Competition. Build over-engineered, hilarious, and completely useless solutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@500;700;900&family=Syne:wght@700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="src/style.css?v=2.3">
+</head>
+
+<body>
+  <!-- Chaos Physics Canvas Overlay -->
+  <canvas id="chaosCanvas"></canvas>
+
+  <!-- Top Announcement Ticker -->
+  <div class="ticker-wrap">
+    <div class="ticker-content">
+      GITAM USELESS PROJECTS '26 IS LIVE! &nbsp;&nbsp;•&nbsp;&nbsp;
+      RULE UPDATE: IF YOUR PROJECT ACTUALLY SAVES TIME, YOU ARE DISQUALIFIED! &nbsp;&nbsp;•&nbsp;&nbsp;
+      TRY OUR ABSURD SLOT MACHINE BELOW! &nbsp;&nbsp;•&nbsp;&nbsp;
+      PLAY CRAZY MINI-GAMES IN THE FUTILITY ARCADE! &nbsp;&nbsp;•&nbsp;&nbsp;
+      SUBMISSION PORTAL IS NOW OPEN!
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="nav-left-group">
+        <a href="index.html" class="brand-logo" title="GITAM Venture Development Centre">
+          <img src="src/gitam-vdc-transparent.png" alt="GITAM Venture Development Centre" class="header-logo-img">
+        </a>
+      </div>
+
+      <!-- Over-Engineered Mechanical Hanging Rail emerging from Logo -->
+      <div class="hanging-rail-rig">
+        <div class="rail-track"></div>
+
+        <nav class="hanging-nav-links">
+          <a href="index.html" class="hanging-tag-unit tag-1 active">
+            <div class="rope-line"></div>
+            <div class="tag-card">
+              <div class="tag-hole"></div>
+              <span class="tag-text">Home / Landing</span>
+            </div>
+          </a>
+          <a href="#games" class="hanging-tag-unit tag-2">
+            <div class="rope-line"></div>
+            <div class="tag-card">
+              <div class="tag-hole"></div>
+              <span class="tag-text">Crazy Games </span>
+            </div>
+          </a>
+          <a href="#generator" class="hanging-tag-unit tag-3">
+            <div class="rope-line"></div>
+            <div class="tag-card">
+              <div class="tag-hole"></div>
+              <span class="tag-text">Idea Slot </span>
+            </div>
+          </a>
+          <a href="https://script.google.com/macros/s/AKfycbxlsdVPzWs8He_hPBVBmDPiS9_C6VI8Ih_rCnoUZ2jIv1ew0HJypo1dmU5hjqR0byDp/exec"
+            target="_blank" rel="noopener noreferrer" class="hanging-tag-unit tag-4">
+            <div class="rope-line"></div>
+            <div class="tag-card">
+              <div class="tag-hole"></div>
+              <span class="tag-text">Submit Idea </span>
+            </div>
+          </a>
+          <a href="references.html" class="hanging-tag-unit tag-5">
+            <div class="rope-line"></div>
+            <div class="tag-card">
+              <div class="tag-hole"></div>
+              <span class="tag-text">References Archive</span>
+            </div>
+          </a>
+        </nav>
+      </div>
+
+      <div class="nav-actions">
+        <button id="soundToggleBtn" class="btn-icon" title="Toggle Sound FX">
+          <span id="soundIcon">🔊</span>
+        </button>
+        <button id="chaosToggleBtn" class="btn-chaos">
+          CHAOS MODE
+        </button>
+        <a href="https://script.google.com/macros/s/AKfycbxlsdVPzWs8He_hPBVBmDPiS9_C6VI8Ih_rCnoUZ2jIv1ew0HJypo1dmU5hjqR0byDp/exec"
+          target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Submit Idea
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-gitam">MAKERSPACE PRESENTS</span>
+            <span>USELESS PROJECTS '26</span>
+          </div>
+
+          <h1 class="hero-title">
+            ENGINEERING SOLUTIONS <br>
+            <span class="text-coral">NOBODY ASKED FOR.</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Welcome to <strong>GITAM Useless Projects 2026</strong> — the premier competition where brilliant minds
+            waste talent creating over-engineered, absurd, and completely futile gadgets.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="https://script.google.com/macros/s/AKfycbxlsdVPzWs8He_hPBVBmDPiS9_C6VI8Ih_rCnoUZ2jIv1ew0HJypo1dmU5hjqR0byDp/exec"
+              target="_blank" rel="noopener noreferrer" class="btn-primary btn-lg">
+              <span>Submit Your Useless Idea</span>
+              <span class="btn-arrow">→</span>
+            </a>
+            <a href="references.html" class="btn-secondary btn-lg">
+              <span>Explore References </span>
+            </a>
+            <button class="btn-forbidden" id="forbiddenBtn">
+              ⚠️ DO NOT CLICK THIS
+            </button>
+          </div>
+
+          <div class="hero-stats-strip">
+            <div class="stat-box">
+              <span class="stat-num text-yellow" id="statCounter1">582,910</span>
+              <span class="stat-label">Useless Bytes Compiled</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num text-coral">99.9%</span>
+              <span class="stat-label">Inefficiency Rating</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num text-blue">$0.00</span>
+              <span class="stat-label">Commercial Value</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRAZY MINI-GAMES HUB ("THE FUTILITY ARCADE") -->
+    <section class="games-hub-section" id="games">
+      <div class="container">
+        <div class="section-header center">
+          <span class="section-tag">CRAZY INTERACTION ZONE</span>
+          <h2 class="section-title">THE FUTILITY ARCADE 🎮</h2>
+          <p class="section-desc">Play these absurd mini-games to get into the zero-utility mindset!</p>
+        </div>
+
+        <div class="games-grid">
+          <!-- GAME 1: CLICKER -->
+          <div class="game-card">
+            <div class="game-header">
+              <div class="game-icon">🔘</div>
+              <h3 class="game-title">The Useless Clicker</h3>
+              <p class="game-desc">Click to gain 0 productivity points and unlock absurd achievements!</p>
+            </div>
+            <div class="clicker-box">
+              <div class="clicker-score-num" id="clickerScoreNum">0 pts</div>
+              <p id="clickerAchievement" class="clicker-achievement">Keep clicking to waste time...</p>
+              <button class="clicker-btn" id="clickerBtn">CLICK TO WASTE TIME!</button>
+            </div>
+          </div>
+
+          <!-- GAME 2: SEMICOLON CATCHER -->
+          <div class="game-card">
+            <div class="game-header">
+              <div class="game-icon">👾</div>
+              <h3 class="game-title">Semicolon Catcher Arcade</h3>
+              <p class="game-desc">Catch falling missing semicolons `;` before your code explodes!</p>
+            </div>
+            <div class="catcher-canvas-wrap">
+              <canvas id="catcherCanvas"></canvas>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px;">
+              <span style="font-family:var(--font-mono); font-size:0.9rem;">Caught: <strong id="catcherScore"
+                  class="text-yellow">0</strong></span>
+              <button class="btn-primary" id="startCatcherBtn">Start Semicolon Catcher 🎮</button>
+            </div>
+          </div>
+
+          <!-- GAME 3: SWITCHBOARD MATRIX -->
+          <div class="game-card">
+            <div class="game-header">
+              <div class="game-icon">⚡</div>
+              <h3 class="game-title">Over-Engineered Lamp</h3>
+              <p class="game-desc">Flip 9 chaotic switches (each switch toggles its neighbors) to light 1 bulb!</p>
+            </div>
+            <div class="switchboard-grid" id="switchboardGrid">
+              <!-- Rendered via src/games.js -->
+            </div>
+            <div class="lamp-status" id="switchboardStatus">Lamp status: Bulb Offline 🔌</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABSURD IDEA GENERATOR -->
+    <section class="section generator-section" id="generator">
+      <div class="container">
+        <div class="section-header center">
+          <span class="section-tag">AI-FREE RANDOMIZER</span>
+          <h2 class="section-title">THE ABSURD IDEA GENERATOR 🎰</h2>
+          <p class="section-desc">Spin the wheels to create instant ridiculous hackathon concepts!</p>
+        </div>
+
+        <!-- 3D CYLINDRICAL CHAOS WHEEL DRUM ASSEMBLY -->
+        <div class="slot-machine-console">
+          <!-- Top Marquee Header -->
+          <div class="slot-marquee" id="slotMarquee">
+            <span class="marquee-light"></span>
+            <span class="marquee-text" id="slotMarqueeText">⚡ 3-REEL CHAOS WHEEL CYLINDER ⚡</span>
+            <span class="marquee-light"></span>
+          </div>
+
+          <!-- Physical 3D Cylinder Drum Housing with Mechanical Lever -->
+          <div class="slot-drum-assembly">
+            <!-- Left Metallic Gold Cap -->
+            <div class="drum-end-cap left-cap">
+              <div class="cap-hub"></div>
+            </div>
+
+            <!-- The 3-Reel Barrel -->
+            <div class="drum-barrel">
+              <!-- Reel 1: Tech Prefix -->
+              <div class="drum-reel-window" id="reelWindow1">
+                <div class="drum-reel-glare"></div>
+                <div class="drum-reel-strip" id="reelStrip1">
+                  <div class="reel-item">A Bluetooth-Enabled</div>
+                </div>
+              </div>
+
+              <!-- Golden Divider Ring -->
+              <div class="drum-divider"></div>
+
+              <!-- Reel 2: Useless Object -->
+              <div class="drum-reel-window" id="reelWindow2">
+                <div class="drum-reel-glare"></div>
+                <div class="drum-reel-strip" id="reelStrip2">
+                  <div class="reel-item">Spoon</div>
+                </div>
+              </div>
+
+              <!-- Golden Divider Ring -->
+              <div class="drum-divider"></div>
+
+              <!-- Reel 3: Absurd Action -->
+              <div class="drum-reel-window" id="reelWindow3">
+                <div class="drum-reel-glare"></div>
+                <div class="drum-reel-strip" id="reelStrip3">
+                  <div class="reel-item">that tweets live whenever you eat.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Metallic Gold Cap with Arcade Coin Slot & Spin Button -->
+            <div class="drum-end-cap right-cap coin-arcade-cap">
+              <!-- Arcade Coin Slot Entry Unit -->
+              <div class="slot-coin-unit" id="slotCoinUnit" role="button" title="Click to Insert Coin & Spin!">
+                <div class="coin-entry-bezel">
+                  <div class="coin-slot-header">INSERT COIN</div>
+                  <div class="coin-slot-frame">
+                    <div class="coin-slot-slit"></div>
+                  </div>
+                  <div class="coin-slot-denom">25¢ • 1 PLAY</div>
+                </div>
+                <!-- 3D Gold Coin that slides into the slot -->
+                <div class="flying-insert-coin" id="flyingInsertCoin">
+                  <div class="coin-body">
+                    <span class="coin-star">★</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Arcade Big Push Button -->
+              <button class="slot-arcade-btn" id="slotArcadeBtn" type="button" title="Push to Spin!">
+                <div class="arcade-btn-rim">
+                  <div class="arcade-btn-dome">
+                    <span class="arcade-btn-text">SPIN</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Digital Readout Display Screen -->
+          <div class="slot-readout-card">
+            <div class="readout-header">
+              <span class="readout-tag">ASSEMBLED ABSURD CONCEPT</span>
+              <span class="readout-status" id="slotStatusIndicator">READY TO SPIN</span>
+            </div>
+            <div class="readout-text" id="slotResultText">
+              "A Bluetooth-Enabled Spoon that tweets live whenever you eat."
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <div class="slot-controls">
+            <button class="btn-primary btn-xl" id="spinReelsBtn">
+              🎰 SPIN THE CHAOS WHEEL
+            </button>
+            <button class="btn-secondary btn-xl" id="copyIdeaBtn">
+              📋 Copy Absurd Idea
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABSURD RULES -->
+    <section class="section rules-section" id="rules">
+      <div class="container">
+        <div class="section-header center">
+          <span class="section-tag">JUDGEMENT CRITERIA</span>
+          <h2 class="section-title">THE 5 COMMANDMENTS OF FUTILITY</h2>
+        </div>
+
+        <div class="rules-grid">
+          <div class="rule-card">
+            <div class="rule-num text-coral">01</div>
+            <h3>Zero Utility Guaranteed</h3>
+            <p>If your project solves a genuine real-world problem, 100 points are deducted immediately.</p>
+          </div>
+
+          <div class="rule-card">
+            <div class="rule-num text-yellow">02</div>
+            <h3>Extreme Over-Engineering</h3>
+            <p>Why use 1 line of code when 5,000 lines and 3 cloud databases can do it worse?</p>
+          </div>
+
+          <div class="rule-card">
+            <div class="rule-num text-blue">03</div>
+            <h3>Duct Tape & Overkill</h3>
+            <p>Bonus points awarded for gadgets held together with duct tape, 3D-printed chaos, or exposed wiring.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <span class="logo-main">GITAM USELESS PROJECTS</span>
+        <p>Official Hackathon of Pointless Innovation. Built with 0% utility and 100% passion.</p>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/eclub_gitamblr/" class="social-btn social-insta" id="footerInstagram"
+          target="_blank" rel="noopener noreferrer" aria-label="Follow GITAM E-Club on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.linkedin.com/in/entrepreneur-s-club-bengaluru/" class="social-btn social-linkedin"
+          id="footerLinkedIn" target="_blank" rel="noopener noreferrer"
+          aria-label="Connect with GITAM E-Club on LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+      <div class="footer-copy">
+        © 2026 GITAM Useless Projects. All rights reserved. Absolutely useless.
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="src/main.js?v=2.3"></script>
+</body>
+
+</html>

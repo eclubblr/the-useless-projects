@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Your Useless Idea — GITAM Useless Projects 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@500;700;900&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  <script>
+    // Automatically attempt to open the official submission portal in a new tab
+    try {
+      window.open("https://script.google.com/macros/s/AKfycbxlsdVPzWs8He_hPBVBmDPiS9_C6VI8Ih_rCnoUZ2jIv1ew0HJypo1dmU5hjqR0byDp/exec", "_blank");
+    } catch(e) {}
+  </script>
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+  <canvas id="chaosCanvas"></canvas>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="nav-left-group">
+        <a href="index.html" class="brand-logo" title="GITAM Venture Development Centre">
+          <img src="src/gitam-vdc-transparent.png" alt="GITAM Venture Development Centre" class="header-logo-img">
+        </a>
+      </div>
+
+      <!-- Over-Engineered Mechanical Hanging Rail emerging from Logo -->
+      <div class="hanging-rail-rig">
+        <div class="rail-track"></div>
+
+        <nav class="hanging-nav-links">
+          <a href="index.html" class="hanging-tag-unit tag-1">
+            <div class="rope-line"></div>
+            <div class="tag-card">
+              <div class="tag-hole"></div>
+              <span class="tag-text">Home / Landing</span>
+            </div>
+          </a>
+          <a href="index.html#games" class="hanging-tag-unit tag-2">
+            <div class="rope-line"></div>
+            <div class="tag-card">
+              <div class="tag-hole"></div>
+              <span class="tag-text">Crazy Games 🎮</span>
+            </div>
+          </a>
+          <a href="index.html#generator" class="hanging-tag-unit tag-3">
+            <div class="rope-line"></div>
+            <div class="tag-card">
+              <div class="tag-hole"></div>
+              <span class="tag-text">Idea Slot 🎰</span>
+            </div>
+          </a>
+          <a href="https://script.google.com/macros/s/AKfycbxlsdVPzWs8He_hPBVBmDPiS9_C6VI8Ih_rCnoUZ2jIv1ew0HJypo1dmU5hjqR0byDp/exec" target="_blank" rel="noopener noreferrer" class="hanging-tag-unit tag-4 active">
+            <div class="rope-line"></div>
+            <div class="tag-card">
+              <div class="tag-hole"></div>
+              <span class="tag-text">Submit Idea 🚀</span>
+            </div>
+          </a>
+          <a href="references.html" class="hanging-tag-unit tag-5">
+            <div class="rope-line"></div>
+            <div class="tag-card">
+              <div class="tag-hole"></div>
+              <span class="tag-text">References Archive 📚</span>
+            </div>
+          </a>
+        </nav>
+      </div>
+
+      <div class="nav-actions">
+        <button id="soundToggleBtn" class="btn-icon" title="Toggle Sound FX"><span id="soundIcon">🔊</span></button>
+        <button id="chaosToggleBtn" class="btn-chaos">⚡ CHAOS MODE</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container submit-container">
+    <div class="section-header center">
+      <span class="badge-gitam">OFFICIAL REGISTRATION PORTAL</span>
+      <h1 class="section-title" style="margin-top:12px;">SUBMIT YOUR USELESS IDEA 🚀</h1>
+      <p class="section-desc">Guarantee your spot in the hall of pointless engineering!</p>
+      <div style="margin-top: 18px;">
+        <a href="https://script.google.com/macros/s/AKfycbxlsdVPzWs8He_hPBVBmDPiS9_C6VI8Ih_rCnoUZ2jIv1ew0HJypo1dmU5hjqR0byDp/exec" target="_blank" rel="noopener noreferrer" class="btn-primary btn-lg" style="font-size: 1.05rem;">
+          🚀 LAUNCH OFFICIAL REGISTRATION FORM (NEW TAB) ↗
+        </a>
+      </div>
+    </div>
+
+    <div class="submit-card" style="position:relative;">
+      <form id="dedicatedSubmitForm">
+        <div class="form-group">
+          <label for="pName">Project Title *</label>
+          <input type="text" id="pName" required placeholder="e.g. Smart Shoe with Built-in Toaster">
+        </div>
+
+        <div class="form-group">
+          <label for="tName">Team / Creator Name *</label>
+          <input type="text" id="tName" required placeholder="e.g. The Semicolon Overlords">
+        </div>
+
+        <div class="form-group">
+          <label for="pCategory">Category *</label>
+          <select id="pCategory" required>
+            <option value="Hardware Chaos">Hardware Chaos 🛠️</option>
+            <option value="Over-Engineered AI">Over-Engineered AI 🤖</option>
+            <option value="Pointless IoT">Pointless IoT 📡</option>
+            <option value="Everyday Futility">Everyday Futility ☕</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="pDesc">Absurd Pitch & Explanation *</label>
+          <textarea id="pDesc" rows="4" required placeholder="Explain why your invention is 100% useless and solves something nobody asked for..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Calculated Inefficiency Rating: <span id="ratingDisplay" class="badge-coral">100% USELESS</span></label>
+          <input type="range" id="ratingSlider" min="50" max="999" value="100" style="accent-color:var(--kind-coral);">
+        </div>
+
+        <button type="submit" class="btn-primary btn-block btn-lg" style="margin-top:20px;">
+          🚀 SUBMIT PROJECT TO JUDGEMENT
+        </button>
+      </form>
+
+      <!-- Stamp overlay animation -->
+      <div class="stamp-overlay" id="submitStampOverlay">
+        <div class="stamp-text">APPROVED AS TRASH</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <span class="logo-main">GITAM USELESS PROJECTS</span>
+        <p>Official Hackathon of Pointless Innovation. Built with 0% utility and 100% passion.</p>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/eclub_gitamblr/" class="social-btn social-insta" id="footerInstagram" target="_blank" rel="noopener noreferrer" aria-label="Follow GITAM E-Club on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.linkedin.com/in/entrepreneur-s-club-bengaluru/" class="social-btn social-linkedin" id="footerLinkedIn" target="_blank" rel="noopener noreferrer" aria-label="Connect with GITAM E-Club on LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+      <div class="footer-copy">© 2026 GITAM Useless Projects. All rights reserved. Absolutely useless.</div>
+    </div>
+  </footer>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

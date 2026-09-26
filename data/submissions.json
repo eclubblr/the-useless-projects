@@ -1,0 +1,42 @@
+[
+  {
+    "id": "sub_101",
+    "title": "Solar-Powered Flashlight 🔦",
+    "team": "SunHater99",
+    "category": "Hardware Chaos",
+    "desc": "A high-intensity flashlight powered exclusively by solar panels mounted on top. Only operates under direct sunlight at noon!",
+    "rating": 999,
+    "upvotes": 1420,
+    "createdAt": "2026-09-26T10:00:00.000Z"
+  },
+  {
+    "id": "sub_102",
+    "title": "Snooze-Resignation Bot ⏰💣",
+    "team": "SleepyCoder",
+    "category": "Over-Engineered AI",
+    "desc": "An alarm clock synced to your email. Hitting snooze twice automatically drafts and sends a resignation letter to your employer.",
+    "rating": 100,
+    "upvotes": 3890,
+    "createdAt": "2026-09-26T10:15:00.000Z"
+  },
+  {
+    "id": "sub_103",
+    "title": "Anti-Social Smart Doorbell 🔔",
+    "team": "IntrovertMaster",
+    "category": "Pointless IoT",
+    "desc": "Detects visitors via camera and plays realistic ferocious tiger roars or aggressive vacuum cleaner noises until guests run away.",
+    "rating": 850,
+    "upvotes": 2150,
+    "createdAt": "2026-09-26T10:30:00.000Z"
+  },
+  {
+    "id": "sub_104",
+    "title": "2FA Toilet Paper Dispenser 🧻",
+    "team": "SecOpsGuru",
+    "category": "Everyday Futility",
+    "desc": "Dispenses 3 squares of paper only after you successfully complete a 6-digit OTP SMS verification code on your phone.",
+    "rating": 920,
+    "upvotes": 4900,
+    "createdAt": "2026-09-26T11:00:00.000Z"
+  }
+]
