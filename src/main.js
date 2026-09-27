@@ -118,12 +118,52 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const chaosToggleBtn = document.getElementById('chaosToggleBtn');
-  if (chaosToggleBtn) {
-    chaosToggleBtn.addEventListener('click', () => {
-      const isActive = chaos.toggleChaos();
-      soundFx.playSiren();
-      chaosToggleBtn.style.background = isActive ? 'var(--kind-coral)' : 'var(--mellow-yellow)';
+  const mobileChaosBtn = document.getElementById('mobileChaosBtn');
+
+  function handleChaosToggle() {
+    const isActive = chaos.toggleChaos();
+    soundFx.playSiren();
+    const bg = isActive ? 'var(--kind-coral)' : 'var(--mellow-yellow)';
+    if (chaosToggleBtn) {
+      chaosToggleBtn.style.background = bg;
       chaosToggleBtn.style.color = '#000';
+    }
+    if (mobileChaosBtn) {
+      mobileChaosBtn.style.background = bg;
+      mobileChaosBtn.style.color = '#000';
+    }
+  }
+
+  if (chaosToggleBtn) chaosToggleBtn.addEventListener('click', handleChaosToggle);
+  if (mobileChaosBtn) mobileChaosBtn.addEventListener('click', handleChaosToggle);
+
+  // Mobile Menu Drawer Controller
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileNavDrawer = document.getElementById('mobileNavDrawer');
+  if (mobileMenuBtn && mobileNavDrawer) {
+    mobileMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = mobileNavDrawer.classList.toggle('open');
+      mobileMenuBtn.classList.toggle('active', isOpen);
+      soundFx.playClick(isOpen ? 850 : 500);
+    });
+
+    // Close when clicking any nav link
+    mobileNavDrawer.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNavDrawer.classList.remove('open');
+        mobileMenuBtn.classList.remove('active');
+      });
+    });
+
+    // Close when tapping outside
+    document.addEventListener('click', (e) => {
+      if (!mobileNavDrawer.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        if (mobileNavDrawer.classList.contains('open')) {
+          mobileNavDrawer.classList.remove('open');
+          mobileMenuBtn.classList.remove('active');
+        }
+      }
     });
   }
 

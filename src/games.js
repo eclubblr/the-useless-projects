@@ -128,11 +128,31 @@ function initCatcherGame() {
   }
 
   resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  function updateBasket(clientX) {
+    const rect = canvas.getBoundingClientRect();
+    basketX = clientX - rect.left - basketWidth / 2;
+    if (basketX < 0) basketX = 0;
+    if (basketX > canvas.width - basketWidth) basketX = canvas.width - basketWidth;
+  }
 
   canvas.addEventListener('mousemove', (e) => {
-    const rect = canvas.getBoundingClientRect();
-    basketX = e.clientX - rect.left - basketWidth / 2;
+    updateBasket(e.clientX);
   });
+
+  canvas.addEventListener('touchmove', (e) => {
+    if (e.touches && e.touches[0]) {
+      e.preventDefault();
+      updateBasket(e.touches[0].clientX);
+    }
+  }, { passive: false });
+
+  canvas.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches[0]) {
+      updateBasket(e.touches[0].clientX);
+    }
+  }, { passive: true });
 
   function spawnSemicolon() {
     semicolons.push({

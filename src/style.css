@@ -1458,12 +1458,536 @@ body {
   width: 100%;
 }
 
-@media (max-width: 900px) {
-  .hero-title { font-size: 2.8rem; }
-  .nav-links { display: none; }
-  .games-grid { grid-template-columns: 1fr; }
+/* HERO STATS STRIP */
+.hero-stats-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 36px;
+  width: 100%;
+}
+
+.stat-box {
+  background: var(--bg-card);
+  border: 2px solid var(--gitam-green);
+  border-radius: 8px;
+  padding: 16px 20px;
+  box-shadow: 4px 4px 0px var(--dark-green);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-2px);
+  border-color: var(--light-green);
+}
+
+.stat-num {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1.1;
+  display: block;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--light-green);
+  font-weight: 700;
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* RULES SECTION */
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.rule-card {
+  background: var(--bg-card);
+  border: 3px solid var(--gitam-green);
+  box-shadow: var(--shadow-coral);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.2s ease;
+}
+
+.rule-card:hover {
+  transform: translateY(-3px);
+}
+
+.rule-num {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 900;
+}
+
+.rule-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--antique-white);
+}
+
+.rule-card p {
+  font-size: 0.95rem;
+  color: var(--light-green);
+  line-height: 1.5;
+}
+
+/* MOBILE NAVIGATION DRAWER & BUTTON */
+.mobile-menu-btn {
+  display: none;
+  background: var(--dark-green);
+  border: 2px solid var(--gitam-green);
+  color: var(--antique-white);
+  padding: 8px 9px;
+  border-radius: 6px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 42px;
+  height: 40px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
+}
+
+.mobile-menu-btn:hover,
+.mobile-menu-btn:active {
+  background: var(--gitam-green);
+  border-color: var(--mellow-yellow);
+}
+
+.mobile-menu-btn span {
+  display: block;
+  width: 22px;
+  height: 2.5px;
+  background-color: var(--antique-white);
+  border-radius: 2px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+.mobile-nav-drawer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(0, 31, 27, 0.98);
+  backdrop-filter: blur(18px);
+  border-bottom: 3px solid var(--kind-coral);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.85);
+  padding: 16px 18px 24px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  z-index: 9999;
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
+}
+
+.mobile-nav-drawer.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px;
+  background-color: #eedcc6;
+  background-image: 
+    linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(90, 50, 20, 0.08) 100%),
+    url('wood-texture.jpg');
+  background-size: cover;
+  border: 2px solid #5a3818;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.92rem;
+  color: #112821;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.mobile-nav-link:active {
+  transform: scale(0.98);
+}
+
+.mobile-nav-link.active {
+  border-color: var(--gitam-green);
+  outline: 2px solid var(--gitam-green);
+  color: #004740;
+}
+
+.mobile-nav-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--gitam-green);
+}
+
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 992px) {
+  /* Header & Navigation */
+  .navbar {
+    height: 52px;
+    min-height: 52px;
+  }
+
+  .navbar .nav-container {
+    padding: 0 16px;
+    gap: 10px;
+  }
+
+  /* Prevent dangling ropes from obscuring mobile content */
+  .hanging-rail-rig {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .nav-actions .btn-chaos,
+  .nav-actions .btn-primary {
+    display: none; /* Moved into mobile drawer */
+  }
+
+  .header-logo-img {
+    height: 36px;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 36px 0 44px 0;
+  }
+
+  .hero-title {
+    font-size: clamp(1.9rem, 6.5vw, 3.2rem);
+    line-height: 1.1;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 3.5vw, 1.15rem);
+    margin-bottom: 28px;
+  }
+
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+    margin-bottom: 18px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  /* Section Headers */
+  .section-header {
+    margin-bottom: 32px;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 5.5vw, 2.4rem);
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    padding: 0 4px;
+  }
+
+  .section-desc {
+    font-size: 1rem;
+    padding: 0 12px;
+  }
+
+  /* Grid Layouts */
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .rules-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .references-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Mini-Games Mobile Adaptations */
+  .game-card {
+    padding: 22px 18px;
+  }
+
+  .game-card .catcher-canvas-wrap + div,
+  .catcher-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+  }
+
+  #startCatcherBtn {
+    font-size: 0.85rem;
+    padding: 10px 14px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.35;
+    flex: 1 1 auto;
+  }
+
+  /* 3D Cylindrical Chaos Wheel Slot Machine */
+  .slot-machine-console {
+    padding: 20px 14px;
+    border-radius: 12px;
+    border-width: 3px;
+    box-shadow: 6px 6px 0px var(--dark-green);
+  }
+
+  .slot-marquee {
+    padding: 8px 12px;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .marquee-text {
+    font-size: clamp(0.72rem, 3.2vw, 0.95rem);
+    letter-spacing: 0.5px;
+    text-align: center;
+  }
+
+  .slot-drum-assembly {
+    padding-left: 0;
+    margin: 18px auto 22px auto;
+  }
+
+  .drum-end-cap.left-cap {
+    width: 18px;
+    height: 100px;
+    border-radius: 20px 0 0 20px;
+  }
+
+  .cap-hub {
+    width: 10px;
+    height: 32px;
+  }
+
+  .drum-barrel {
+    height: 100px;
+  }
+
+  .drum-divider {
+    width: 6px;
+    height: 100px;
+  }
+
+  .drum-reel-window {
+    height: 88px;
+  }
+
+  .reel-item {
+    font-size: clamp(0.7rem, 2.5vw, 0.88rem);
+    padding: 4px 6px;
+    line-height: 1.25;
+  }
+
+  .drum-end-cap.right-cap.coin-arcade-cap {
+    width: 32px;
+    height: 100px;
+    border-radius: 0 20px 20px 0;
+    padding: 2px;
+  }
+
+  .slot-coin-unit {
+    display: none;
+  }
+
+  .slot-arcade-btn {
+    width: 28px;
+    height: 28px;
+    margin: 0;
+  }
+
+  .arcade-btn-dome {
+    width: 22px;
+    height: 22px;
+  }
+
+  .arcade-btn-text {
+    font-size: 0.45rem;
+    letter-spacing: 0;
+  }
+
+  .slot-readout-card {
+    padding: 14px 16px;
+  }
+
+  .readout-text {
+    font-size: clamp(0.95rem, 3.5vw, 1.15rem);
+    min-height: 44px;
+  }
+
+  .slot-controls {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .slot-controls button {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 14px 20px;
+  }
+
+  /* Submit Page Mobile Adaptations */
+  .submit-container {
+    margin: 28px auto 44px auto;
+    padding: 0 16px;
+  }
+
+  .submit-card {
+    padding: 24px 16px;
+    border-width: 3px;
+  }
+
+  .submit-card .form-group input,
+  .submit-card .form-group select,
+  .submit-card .form-group textarea {
+    font-size: 16px; /* Prevents auto-zoom in iOS Safari */
+    padding: 12px;
+  }
+
+  .submit-container a.btn-primary.btn-lg {
+    white-space: normal;
+    font-size: 0.95rem;
+    padding: 14px 16px;
+    text-align: center;
+    line-height: 1.35;
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 600px) {
-  .header-logo-img { height: 36px; }
+  .container {
+    padding: 0 16px;
+  }
+
+  .header-logo-img {
+    height: 32px;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .hero-cta-group .btn-primary,
+  .hero-cta-group .btn-secondary,
+  .hero-cta-group .btn-forbidden {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.92rem;
+    padding: 13px 18px;
+    text-align: center;
+  }
+
+  .hero-stats-strip {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .stat-box {
+    padding: 12px 16px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-size: 1.8rem;
+  }
+
+  .ticker-wrap {
+    font-size: 0.78rem;
+    padding: 6px 0;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .footer {
+    padding: 36px 0 24px 0;
+  }
+
+  .footer-socials {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .social-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .section-title {
+    font-size: 1.45rem;
+  }
+
+  .btn-lg,
+  .btn-xl {
+    padding: 12px 18px;
+    font-size: 0.9rem;
+  }
 }
