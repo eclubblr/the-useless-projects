@@ -1446,133 +1446,219 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   transform: translateY(-4px);
 }
 
-/* BENTO CARD THEMES */
-/* 1. Electric Royal Blue Theme */
+/* BENTO CARD THEMES (GITAM NEO-BRUTALIST BRAND SYSTEM) */
+
+/* 1. GITAM Kind Coral / Terracotta Theme (Replacing harsh electric blue) */
+.bento-card.theme-coral,
 .bento-card.theme-blue {
-  background: #1b50ee;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 12px 28px rgba(27, 80, 238, 0.28);
+  background: linear-gradient(135deg, #DD736E 0%, #C45752 100%);
+  color: #FFF9F0;
+  border: 2px solid #5a1e1b;
+  box-shadow: 5px 5px 0px #001814;
 }
 
+.bento-card.theme-coral:hover,
 .bento-card.theme-blue:hover {
-  box-shadow: 0 18px 36px rgba(27, 80, 238, 0.42);
+  transform: translateY(-4px);
+  box-shadow: 7px 7px 0px #001814;
 }
 
+.bento-card.theme-coral .bento-tag,
 .bento-card.theme-blue .bento-tag {
-  background: #ffffff;
-  color: #1b50ee;
+  background: #FFF2ED;
+  color: #8c2420;
 }
 
+.bento-card.theme-coral .bento-arrow-icon,
 .bento-card.theme-blue .bento-arrow-icon {
-  border: 1.5px solid rgba(255, 255, 255, 0.8);
-  color: #ffffff;
+  border: 2px solid #FFF8EE;
+  color: #FFF8EE;
+  background: rgba(255, 255, 255, 0.15);
 }
 
+.bento-card.theme-coral .bento-title,
 .bento-card.theme-blue .bento-title {
-  color: #ffffff;
+  color: #FFF8EE;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
 }
 
+.bento-card.theme-coral .bento-desc,
 .bento-card.theme-blue .bento-desc {
-  color: rgba(255, 255, 255, 0.92);
+  color: #FFE6E1;
 }
 
+.bento-card.theme-coral .bento-feature-item,
 .bento-card.theme-blue .bento-feature-item {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.2);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
+.bento-card.theme-coral .bento-tagline,
 .bento-card.theme-blue .bento-tagline {
-  background: rgba(0, 25, 105, 0.35);
-  color: #ffefa8;
-  border-left: 3px solid #ffefa8;
+  background: rgba(0, 0, 0, 0.28);
+  color: #FFE79A;
+  border-left: 3.5px solid #FFE79A;
 }
 
-/* 2. Crisp Stark White Theme */
+/* 2. Antique Parchment / Warm Vintage Cream (Replacing harsh hospital white) */
+.bento-card.theme-parchment,
 .bento-card.theme-white {
-  background: #ffffff;
-  color: #0b1a16;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  background: #F4E4C9;
+  background-image: linear-gradient(180deg, #F8EDE0 0%, #EBD8BE 100%);
+  color: #00332c;
+  border: 2px solid #5a3818;
+  box-shadow: 5px 5px 0px #001814;
 }
 
+.bento-card.theme-parchment:hover,
 .bento-card.theme-white:hover {
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 7px 7px 0px #001814;
+  border-color: #3d230d;
 }
 
+.bento-card.theme-parchment .bento-tag,
 .bento-card.theme-white .bento-tag {
-  background: #edf2f7;
-  color: #1a202c;
+  background: #004740;
+  color: #F4E4C9;
 }
 
+.bento-card.theme-parchment .bento-arrow-icon,
 .bento-card.theme-white .bento-arrow-icon {
-  border: 1.5px solid #0b1a16;
-  color: #0b1a16;
+  border: 2px solid #003831;
+  color: #003831;
+  background: rgba(0, 56, 49, 0.08);
 }
 
+.bento-card.theme-parchment .bento-title,
 .bento-card.theme-white .bento-title {
-  color: #0b1a16;
+  color: #00332c;
 }
 
+.bento-card.theme-parchment .bento-desc,
 .bento-card.theme-white .bento-desc {
-  color: #334155;
+  color: #1a423a;
 }
 
+.bento-card.theme-parchment .bento-feature-item,
 .bento-card.theme-white .bento-feature-item {
-  background: #f1f5f9;
-  color: #1e293b;
-  border: 1px solid #e2e8f0;
+  background: #dec7a4;
+  color: #00332c;
+  border: 1px solid rgba(0, 71, 64, 0.3);
 }
 
+.bento-card.theme-parchment .bento-tagline,
 .bento-card.theme-white .bento-tagline {
-  background: #f8fafc;
-  color: #d97706;
-  border-left: 3px solid #d97706;
+  background: rgba(221, 115, 110, 0.16);
+  color: #8c2420;
+  border-left: 3.5px solid #DD736E;
 }
 
-/* 3. Deep Matte Dark Theme */
-.bento-card.theme-dark {
-  background: #00231e;
+/* 3. Mellow Yellow / Golden Mustard Theme */
+.bento-card.theme-yellow,
+.bento-card.theme-gold {
+  background: linear-gradient(135deg, #E0B541 0%, #C99E28 100%);
+  color: #002e29;
+  border: 2px solid #4a3800;
+  box-shadow: 5px 5px 0px #001814;
+}
+
+.bento-card.theme-yellow:hover,
+.bento-card.theme-gold:hover {
+  transform: translateY(-4px);
+  box-shadow: 7px 7px 0px #001814;
+}
+
+.bento-card.theme-yellow .bento-tag,
+.bento-card.theme-gold .bento-tag {
+  background: #004740;
+  color: #F4E4C9;
+}
+
+.bento-card.theme-yellow .bento-arrow-icon,
+.bento-card.theme-gold .bento-arrow-icon {
+  border: 2px solid #002e29;
+  color: #002e29;
+  background: rgba(0, 46, 41, 0.1);
+}
+
+.bento-card.theme-yellow .bento-title,
+.bento-card.theme-gold .bento-title {
+  color: #002e29;
+}
+
+.bento-card.theme-yellow .bento-desc,
+.bento-card.theme-gold .bento-desc {
+  color: #143d35;
+}
+
+.bento-card.theme-yellow .bento-feature-item,
+.bento-card.theme-gold .bento-feature-item {
+  background: rgba(0, 46, 41, 0.15);
+  color: #002e29;
+  border: 1px solid rgba(0, 46, 41, 0.25);
+}
+
+.bento-card.theme-yellow .bento-tagline,
+.bento-card.theme-gold .bento-tagline {
+  background: rgba(0, 46, 41, 0.18);
+  color: #002823;
+  border-left: 3.5px solid #004740;
+}
+
+/* 4. Deep Midnight Emerald / Forest Jade Theme */
+.bento-card.theme-dark,
+.bento-card.theme-emerald {
+  background: linear-gradient(135deg, #003630 0%, #00221e 100%);
   color: var(--antique-white);
   border: 2px solid var(--gitam-green);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  box-shadow: 5px 5px 0px #00120f;
 }
 
-.bento-card.theme-dark:hover {
+.bento-card.theme-dark:hover,
+.bento-card.theme-emerald:hover {
+  transform: translateY(-4px);
   border-color: var(--light-green);
-  box-shadow: 0 18px 36px rgba(0, 115, 103, 0.35);
+  box-shadow: 7px 7px 0px #00120f;
 }
 
-.bento-card.theme-dark .bento-tag {
-  background: rgba(139, 203, 183, 0.15);
+.bento-card.theme-dark .bento-tag,
+.bento-card.theme-emerald .bento-tag {
+  background: rgba(139, 203, 183, 0.18);
   color: var(--light-green);
   border: 1px solid var(--gitam-green);
 }
 
-.bento-card.theme-dark .bento-arrow-icon {
-  border: 1.5px solid var(--light-green);
+.bento-card.theme-dark .bento-arrow-icon,
+.bento-card.theme-emerald .bento-arrow-icon {
+  border: 2px solid var(--light-green);
   color: var(--light-green);
+  background: rgba(139, 203, 183, 0.1);
 }
 
-.bento-card.theme-dark .bento-title {
+.bento-card.theme-dark .bento-title,
+.bento-card.theme-emerald .bento-title {
   color: var(--antique-white);
 }
 
-.bento-card.theme-dark .bento-desc {
+.bento-card.theme-dark .bento-desc,
+.bento-card.theme-emerald .bento-desc {
   color: var(--light-green);
 }
 
-.bento-card.theme-dark .bento-feature-item {
-  background: rgba(0, 47, 41, 0.7);
+.bento-card.theme-dark .bento-feature-item,
+.bento-card.theme-emerald .bento-feature-item {
+  background: rgba(0, 71, 64, 0.5);
   color: var(--antique-white);
   border: 1px solid var(--gitam-green);
 }
 
-.bento-card.theme-dark .bento-tagline {
-  background: rgba(0, 0, 0, 0.4);
+.bento-card.theme-dark .bento-tagline,
+.bento-card.theme-emerald .bento-tagline {
+  background: rgba(0, 0, 0, 0.45);
   color: var(--mellow-yellow);
-  border-left: 3px solid var(--kind-coral);
+  border-left: 3.5px solid var(--kind-coral);
 }
 
 /* BENTO CARD INTERNALS */
