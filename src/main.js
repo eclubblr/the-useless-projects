@@ -527,6 +527,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --------------------------------------------------
+  // 9. FLOATING JET-ENGINE DUCK MASCOT INTERACTION
+  // --------------------------------------------------
+  const duckContainer = document.getElementById('floatingDuck');
+  const duckSpeechBubble = document.getElementById('duckSpeechBubble');
+  const duckZone = document.getElementById('duckInteractiveZone');
+
+  if (duckContainer && duckSpeechBubble) {
+    const duckPhrases = [
+      { text: "JUST VIBES! 🦆💨", sub: "100% Unnecessary" },
+      { text: "NOT FOR ANYTHING! 😂", sub: "Zero Practical Use Cases" },
+      { text: "QUACK OVER-ENGINEERING! ⚡", sub: "Jet Thruster at 100% RPM" },
+      { text: "BPSI CRITICAL! 🥞", sub: "48 Dosa Holes Detected" },
+      { text: "SWALPA ADJUST MAADI! ☕", sub: "Code Decaf Forbidden" },
+      { text: "VALUATION: $10 BILLION! 🦄", sub: "TAM $1 Trillion | Balance ₹12" }
+    ];
+    let phraseIdx = 0;
+
+    duckContainer.addEventListener('click', () => {
+      // Play synthesized duck squeak sound
+      soundFx.playDuckSqueak();
+
+      // Trigger 360 degree spin hop animation
+      duckContainer.classList.remove('duck-clicked');
+      void duckContainer.offsetWidth; // Force CSS reflow
+      duckContainer.classList.add('duck-clicked');
+
+      // Cycle funny comic phrases
+      phraseIdx = (phraseIdx + 1) % duckPhrases.length;
+      const phrase = duckPhrases[phraseIdx];
+      const textEl = duckSpeechBubble.querySelector('.bubble-text');
+      const subEl = duckSpeechBubble.querySelector('.bubble-sub');
+      if (textEl) textEl.textContent = phrase.text;
+      if (subEl) subEl.textContent = phrase.sub;
+    });
+
+    // 3D Parallax tilt tracking mouse position inside zone
+    if (duckZone) {
+      duckZone.addEventListener('mousemove', (e) => {
+        const rect = duckZone.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        const rotateY = (x / rect.width) * 18;
+        const rotateX = -(y / rect.height) * 18;
+        duckContainer.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-16px)`;
+      });
+
+      duckZone.addEventListener('mouseleave', () => {
+        duckContainer.style.transform = '';
+      });
+    }
+  }
+
   // Generic Button Sound FX
   document.querySelectorAll('button, a').forEach(el => {
     el.addEventListener('mouseenter', () => soundFx.playClick(1000, 0.02));
