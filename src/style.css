@@ -1756,292 +1756,18 @@ body.scrolled-down .hanging-tag-unit .tag-card {
 }
 
 /* ==========================================================================
-   DETECTIVE CRIMINAL EVIDENCE CORKBOARD & CONSPIRACY STORYBOARD SYSTEM
-   (Framed Corkboard, 3D Pushpins, Red Yarn Strings, Post-It Notes & Case Files)
+   CRAZY CARDS: MAXIMUM CHAOS SYSTEM
+   (Random shapes, tilts, duct tape, rubber stamps, barcodes, & punch holes)
    ========================================================================== */
 
-/* 1. THE CORKBOARD FRAME CANVAS */
-.ref-carousel-wrapper.evidence-corkboard {
-  position: relative;
-  width: 100%;
-  max-width: 1260px;
-  margin: 0 auto;
-  padding: 32px 24px 38px 24px;
-  background-color: #0c241e;
-  /* Dark Forest Emerald Cork Texture (Harmonized with website dark green) */
-  background-image: 
-    radial-gradient(circle at 50% 50%, rgba(0, 115, 103, 0.22) 0%, transparent 80%),
-    radial-gradient(#15362e 15%, transparent 16%),
-    radial-gradient(#071b16 15%, transparent 16%);
-  background-size: 100% 100%, 12px 12px, 12px 12px;
-  background-position: 0 0, 0 0, 6px 6px;
-  border: 12px solid #2d180c;
-  border-radius: 14px;
-  box-shadow: 
-    inset 0 0 60px rgba(0, 0, 0, 0.92),
-    inset 0 0 0 2px #502e16,
-    0 16px 36px rgba(0, 0, 0, 0.7),
-    8px 8px 0px #00120f;
-  overflow: visible;
-}
-
-/* Police Board Title Banner at Top of Corkboard */
-.corkboard-police-tape {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #E0B541;
-  color: #002e29;
-  font-family: var(--font-mono);
-  font-weight: 900;
-  font-size: 0.76rem;
-  letter-spacing: 2px;
-  padding: 6px 18px;
-  margin: -14px auto 26px auto;
-  max-width: 820px;
-  border: 2px solid #002e29;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), 3px 3px 0px #000;
-  transform: rotate(-0.5deg);
-  text-transform: uppercase;
-  position: relative;
-  z-index: 10;
-}
-
-.corkboard-police-tape span {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* Brass Corner Brackets for Timber Frame */
-.corkboard-bracket {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  border-color: #a58255;
-  border-style: solid;
-  pointer-events: none;
-  z-index: 25;
-}
-
-.corkboard-bracket.tl { top: -6px; left: -6px; border-width: 4px 0 0 4px; }
-.corkboard-bracket.tr { top: -6px; right: -6px; border-width: 4px 4px 0 0; }
-.corkboard-bracket.bl { bottom: -6px; left: -6px; border-width: 0 0 4px 4px; }
-.corkboard-bracket.br { bottom: -6px; right: -6px; border-width: 0 4px 4px 0; }
-
-/* 2. RED EVIDENCE YARN / CONSPIRACY STRINGS (SVG Layer) */
-.evidence-yarn-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 12;
-  overflow: visible;
-}
-
-.evidence-yarn-line {
-  stroke: #ff3838;
-  stroke-width: 2.2;
-  stroke-linecap: round;
-  stroke-dasharray: 6, 2;
-  filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.75));
-  opacity: 0.88;
-}
-
-.evidence-yarn-line.yarn-solid {
-  stroke-dasharray: none;
-  stroke: #e74c3c;
-  stroke-width: 2.5;
-}
-
-/* 3. 3D SHINY RED & GOLD PUSHPINS / THUMBTACKS */
-.card-pushpin {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 24px;
-  height: 24px;
-  z-index: 30;
-  pointer-events: none;
-  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.card-pushpin.pin-left {
-  left: 28px;
-  transform: none;
-}
-
-.card-pushpin.pin-right {
-  left: auto;
-  right: 28px;
-  transform: none;
-}
-
-.pushpin-dome {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 32%, #ff8585, #d63031 55%, #7a0000 100%);
-  box-shadow: 
-    0 5px 8px rgba(0, 0, 0, 0.65),
-    inset 0 2px 2px rgba(255, 255, 255, 0.7);
-  position: relative;
-}
-
-.pushpin-dome::after {
-  content: "";
-  position: absolute;
-  top: 4px;
-  left: 5px;
-  width: 6px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 50%;
-}
-
-.pushpin-shadow {
-  position: absolute;
-  top: 13px;
-  left: 10px;
-  width: 14px;
-  height: 6px;
-  background: rgba(0, 0, 0, 0.55);
-  border-radius: 50%;
-  filter: blur(1.5px);
-  transform: rotate(25deg);
-}
-
-/* Gold Brass Pushpin Variation */
-.card-pushpin.pin-gold .pushpin-dome {
-  background: radial-gradient(circle at 35% 32%, #fff0a8, #E0B541 55%, #805c00 100%);
-}
-
-/* 4. PAPERCLIPPED POST-IT NOTES */
-.card-postit-note {
-  position: absolute;
-  top: -12px;
-  right: -12px;
-  width: 130px;
-  padding: 10px 12px;
-  background: #fff2a8;
-  color: #3b2c00;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 800;
-  line-height: 1.35;
-  border: 1px solid #d4c16a;
-  border-radius: 2px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
-  transform: rotate(5deg);
-  z-index: 15;
-  pointer-events: none;
-  transition: transform 0.25s ease;
-}
-
-.card-postit-note.postit-left {
-  right: auto;
-  left: -10px;
-  transform: rotate(-6deg);
-}
-
-.card-postit-note.postit-coral {
-  background: #ffd5d1;
-  color: #5c1815;
-  border-color: #e59c98;
-}
-
-.card-postit-note.postit-mint {
-  background: #d4f3e9;
-  color: #0b4538;
-  border-color: #9cd6c6;
-}
-
-.bento-card:hover .card-postit-note {
-  transform: rotate(0deg) scale(1.06);
-}
-
-/* Metallic Paperclip */
-.postit-paperclip {
-  position: absolute;
-  top: -8px;
-  left: 16px;
-  width: 8px;
-  height: 22px;
-  border: 2px solid #8e9ca8;
-  border-radius: 8px;
-  background: transparent;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-}
-
-/* 5. CRIMINAL CASE FILE HEADERS & CHARGES */
-.evidence-case-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-  padding-bottom: 6px;
-  border-bottom: 1.5px dashed rgba(0, 0, 0, 0.2);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 900;
-  letter-spacing: 0.8px;
-}
-
-.theme-dark .evidence-case-header,
-.theme-coral .evidence-case-header {
-  border-bottom-color: rgba(255, 255, 255, 0.22);
-}
-
-.case-id-tag {
-  color: #c0392b;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.theme-dark .case-id-tag {
-  color: #ff7675;
-}
-
-.evidence-exhibit-badge {
-  background: #004740;
-  color: #F4E4C9;
-  padding: 2px 7px;
-  border-radius: 3px;
-  font-size: 0.65rem;
-  letter-spacing: 1px;
-}
-
-.suspect-charge {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 800;
-  color: #8c2420;
-  margin-bottom: 10px;
-  letter-spacing: 0.5px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.theme-dark .suspect-charge {
-  color: #FFE79A;
-}
-
-.theme-coral .suspect-charge {
-  color: #FFF2ED;
-}
-
-/* 6. CRAZY STAMPS & SHAPES EVOLVED */
+/* 1. CRAZY SHAPES */
+/* A. Classified Dossier (Hand-drawn wobbly brutalist border) */
 .bento-card.shape-dossier {
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
   position: relative;
 }
 
+/* B. Cyber-Schematic Punchcard (Chamfered angular cut corners) */
 .bento-card.shape-cyber {
   border-radius: 0 !important;
   clip-path: polygon(
@@ -2053,13 +1779,34 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   position: relative;
 }
 
+/* Blueprint watermark grid on cyber cards */
+.bento-card.shape-cyber::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-size: 14px 14px;
+  pointer-events: none;
+  opacity: 0.7;
+  z-index: 0;
+}
+
+.bento-card.theme-dark.shape-cyber::before {
+  background-image: 
+    linear-gradient(rgba(139, 203, 183, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 203, 183, 0.1) 1px, transparent 1px);
+}
+
+/* C. Ticket / Token Cutout */
 .bento-card.shape-ticket {
   border-radius: 12px !important;
   border-top: 4px solid var(--mellow-yellow) !important;
   position: relative;
 }
 
-/* Chaotic Tilts */
+/* 2. DYNAMIC CHAOTIC TILTS */
 .tilt-n1 { transform: rotate(-1.6deg); }
 .tilt-p1 { transform: rotate(1.8deg) translateY(-4px); }
 .tilt-n2 { transform: rotate(-2.3deg) translateY(3px); }
@@ -2067,27 +1814,63 @@ body.scrolled-down .hanging-tag-unit .tag-card {
 .tilt-n0 { transform: rotate(-0.9deg) translateY(2px); }
 .tilt-p0 { transform: rotate(1.2deg); }
 
+/* Hover straightens up, magnifies, and lifts */
 .bento-card:hover {
   transform: rotate(0deg) scale(1.035) translateY(-8px) !important;
-  z-index: 35 !important;
+  z-index: 25 !important;
   box-shadow: 10px 10px 0px #00120f !important;
 }
 
-/* Distressed Ink Stamps */
+/* 3. REALISTIC DUCT TAPE */
+.card-duct-tape {
+  position: absolute;
+  top: -10px;
+  right: 28px;
+  width: 90px;
+  height: 22px;
+  background: rgba(224, 181, 65, 0.88);
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(0, 0, 0, 0.07) 4px, rgba(0, 0, 0, 0.07) 8px);
+  transform: rotate(4deg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
+  border-left: 2px dashed rgba(255, 255, 255, 0.5);
+  border-right: 2px dashed rgba(255, 255, 255, 0.5);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.card-duct-tape.tape-left {
+  right: auto;
+  left: 24px;
+  transform: rotate(-6deg);
+  background: rgba(139, 203, 183, 0.88);
+}
+
+.card-duct-tape.tape-center {
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%) rotate(-1deg);
+  background: rgba(221, 115, 110, 0.88);
+}
+
+.card-duct-tape.tape-silver {
+  background: rgba(210, 218, 226, 0.85);
+}
+
+/* 4. RED / GOLD / CORAL INK RUBBER STAMPS */
 .card-rubber-stamp {
   position: absolute;
-  bottom: 22px;
-  right: 20px;
+  bottom: 24px;
+  right: 22px;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 1.4px;
-  padding: 5px 11px;
+  letter-spacing: 1.2px;
+  padding: 4px 10px;
   border: 2.5px dashed currentColor;
   border-radius: 4px;
   transform: rotate(-13deg);
-  opacity: 0.88;
+  opacity: 0.85;
   pointer-events: none;
   z-index: 5;
   white-space: nowrap;
@@ -2095,18 +1878,47 @@ body.scrolled-down .hanging-tag-unit .tag-card {
 }
 
 .bento-card:hover .card-rubber-stamp {
-  transform: rotate(-5deg) scale(1.12);
+  transform: rotate(-5deg) scale(1.1);
   opacity: 1;
 }
 
-.stamp-red { color: #d63031; border-color: #d63031; background: rgba(214, 48, 49, 0.08); }
-.stamp-gold { color: #d35400; border-color: #d35400; background: rgba(211, 84, 0, 0.08); }
-.stamp-coral { color: #b33939; border-color: #b33939; background: rgba(179, 57, 57, 0.08); }
-.stamp-mint { color: #007367; border-color: #007367; background: rgba(0, 115, 103, 0.1); }
-.stamp-yellow { color: #b78a02; border-color: #b78a02; background: rgba(183, 138, 2, 0.1); }
-.stamp-white { color: #fff4e0; border-color: #fff4e0; background: rgba(255, 244, 224, 0.15); }
+.stamp-red {
+  color: #d63031;
+  border-color: #d63031;
+  background: rgba(214, 48, 49, 0.08);
+}
 
-/* Punch holes & hazard strips */
+.stamp-gold {
+  color: #d35400;
+  border-color: #d35400;
+  background: rgba(211, 84, 0, 0.08);
+}
+
+.stamp-coral {
+  color: #b33939;
+  border-color: #b33939;
+  background: rgba(179, 57, 57, 0.08);
+}
+
+.stamp-mint {
+  color: #007367;
+  border-color: #007367;
+  background: rgba(0, 115, 103, 0.1);
+}
+
+.stamp-yellow {
+  color: #b78a02;
+  border-color: #b78a02;
+  background: rgba(183, 138, 2, 0.1);
+}
+
+.stamp-white {
+  color: #fff4e0;
+  border-color: #fff4e0;
+  background: rgba(255, 244, 224, 0.15);
+}
+
+/* 5. LOOSE-LEAF BINDER PUNCH HOLES */
 .card-punch-holes {
   position: absolute;
   left: 8px;
@@ -2122,11 +1934,12 @@ body.scrolled-down .hanging-tag-unit .tag-card {
 .card-punch-holes span {
   width: 9px;
   height: 9px;
-  background: #0c241e;
+  background: #002e29; /* Matches background behind card */
   border-radius: 50%;
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
+/* 6. CAUTION HAZARD STRIPE */
 .card-hazard-strip {
   position: absolute;
   top: 0;
@@ -2137,7 +1950,7 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   z-index: 4;
 }
 
-/* Forensic Footer with Barcode */
+/* 7. TECHNICAL BARCODE & FUTILITY FOOTER */
 .card-tech-footer {
   display: flex;
   justify-content: space-between;
@@ -2180,18 +1993,8 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   text-transform: uppercase;
 }
 
-/* Mobile relaxation */
+/* Mobile responsive tilt relaxation to prevent edge clipping */
 @media (max-width: 768px) {
-  .ref-carousel-wrapper.evidence-corkboard {
-    padding: 20px 12px 24px 12px;
-    border-width: 8px;
-  }
-  .evidence-yarn-canvas {
-    display: none !important; /* Hide complex crossing lines on single column */
-  }
-  .card-postit-note {
-    display: none; /* Keep mobile clean without horizontal overflow */
-  }
   .tilt-n1, .tilt-p1, .tilt-n2, .tilt-p2, .tilt-n0, .tilt-p0 {
     transform: none !important;
   }
