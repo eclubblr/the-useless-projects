@@ -1747,10 +1747,268 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   font-style: italic;
   font-size: 0.85rem;
   font-weight: 700;
-  padding: 7px 12px;
+  padding: 8px 14px;
   border-radius: 6px;
-  line-height: 1.35;
+  line-height: 1.4;
   margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   CRAZY CARDS: MAXIMUM CHAOS SYSTEM
+   (Random shapes, tilts, duct tape, rubber stamps, barcodes, & punch holes)
+   ========================================================================== */
+
+/* 1. CRAZY SHAPES */
+/* A. Classified Dossier (Hand-drawn wobbly brutalist border) */
+.bento-card.shape-dossier {
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+  position: relative;
+}
+
+/* B. Cyber-Schematic Punchcard (Chamfered angular cut corners) */
+.bento-card.shape-cyber {
+  border-radius: 0 !important;
+  clip-path: polygon(
+    0 16px, 16px 0,
+    calc(100% - 16px) 0, 100% 16px,
+    100% calc(100% - 16px), calc(100% - 16px) 100%,
+    16px 100%, 0 calc(100% - 16px)
+  );
+  position: relative;
+}
+
+/* Blueprint watermark grid on cyber cards */
+.bento-card.shape-cyber::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-size: 14px 14px;
+  pointer-events: none;
+  opacity: 0.7;
+  z-index: 0;
+}
+
+.bento-card.theme-dark.shape-cyber::before {
+  background-image: 
+    linear-gradient(rgba(139, 203, 183, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 203, 183, 0.1) 1px, transparent 1px);
+}
+
+/* C. Ticket / Token Cutout */
+.bento-card.shape-ticket {
+  border-radius: 12px !important;
+  border-top: 4px solid var(--mellow-yellow) !important;
+  position: relative;
+}
+
+/* 2. DYNAMIC CHAOTIC TILTS */
+.tilt-n1 { transform: rotate(-1.6deg); }
+.tilt-p1 { transform: rotate(1.8deg) translateY(-4px); }
+.tilt-n2 { transform: rotate(-2.3deg) translateY(3px); }
+.tilt-p2 { transform: rotate(2.4deg) translateY(-3px); }
+.tilt-n0 { transform: rotate(-0.9deg) translateY(2px); }
+.tilt-p0 { transform: rotate(1.2deg); }
+
+/* Hover straightens up, magnifies, and lifts */
+.bento-card:hover {
+  transform: rotate(0deg) scale(1.035) translateY(-8px) !important;
+  z-index: 25 !important;
+  box-shadow: 10px 10px 0px #00120f !important;
+}
+
+/* 3. REALISTIC DUCT TAPE */
+.card-duct-tape {
+  position: absolute;
+  top: -10px;
+  right: 28px;
+  width: 90px;
+  height: 22px;
+  background: rgba(224, 181, 65, 0.88);
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(0, 0, 0, 0.07) 4px, rgba(0, 0, 0, 0.07) 8px);
+  transform: rotate(4deg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
+  border-left: 2px dashed rgba(255, 255, 255, 0.5);
+  border-right: 2px dashed rgba(255, 255, 255, 0.5);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.card-duct-tape.tape-left {
+  right: auto;
+  left: 24px;
+  transform: rotate(-6deg);
+  background: rgba(139, 203, 183, 0.88);
+}
+
+.card-duct-tape.tape-center {
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%) rotate(-1deg);
+  background: rgba(221, 115, 110, 0.88);
+}
+
+.card-duct-tape.tape-silver {
+  background: rgba(210, 218, 226, 0.85);
+}
+
+/* 4. RED / GOLD / CORAL INK RUBBER STAMPS */
+.card-rubber-stamp {
+  position: absolute;
+  bottom: 24px;
+  right: 22px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  padding: 4px 10px;
+  border: 2.5px dashed currentColor;
+  border-radius: 4px;
+  transform: rotate(-13deg);
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 5;
+  white-space: nowrap;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.bento-card:hover .card-rubber-stamp {
+  transform: rotate(-5deg) scale(1.1);
+  opacity: 1;
+}
+
+.stamp-red {
+  color: #d63031;
+  border-color: #d63031;
+  background: rgba(214, 48, 49, 0.08);
+}
+
+.stamp-gold {
+  color: #d35400;
+  border-color: #d35400;
+  background: rgba(211, 84, 0, 0.08);
+}
+
+.stamp-coral {
+  color: #b33939;
+  border-color: #b33939;
+  background: rgba(179, 57, 57, 0.08);
+}
+
+.stamp-mint {
+  color: #007367;
+  border-color: #007367;
+  background: rgba(0, 115, 103, 0.1);
+}
+
+.stamp-yellow {
+  color: #b78a02;
+  border-color: #b78a02;
+  background: rgba(183, 138, 2, 0.1);
+}
+
+.stamp-white {
+  color: #fff4e0;
+  border-color: #fff4e0;
+  background: rgba(255, 244, 224, 0.15);
+}
+
+/* 5. LOOSE-LEAF BINDER PUNCH HOLES */
+.card-punch-holes {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.card-punch-holes span {
+  width: 9px;
+  height: 9px;
+  background: #002e29; /* Matches background behind card */
+  border-radius: 50%;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+/* 6. CAUTION HAZARD STRIPE */
+.card-hazard-strip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(45deg, #E0B541, #E0B541 8px, #002e29 8px, #002e29 16px);
+  z-index: 4;
+}
+
+/* 7. TECHNICAL BARCODE & FUTILITY FOOTER */
+.card-tech-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.18);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.8px;
+  opacity: 0.85;
+  position: relative;
+  z-index: 2;
+}
+
+.theme-dark .card-tech-footer,
+.theme-coral .card-tech-footer {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+.card-barcode {
+  display: inline-block;
+  width: 58px;
+  height: 13px;
+  background: repeating-linear-gradient(
+    90deg,
+    currentColor 0 1.5px,
+    transparent 1.5px 3px,
+    currentColor 3px 5px,
+    transparent 5px 6.5px,
+    currentColor 6.5px 9px,
+    transparent 9px 11px,
+    currentColor 11px 13px
+  );
+  opacity: 0.75;
+}
+
+.card-futility-tag {
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* Mobile responsive tilt relaxation to prevent edge clipping */
+@media (max-width: 768px) {
+  .tilt-n1, .tilt-p1, .tilt-n2, .tilt-p2, .tilt-n0, .tilt-p0 {
+    transform: none !important;
+  }
+  .bento-card:hover {
+    transform: translateY(-4px) !important;
+  }
+  .card-rubber-stamp {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    display: inline-block;
+    margin-top: 10px;
+    align-self: flex-start;
+  }
 }
 
 /* CAROUSEL NAVIGATION */
