@@ -30,7 +30,7 @@ export function initHammerCursor() {
         width: 0;
         height: 0;
         pointer-events: none;
-        z-index: 1000000;
+        z-index: 2147483647;
         will-change: transform;
         opacity: 0;
         transition: opacity 0.15s ease-out;
@@ -146,7 +146,7 @@ export function initHammerCursor() {
         width: 6px;
         height: 6px;
         pointer-events: none;
-        z-index: 999999;
+        z-index: 2147483646;
         border-radius: 1px;
         will-change: transform, opacity;
       }
@@ -155,7 +155,7 @@ export function initHammerCursor() {
       .hammer-comic-text {
         position: fixed;
         pointer-events: none;
-        z-index: 1000001;
+        z-index: 2147483647;
         font-family: 'JetBrains Mono', monospace;
         font-weight: 900;
         font-size: 0.95rem;

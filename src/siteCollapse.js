@@ -44,7 +44,7 @@ export class SiteCollapseEngine {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%) scale(0.7);
-        z-index: 9999999;
+        z-index: 500000;
         display: flex;
         flex-direction: column;
         align-items: center;
