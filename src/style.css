@@ -568,28 +568,29 @@ body {
 .btn-block { width: 100%; justify-content: center; }
 
 /* ==========================================================================
-   OFFICIAL GRAND LANDING HERO: US3L3SS PR0J3CTS COMPETITION 2026
-   (Floating Jet Duck Mascot, 3D Block Typography, Official Alliance)
+   OFFICIAL GRAND LANDING BILLBOARD: US3L3SS PR0J3CTS COMPETITION 2026
+   (Faithful to Official Poster Reference: Floating Duck, 3D Typography, Partners)
    ========================================================================== */
 
 .landing-stage-section {
   position: relative;
-  padding: 135px 0 75px 0;
+  padding: 180px 0 65px 0; /* Clears hanging rope navbar tags with ample room */
+  scroll-margin-top: 100px;
   background: 
-    radial-gradient(ellipse at 25% 45%, rgba(0, 71, 64, 0.45) 0%, transparent 65%),
-    radial-gradient(ellipse at 85% 30%, rgba(221, 115, 110, 0.12) 0%, transparent 55%),
-    radial-gradient(circle at 50% 50%, #002e29 0%, #002420 70%, #001714 100%);
-  border-bottom: 3.5px solid var(--gitam-green);
+    radial-gradient(ellipse at 50% 20%, rgba(0, 71, 64, 0.35) 0%, transparent 70%),
+    #002420;
   overflow: hidden;
 }
 
-/* Subtle comic dot watermark */
+/* Subtle background blueprint grid */
 .landing-stage-section::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(139, 203, 183, 0.08) 1.5px, transparent 1.5px);
-  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(rgba(139, 203, 183, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 203, 183, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
   pointer-events: none;
   z-index: 1;
 }
@@ -597,134 +598,93 @@ body {
 .landing-stage-container {
   position: relative;
   z-index: 2;
-  max-width: 1360px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* Top Status Banner Strip */
-.landing-status-strip {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  background: rgba(0, 47, 41, 0.85);
-  border: 2px solid var(--gitam-green);
-  box-shadow: 4px 4px 0px #00120f;
-  padding: 8px 18px;
-  border-radius: 6px;
-  margin-bottom: 36px;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-}
-
-.status-live-dot {
-  width: 10px;
-  height: 10px;
-  background: #2ecc71;
-  border-radius: 50%;
-  box-shadow: 0 0 10px #2ecc71;
-  animation: liveBlink 1.4s infinite alternate;
-  display: inline-block;
-  margin-right: 6px;
-}
-
-@keyframes liveBlink {
-  0% { opacity: 0.3; transform: scale(0.85); }
-  100% { opacity: 1; transform: scale(1.15); box-shadow: 0 0 14px #2ecc71; }
-}
-
-.status-txt {
-  color: var(--antique-white);
-  flex: 1;
-}
-
-.status-date-tag {
-  background: var(--mellow-yellow);
-  color: var(--dark-green);
-  padding: 3px 10px;
-  border-radius: 4px;
-  font-weight: 900;
-  box-shadow: 2px 2px 0px #000;
-}
-
-/* 3-Column Responsive Grid */
-.landing-stage-grid {
-  display: grid;
-  grid-template-columns: 320px 1fr 310px;
-  gap: 32px;
-  align-items: center;
-}
-
-@media (max-width: 1180px) {
-  .landing-stage-grid {
-    grid-template-columns: 290px 1fr;
-    gap: 28px;
-  }
-  .landing-partners-col {
-    grid-column: span 2;
-  }
-}
-
-@media (max-width: 860px) {
-  .landing-stage-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .landing-partners-col {
-    grid-column: span 1;
-  }
+  padding: 0 20px;
 }
 
 /* --------------------------------------------------
-   1. FLOATING DUCK MASCOT STAGE
+   THE MASTER BILLBOARD STAGE (Matching Reference Poster)
    -------------------------------------------------- */
-.mascot-stage-col {
+.landing-billboard {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(108deg, #093c34 0%, #165345 35%, #2a5d4c 68%, #424e3c 100%);
+  border: 3px solid var(--gitam-green);
+  border-radius: 24px;
+  box-shadow: 
+    8px 8px 0px #00120f,
+    0 24px 50px rgba(0, 0, 0, 0.55);
+  padding: 32px 32px;
+  overflow: hidden;
+}
+
+.billboard-ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(224, 181, 65, 0.12) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 3-Column Billboard Grid matching reference composition */
+.billboard-content-grid {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr) 255px;
+  gap: 24px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+/* --------------------------------------------------
+   COLUMN 1: FLOATING DUCK MASCOT
+   -------------------------------------------------- */
+.billboard-mascot-col {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
+  min-width: 0;
 }
 
 .duck-stage-wrapper {
   position: relative;
   width: 100%;
-  max-width: 320px;
+  max-width: 220px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Comic starburst ambient glow behind duck */
 .duck-comic-burst {
   position: absolute;
-  top: 48%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(224, 181, 65, 0.28) 0%, rgba(221, 115, 110, 0.15) 50%, transparent 72%);
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(224, 181, 65, 0.25) 0%, rgba(221, 115, 110, 0.1) 55%, transparent 72%);
   border-radius: 50%;
-  filter: blur(16px);
+  filter: blur(14px);
   pointer-events: none;
   z-index: 1;
 }
 
-/* Interactive Floating Container */
 .floating-duck-container {
   position: relative;
   z-index: 3;
-  width: 260px;
-  height: 340px;
+  width: 200px;
+  height: 260px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  /* Multi-Axis Floating Levitation Animation */
   animation: duckFloatLevitate 4.5s ease-in-out infinite;
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   user-select: none;
@@ -735,19 +695,19 @@ body {
     transform: translateY(0px) rotate(0deg);
   }
   25% {
-    transform: translateY(-16px) rotate(-2.5deg);
+    transform: translateY(-14px) rotate(-2deg);
   }
   50% {
-    transform: translateY(-24px) rotate(1deg);
+    transform: translateY(-20px) rotate(1deg);
   }
   75% {
-    transform: translateY(-12px) rotate(2.8deg);
+    transform: translateY(-10px) rotate(2.2deg);
   }
 }
 
 .floating-duck-container:hover {
   animation-play-state: paused;
-  transform: scale(1.06) translateY(-20px) rotate(2deg);
+  transform: scale(1.05) translateY(-16px) rotate(1.5deg);
 }
 
 .floating-duck-container.duck-clicked {
@@ -756,34 +716,32 @@ body {
 
 @keyframes duckSpinHop {
   0% { transform: scale(1) translateY(0) rotate(0deg); }
-  40% { transform: scale(1.15) translateY(-40px) rotate(-15deg); }
-  75% { transform: scale(1.1) translateY(-20px) rotate(370deg); }
+  40% { transform: scale(1.12) translateY(-35px) rotate(-15deg); }
+  75% { transform: scale(1.08) translateY(-18px) rotate(370deg); }
   100% { transform: scale(1) translateY(0) rotate(360deg); }
 }
 
-/* The Duck Image */
 .duck-mascot-img {
   width: 100%;
   height: auto;
-  max-height: 320px;
+  max-height: 255px;
   object-fit: contain;
-  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.65)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
   transition: filter 0.25s ease;
 }
 
 .floating-duck-container:hover .duck-mascot-img {
-  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(224, 181, 65, 0.55));
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 12px rgba(224, 181, 65, 0.5));
 }
 
-/* Ground shadow breathing in sync with levitation */
 .duck-ground-shadow {
   position: absolute;
   bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
-  width: 190px;
-  height: 22px;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 75%);
+  width: 150px;
+  height: 16px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 75%);
   border-radius: 50%;
   pointer-events: none;
   animation: duckShadowPulse 4.5s ease-in-out infinite;
@@ -796,88 +754,85 @@ body {
     opacity: 0.6;
   }
   50% {
-    transform: translateX(-50%) scale(0.68);
+    transform: translateX(-50%) scale(0.7);
     opacity: 0.25;
   }
 }
 
-/* Comic Speech Bubble */
 .duck-speech-bubble {
   position: absolute;
-  top: -15px;
-  right: -25px;
+  top: -8px;
+  right: -10px;
   background: #FFF9E6;
   color: #002e29;
   border: 2.5px solid #000;
-  border-radius: 12px;
-  padding: 8px 14px;
-  box-shadow: 4px 4px 0px #000;
+  border-radius: 10px;
+  padding: 5px 10px;
+  box-shadow: 3px 3px 0px #000;
   font-family: var(--font-heading);
   display: flex;
   flex-direction: column;
   align-items: center;
   z-index: 10;
   pointer-events: none;
-  transform: rotate(5deg) scale(0.95);
-  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: rotate(4deg) scale(0.95);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .duck-speech-bubble::after {
   content: "";
   position: absolute;
-  bottom: -9px;
-  left: 20px;
+  bottom: -8px;
+  left: 18px;
   width: 0;
   height: 0;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 10px solid #FFF9E6;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #FFF9E6;
 }
 
 .duck-speech-bubble::before {
   content: "";
   position: absolute;
-  bottom: -13px;
-  left: 18px;
+  bottom: -11px;
+  left: 16px;
   width: 0;
   height: 0;
-  border-left: 11px solid transparent;
-  border-right: 11px solid transparent;
-  border-top: 13px solid #000;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 11px solid #000;
 }
 
 .floating-duck-container:hover .duck-speech-bubble {
-  transform: rotate(0deg) scale(1.08) translateY(-6px);
+  transform: rotate(0deg) scale(1.06) translateY(-4px);
 }
 
 .bubble-text {
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   font-weight: 900;
   color: #c0392b;
-  letter-spacing: -0.2px;
 }
 
 .bubble-sub {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 700;
   color: #666;
 }
 
-/* Jet Exhaust Smoke Puffs */
 .jet-exhaust-particles {
   position: absolute;
-  bottom: 45px;
-  left: 25px;
+  bottom: 35px;
+  left: 15px;
   pointer-events: none;
   z-index: 1;
 }
 
 .smoke-puff {
   position: absolute;
-  width: 16px;
-  height: 16px;
-  background: rgba(220, 220, 220, 0.6);
+  width: 14px;
+  height: 14px;
+  background: rgba(220, 220, 220, 0.55);
   border-radius: 50%;
   filter: blur(2px);
   animation: smokeDrift 2.2s infinite ease-out;
@@ -889,446 +844,340 @@ body {
 
 @keyframes smokeDrift {
   0% { transform: scale(0.3) translate(0, 0); opacity: 0.7; }
-  100% { transform: scale(2.4) translate(-45px, 20px); opacity: 0; }
+  100% { transform: scale(2.2) translate(-40px, 18px); opacity: 0; }
 }
 
-/* Mascot Caption Badge */
-.mascot-caption-badge {
-  margin-top: 12px;
-  background: rgba(0, 46, 41, 0.7);
+.mascot-caption-pill {
+  margin-top: 8px;
+  background: rgba(0, 30, 26, 0.65);
   border: 1px solid rgba(139, 203, 183, 0.3);
-  padding: 6px 14px;
+  padding: 4px 12px;
   border-radius: 50px;
   font-family: var(--font-mono);
-  font-size: 0.74rem;
-  color: var(--antique-white);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  box-shadow: 2px 2px 0px #00120f;
-}
-
-.mascot-caption-badge .badge-sub {
-  font-size: 0.65rem;
+  font-size: 0.68rem;
+  font-weight: 800;
   color: var(--mellow-yellow);
-  margin-top: 2px;
+  box-shadow: 2px 2px 0px #00120f;
+  letter-spacing: 0.5px;
 }
 
 /* --------------------------------------------------
-   2. HERO BRAND TYPOGRAPHY (Faithful to Reference)
+   COLUMN 2: CENTER ICONIC 3D TYPOGRAPHY & CTAs
    -------------------------------------------------- */
-.landing-headline-col {
+.billboard-title-col {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-@media (max-width: 860px) {
-  .landing-headline-col {
-    align-items: center;
-  }
-}
-
-.headline-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(221, 115, 110, 0.16);
-  border: 1.5px solid var(--kind-coral);
-  color: var(--kind-coral);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  padding: 4px 14px;
-  border-radius: 50px;
-  margin-bottom: 14px;
+  min-width: 0;
+  padding: 0;
 }
 
 .hero-brand-typography {
-  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   line-height: 0.95;
+  margin-bottom: 2px;
 }
 
 .brand-line-useless {
   font-family: var(--font-heading);
-  font-size: 5.4rem;
+  font-size: clamp(2.8rem, 3.8vw, 3.8rem);
   font-weight: 900;
   color: #DD736E;
   margin: 0;
-  letter-spacing: -2px;
+  letter-spacing: -0.5px;
   text-shadow: 
-    4px 4px 0px #5c1815,
-    7px 7px 0px #00120f;
+    3.5px 3.5px 0px #5c1815,
+    6px 6px 0px #00120f;
   display: block;
 }
 
 .brand-line-projects {
   font-family: var(--font-heading);
-  font-size: 5.4rem;
+  font-size: clamp(2.8rem, 3.8vw, 3.8rem);
   font-weight: 900;
   color: #E0B541;
   margin: 0;
-  letter-spacing: -2px;
+  letter-spacing: -0.5px;
   text-shadow: 
-    4px 4px 0px #4a3800,
-    7px 7px 0px #00120f;
+    3.5px 3.5px 0px #4a3800,
+    6px 6px 0px #00120f;
   display: block;
 }
 
 .brand-line-competition {
   font-family: var(--font-heading);
-  font-size: 2.8rem;
+  font-size: clamp(1.5rem, 2.2vw, 2.1rem);
   font-weight: 900;
-  color: #F4E4C9;
+  color: #FFFFFF;
   letter-spacing: 3px;
-  margin: 6px 0 0 0;
+  margin: 4px 0 0 0;
   text-shadow: 
-    3px 3px 0px #000,
-    5px 5px 0px rgba(0, 0, 0, 0.5);
+    2.5px 2.5px 0px #000,
+    4px 4px 0px rgba(0, 0, 0, 0.55);
   display: block;
 }
 
-@media (max-width: 1024px) {
-  .brand-line-useless,
-  .brand-line-projects {
-    font-size: 4.2rem;
-  }
-  .brand-line-competition {
-    font-size: 2.2rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .brand-line-useless,
-  .brand-line-projects {
-    font-size: 3.2rem;
-  }
-  .brand-line-competition {
-    font-size: 1.7rem;
-  }
-}
-
-/* Tagline Sub-Banner */
 .brand-sub-banner {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: #000;
+  gap: 8px;
+  background: #000000;
   color: #FFE79A;
   border: 2px solid var(--mellow-yellow);
-  padding: 8px 18px;
+  padding: 5px 12px;
   border-radius: 6px;
   font-family: var(--font-mono);
-  font-size: 0.95rem;
+  font-size: 0.78rem;
   font-weight: 900;
-  letter-spacing: 1px;
-  box-shadow: 4px 4px 0px #00120f;
+  letter-spacing: 0.6px;
+  box-shadow: 3px 3px 0px #00120f;
   margin-top: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .banner-lightning {
   color: var(--mellow-yellow);
 }
 
-.brand-manifesto-snippet {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--antique-white);
-  opacity: 0.92;
-  max-width: 580px;
-  margin-bottom: 26px;
-}
-
-/* Action CTA Row */
-.landing-cta-row {
+.billboard-cta-row {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 26px;
 }
 
-.btn-landing-main {
+.btn-billboard-main {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
-  padding: 16px 32px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  height: 42px;
+  padding: 0 16px;
   background: var(--kind-coral);
   color: #FFF9F0;
-  border: 3px solid #000;
-  box-shadow: 6px 6px 0px #000;
+  border: 2.5px solid #000;
+  box-shadow: 3.5px 3.5px 0px #000;
   border-radius: 8px;
-  font-weight: 900;
-  letter-spacing: 0.5px;
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  text-decoration: none;
+  justify-content: center;
+  gap: 6px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
 }
 
-.btn-landing-main:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 9px 9px 0px #000;
+.btn-billboard-main:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #000;
   background: #e85d58;
 }
 
-.btn-landing-sub {
-  font-family: var(--font-mono);
-  font-size: 0.92rem;
-  padding: 16px 24px;
-  background: rgba(0, 56, 49, 0.8);
-  color: var(--mellow-yellow);
-  border: 2px solid var(--gitam-green);
-  border-radius: 8px;
-  box-shadow: 4px 4px 0px #00120f;
-  font-weight: 800;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.btn-landing-sub:hover {
-  border-color: var(--mellow-yellow);
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 6px 6px 0px #00120f;
-}
-
-/* Perks Pills */
-.landing-perks-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.perk-pill {
+.btn-billboard-sub {
   font-family: var(--font-mono);
   font-size: 0.74rem;
-  font-weight: 700;
-  background: rgba(0, 47, 41, 0.65);
-  border: 1px solid rgba(139, 203, 183, 0.25);
-  color: var(--light-green);
-  padding: 5px 12px;
-  border-radius: 50px;
+  font-weight: 800;
+  height: 42px;
+  padding: 0 14px;
+  background: rgba(0, 36, 32, 0.85);
+  color: var(--mellow-yellow);
+  border: 2px solid var(--gitam-green);
+  box-shadow: 3.5px 3.5px 0px #00120f;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+}
+
+.btn-billboard-sub:hover {
+  border-color: var(--mellow-yellow);
+  color: #ffffff;
+  background: rgba(0, 50, 44, 0.95);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #00120f;
 }
 
 /* --------------------------------------------------
-   3. OFFICIAL ALLIANCE / PARTNERS COLUMN
+   COLUMN 3: OFFICIAL PARTNERS STACK (Matches Reference)
    -------------------------------------------------- */
-.partners-card-box {
-  background: linear-gradient(145deg, #003831 0%, #00221e 100%);
-  border: 2.5px solid var(--gitam-green);
-  box-shadow: 6px 6px 0px #00120f;
-  border-radius: 12px;
-  padding: 24px 20px;
+.billboard-partners-col {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  position: relative;
+  min-width: 0;
+  width: 100%;
 }
 
-.partners-card-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding-bottom: 12px;
-  border-bottom: 1.5px dashed rgba(139, 203, 183, 0.3);
-}
-
-.partners-card-header h4 {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 1.5px;
-  color: var(--mellow-yellow);
-  margin: 0;
-  text-transform: uppercase;
-}
-
-.partner-entity-item {
+.partners-stack-box {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
+  background: rgba(0, 26, 22, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(139, 203, 183, 0.28);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 3px 3px 0px #00120f;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-.partner-role-tag {
+.billboard-partner-unit {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.partner-meta-label {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.58rem;
   font-weight: 700;
   color: var(--light-green);
-  opacity: 0.85;
   text-transform: uppercase;
   letter-spacing: 0.6px;
+  margin-bottom: 3px;
+  opacity: 0.85;
 }
 
-.partner-brand-display {
-  display: flex;
-  flex-direction: column;
-}
-
-/* TinkerHub Logo Typography */
-.tinkerhub-logo-mark {
-  font-family: var(--font-heading);
-  font-size: 1.55rem;
-  font-weight: 900;
-  letter-spacing: -0.5px;
-  line-height: 1.1;
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-
-.tinkerhub-logo-mark .th-bracket {
-  color: var(--kind-coral);
-  font-family: var(--font-mono);
-  font-size: 1.3rem;
-}
-
-.tinkerhub-logo-mark .th-tinker {
-  color: #FFFFFF;
-}
-
-.tinkerhub-logo-mark .th-hub {
-  color: #2ecc71;
-  margin-left: 1px;
-}
-
-.partner-community-tag {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--antique-white);
-  opacity: 0.65;
-  margin-top: 2px;
-}
-
-/* E-Club 3D Cube & Branding */
-.eclub-logo-mark {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.eclub-cube-icon {
-  width: 32px;
-  height: 32px;
-  position: relative;
-  background: #000;
-  border: 2px solid var(--mellow-yellow);
-  border-radius: 6px;
-  box-shadow: 2px 2px 0px #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.eclub-cube-icon::before {
-  content: "E";
-  font-family: var(--font-heading);
-  font-weight: 900;
-  font-size: 1.1rem;
-  color: var(--mellow-yellow);
-}
-
-.eclub-text-wrap {
-  display: flex;
-  flex-direction: column;
-}
-
-.eclub-title {
+.partner-mark-tinkerhub {
   font-family: var(--font-heading);
   font-size: 1.35rem;
   font-weight: 900;
-  color: var(--antique-white);
+  color: #FFFFFF;
+  line-height: 1;
+  letter-spacing: -0.3px;
+}
+
+.partner-mark-tinkerhub .th-hub {
+  color: #2ecc71;
+}
+
+.partner-mark-eclub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.eclub-cube-badge {
+  width: 26px;
+  height: 26px;
+  background: #000;
+  border: 2px solid var(--mellow-yellow);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 0.9rem;
+  color: var(--mellow-yellow);
+  flex-shrink: 0;
+  box-shadow: 2px 2px 0px #000;
+}
+
+.eclub-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.eclub-name {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #FFFFFF;
   line-height: 1.1;
 }
 
-.eclub-sub {
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  font-weight: 600;
-  color: var(--kind-coral);
-  letter-spacing: 0.2px;
+.eclub-tagline {
+  font-family: 'Caveat', cursive, var(--font-body);
+  font-style: italic;
+  font-size: 0.68rem;
+  color: var(--mellow-yellow);
+  line-height: 1.15;
+  white-space: normal;
+  word-break: normal;
 }
 
-/* GITAM VDC / MAKERSPACE Seal */
-.gitam-vdc-logo-wrap {
+.partner-mark-makerspace {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  min-width: 0;
 }
 
-.vdc-seal-img {
-  width: 58px;
-  height: auto;
-  filter: brightness(0.95) contrast(1.1);
+.makerspace-seal-badge {
+  width: 38px;
+  height: 38px;
   background: #FFF;
   border-radius: 50%;
-  padding: 4px;
-  box-shadow: 2px 2px 0px #000;
+  padding: 2px;
   flex-shrink: 0;
+  box-shadow: 2px 2px 0px #000;
+  object-fit: contain;
 }
 
-.vdc-text-details {
+.makerspace-details {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
 }
 
-.vdc-strong {
+.makerspace-title {
   font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-size: 0.78rem;
   font-weight: 900;
-  color: var(--antique-white);
-  line-height: 1.15;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: 0.4px;
 }
 
-.vdc-dim {
+.makerspace-campus {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.58rem;
+  font-weight: 800;
   color: var(--mellow-yellow);
-  margin-top: 2px;
 }
 
-.vdc-univ {
+.makerspace-dept {
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.52rem;
+  color: var(--light-green);
+  opacity: 0.9;
+  white-space: nowrap;
+}
+
+.makerspace-univ {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
   color: var(--light-green);
   opacity: 0.75;
+  white-space: nowrap;
 }
 
-.partner-divider {
+.billboard-partner-divider {
   height: 1px;
-  background: rgba(139, 203, 183, 0.18);
-  margin: 2px 0;
+  background: rgba(139, 203, 183, 0.16);
 }
 
-.partners-verification-footer {
-  margin-top: 4px;
-  text-align: center;
-}
-
-.verify-badge {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.66rem;
-  font-weight: 800;
-  color: #2ecc71;
-  background: rgba(46, 204, 113, 0.12);
-  border: 1px solid rgba(46, 204, 113, 0.35);
-  padding: 3px 10px;
-  border-radius: 4px;
-}
-
-/* Scroll down anchor */
+/* Scroll down indicator */
 .landing-scroll-indicator {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  margin: 38px auto 0 auto;
+  margin: 32px auto 0 auto;
   text-decoration: none;
   color: var(--light-green);
   opacity: 0.75;
@@ -1357,6 +1206,76 @@ body {
 @keyframes bounceDown {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(5px); }
+}
+
+/* --------------------------------------------------
+   RESPONSIVE BILLBOARD BREAKPOINTS
+   -------------------------------------------------- */
+@media (max-width: 1120px) {
+  .landing-stage-section {
+    padding-top: 170px;
+  }
+  .billboard-content-grid {
+    grid-template-columns: 240px 1fr;
+    gap: 28px;
+  }
+  .billboard-partners-col {
+    grid-column: span 2;
+  }
+  .partners-stack-box {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .billboard-partner-divider {
+    width: 1px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-stage-section {
+    padding-top: 155px;
+    padding-bottom: 45px;
+  }
+  .landing-billboard {
+    padding: 28px 18px;
+  }
+  .billboard-content-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .billboard-mascot-col {
+    justify-content: center;
+  }
+  .billboard-title-col {
+    align-items: center;
+  }
+  .hero-brand-typography {
+    align-items: center;
+  }
+  .billboard-cta-row {
+    justify-content: center;
+  }
+  .billboard-partners-col {
+    grid-column: span 1;
+  }
+  .partners-stack-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .billboard-partner-divider {
+    width: 100%;
+    height: 1px;
+  }
+}
+
+/* HERO SECTION (ENGINEERING SOLUTIONS NOBODY ASKED FOR) */
+.hero-section {
+  position: relative;
+  padding: 65px 0 70px 0;
+  overflow: hidden;
+  border-top: 2px dashed rgba(139, 203, 183, 0.2);
 }
 
 /* HERO SECTION (ENGINEERING SOLUTIONS NOBODY ASKED FOR) */
