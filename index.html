@@ -196,77 +196,432 @@
           <p class="section-desc">Study these masterworks of futility before creating your own hackathon entry.</p>
         </div>
 
-        <div class="references-grid" id="referencesGrid">
-          <!-- Reference 1 -->
-          <div class="ref-card">
-            <div class="ref-img-placeholder">🔦</div>
-            <div>
-              <span class="badge-coral">HARDWARE TRASH</span>
-              <h3 class="ref-title">Solar-Powered Flashlight</h3>
-              <p class="ref-desc">A flashlight powered exclusively by solar panels mounted on top. Only operates under
-                direct sunlight at noon!</p>
+        <!-- Category Filter Tabs -->
+        <div class="ref-filter-bar">
+          <button class="ref-tab-btn active" data-category="all">🔥 All Ideas (17)</button>
+          <button class="ref-tab-btn" data-category="telugu">🌶️ Telugu Edition (5)</button>
+          <button class="ref-tab-btn" data-category="kannada">☕ Kannada Edition (4)</button>
+          <button class="ref-tab-btn" data-category="hindi">💥 Hindi & Hinglish (4)</button>
+          <button class="ref-tab-btn" data-category="multilingual">🌐 Multilingual Chaos (4)</button>
+        </div>
+
+        <!-- Bento Carousel System -->
+        <div class="ref-carousel-wrapper">
+          <div class="ref-carousel-viewport">
+            <div class="ref-carousel-track" id="refCarouselTrack">
+              
+              <!-- ================= SLIDE 1: TELUGU EDITION ================= -->
+              <div class="ref-carousel-slide" data-slide="0">
+                <div class="bento-grid">
+                  <!-- Card 1 -->
+                  <div class="bento-card theme-white span-2" data-category="telugu">
+                    <div class="bento-card-header">
+                      <div style="display:flex; align-items:center;">
+                        <span class="bento-tag">Telugu • Computer Vision</span>
+                        <span class="bento-crowd-favourite">★ Crowd Favourite</span>
+                      </div>
+                      <div class="bento-arrow-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="bento-card-body">
+                      <h3 class="bento-title">Dosa Bokka Counter</h3>
+                      <p class="bento-desc">A computer vision system that counts the holes (bokkalu) in a dosa and calculates its Bokka Per Square Inch (BPSI).</p>
+                    </div>
+                    <div class="bento-features">
+                      <span class="bento-feature-item">Hole density heatmap</span>
+                      <span class="bento-feature-item">Crispy-to-bokka ratio</span>
+                      <span class="bento-feature-item">"Structurally Compromised" certificate</span>
+                    </div>
+                    <div class="bento-tagline">
+                      “Mee dosa lo enni bokkalo, maaku anni teliyali.”
+                    </div>
+                  </div>
+
+                  <!-- Card 2 -->
+                  <div class="bento-card theme-blue" data-category="telugu">
+                    <div class="bento-card-header">
+                      <span class="bento-tag">Telugu • Productivity</span>
+                      <div class="bento-arrow-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="bento-card-body">
+                      <h3 class="bento-title">Repu Chuddam Technologies</h3>
+                      <p class="bento-desc">A productivity app that automatically postpones every task to tomorrow. When tomorrow arrives, it reschedules everything to the day after.</p>
+                    </div>
+                    <div class="bento-features">
+                      <span class="bento-feature-item">Infinite postponement</span>
+                      <span class="bento-feature-item">Deadline denial mode</span>
+                      <span class="bento-feature-item">AI "repu pakka" certificate</span>
+                    </div>
+                    <div class="bento-tagline">
+                      “Ivvala enduku? Repu chuddam.”
+                    </div>
+                  </div>
+
+                  <!-- Card 3 -->
+                  <div class="bento-card theme-dark" data-category="telugu">
+                    <div class="bento-card-header">
+                      <span class="bento-tag">Telugu • Fintech</span>
+                      <div class="bento-arrow-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="bento-card-body">
+                      <h3 class="bento-title">Dabbu Ledu Pay</h3>
+                      <p class="bento-desc">A payment app for people who have no money. It scans your bank balance, detects financial distress, and offers to split ₹0 into 12 easy instalments.</p>
+                    </div>
+                    <div class="bento-features">
+                      <span class="bento-feature-item">Zero-balance UPI</span>
+                      <span class="bento-feature-item">Broke leaderboard</span>
+                      <span class="bento-feature-item">"Mom send money" reminder</span>
+                    </div>
+                    <div class="bento-tagline">
+                      “Balance zero. Confidence hero.”
+                    </div>
+                  </div>
+
+                  <!-- Card 4 -->
+                  <div class="bento-card theme-white" data-category="telugu">
+                    <div class="bento-card-header">
+                      <span class="bento-tag">Telugu • Study OS</span>
+                      <div class="bento-arrow-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="bento-card-body">
+                      <h3 class="bento-title">Chaduvukunta.exe</h3>
+                      <p class="bento-desc">An app that tracks how long you claim to be studying versus how long you actually study.</p>
+                    </div>
+                    <div class="bento-features">
+                      <span class="bento-feature-item">Book-opening detector</span>
+                      <span class="bento-feature-item">Instagram tracker</span>
+                      <span class="bento-feature-item">Live "5 min break" counter</span>
+                    </div>
+                    <div class="bento-tagline">
+                      “Chaduvutha anna, kani eppudo cheppalenu.”
+                    </div>
+                  </div>
+
+                  <!-- Card 5 -->
+                  <div class="bento-card theme-blue" data-category="telugu">
+                    <div class="bento-card-header">
+                      <span class="bento-tag">Telugu • Hostel Life</span>
+                      <div class="bento-arrow-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="bento-card-body">
+                      <h3 class="bento-title">Amma Vanta Simulator</h3>
+                      <p class="bento-desc">A food nostalgia simulator that generates imaginary home-cooked meals whenever hostel food disappoints you.</p>
+                    </div>
+                    <div class="bento-features">
+                      <span class="bento-feature-item">Virtual pappu</span>
+                      <span class="bento-feature-item">AI-generated avakaya</span>
+                      <span class="bento-feature-item">Amma rating (0/10 for others)</span>
+                    </div>
+                    <div class="bento-tagline">
+                      “Hostel lo untav. Manasu intlo untundi.”
+                    </div>
+                  </div>
+
+                  <!-- Card 6 -->
+                  <div class="bento-card theme-dark span-3" data-category="kannada">
+                    <div class="bento-card-header">
+                      <span class="bento-tag">Kannada • OS Kernel</span>
+                      <div class="bento-arrow-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="bento-card-body">
+                      <h3 class="bento-title">Swalpa Adjust Maadi OS</h3>
+                      <p class="bento-desc">An operating system for managing situations that have absolutely no solution. Low battery? Swalpa adjust maadi. No Wi-Fi? Swalpa adjust maadi. Assignment due in five minutes? Swalpa adjust maadi.</p>
+                    </div>
+                    <div class="bento-features">
+                      <span class="bento-feature-item">Adjustment generator</span>
+                      <span class="bento-feature-item">Crisis dashboard</span>
+                      <span class="bento-feature-item">Emergency "adjustment level: maximum" button</span>
+                    </div>
+                    <div class="bento-tagline">
+                      “Problem solve aagalla. Adjust aagatte.”
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ================= SLIDE 2: KANNADA & HINDI/HINGLISH ================= -->
+              <div class="ref-carousel-slide" data-slide="1">
+                <div class="bento-grid">
+                  <!-- Card 7 -->
+                  <div class="bento-card theme-blue span-2" data-category="kannada">
+                    <div class="bento-card-header">
+                      <span class="bento-tag">Kannada • Time Panic</span>
+                      <div class="bento-arrow-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="bento-card-body">
+                      <h3 class="bento-title">Ayyo Deadline!</h3>
+                      <p class="bento-desc">A deadline prediction system that shows how much panic you should experience based on the time remaining.</p>
+                    </div>
+                    <div class="bento-features">
+                      <span class="bento-feature-item">Panic-o-meter</span>
+                      <span class="bento-feature-item">Last-minute survival mode</span>
+                      <span class="bento-feature-item">Notification that screams “Ayyo!” every 30s</span>
+                    </div>
+                    <div class="bento-tagline">
+                      “Deadline hatra ide. Devare gathi.”
+                    </div>
+                  </div>
+
+                  <!-- Card 8 -->
+                  <div class="bento-card theme-white" data-category="kannada">
+                    <div class="bento-card-header">
+                      <span class="bento-tag">Kannada • Auth & Security</span>
+                      <div class="bento-arrow-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="bento-card-body">
+                      <h3 class="bento-title">Coffee Kudidya?</h3>
+                      <p class="bento-desc">An app that refuses to let you perform any productive task until you've confirmed your filter coffee intake.</p>
+                    </div>
+                    <div class="bento-features">
+                      <span class="bento-feature-item">Filter coffee auth</span>
+                      <span class="bento-feature-item">Caffeine access control</span>
+                      <span class="bento-feature-item">Coffee dependency score</span>
+                    </div>
+                    <div class="bento-tagline">
+                      “Coffee aaytha? Aamele coding maadu.”
+                    </div>
+                  </div>
+
+                  <!-- Card 9 -->
+                  <div class="bento-card theme-dark" data-category="kannada">
+                    <div class="bento-card-header">
+                      <span class="bento-tag">Kannada • Navigation</span>
+                      <div class="bento-arrow-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="bento-card-body">
+                      <h3 class="bento-title">Illi Alla, Alli</h3>
+                      <p class="bento-desc">A campus navigation app that deliberately gives vague directions around campus.</p>
+                    </div>
+                    <div class="bento-features">
+                      <span class="bento-feature-item">“Go straight, somewhere left”</span>
+                      <span class="bento-feature-item">Confusion heatmap</span>
+                      <span class="bento-feature-item">Premium back-to-start mode</span>
+                    </div>
+                    <div class="bento-tagline">
+                      “Destination gothilla. Confidence ide.”
+                    </div>
+                  </div>
+
+                  <!-- Card 10 -->
+                  <div class="bento-card theme-white" data-category="hindi">
+                    <div class="bento-card-header">
+                      <span class="bento-tag">Hindi • Self-Improvement</span>
+                      <div class="bento-arrow-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="bento-card-body">
+                      <h3 class="bento-title">Kal Se Pakka</h3>
+                      <p class="bento-desc">A self-improvement app for people who have been starting their self-improvement journey every Monday since 2019.</p>
+                    </div>
+                    <div class="bento-features">
+                      <span class="bento-feature-item">New-life countdown</span>
+                      <span class="bento-feature-item">Infinite habit resets</span>
+                      <span class="bento-feature-item">Broken promises streak</span>
+                    </div>
+                    <div class="bento-tagline">
+                      “Iss baar sach mein. Kal se.”
+                    </div>
+                  </div>
+
+                  <!-- Card 11 -->
+                  <div class="bento-card theme-blue" data-category="hindi">
+                    <div class="bento-card-header">
+                      <span class="bento-tag">Hindi • Broke Tech</span>
+                      <div class="bento-arrow-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="bento-card-body">
+                      <h3 class="bento-title">UPI Mein Kya Hai?</h3>
+                      <p class="bento-desc">A financial forecasting app that predicts whether you can afford chai, a samosa, or the audacity to check your bank balance.</p>
+                    </div>
+                    <div class="bento-features">
+                      <span class="bento-feature-item">Last ₹100 survival</span>
+                      <span class="bento-feature-item">Month-end simulator</span>
+                      <span class="bento-feature-item">“Papa ko call karu?” meter</span>
+                    </div>
+                    <div class="bento-tagline">
+                      “Scan toh kar liya. Balance bhi dekh lo.”
+                    </div>
+                  </div>
+
+                  <!-- Card 12 -->
+                  <div class="bento-card theme-dark span-3" data-category="hindi">
+                    <div class="bento-card-header">
+                      <span class="bento-tag">Hinglish • Romance AI</span>
+                      <div class="bento-arrow-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="bento-card-body">
+                      <h3 class="bento-title">Seen-Zone Analytics</h3>
+                      <p class="bento-desc">A relationship analytics dashboard that analyses your message's read receipt, time since last reply, and number of times you've opened the chat.</p>
+                    </div>
+                    <div class="bento-features">
+                      <span class="bento-feature-item">Reply probability model</span>
+                      <span class="bento-feature-item">Overthinking charts</span>
+                      <span class="bento-feature-item">Simulated “typing…” status</span>
+                    </div>
+                    <div class="bento-tagline">
+                      “Message seen. Izzat unseen.”
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ================= SLIDE 3: MULTILINGUAL CHAOS ================= -->
+              <div class="ref-carousel-slide" data-slide="2">
+                <div class="bento-grid">
+                  <!-- Card 13 -->
+                  <div class="bento-card theme-white" data-category="hindi">
+                    <div class="bento-card-header">
+                      <span class="bento-tag">Hindi • Mess Food</span>
+                      <div class="bento-arrow-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="bento-card-body">
+                      <h3 class="bento-title">Khaana Kaisa Tha?</h3>
+                      <p class="bento-desc">A food review platform for hostel mess menus where every dish receives a brutally honest review from a panel of imaginary Michelin-starred students.</p>
+                    </div>
+                    <div class="bento-features">
+                      <span class="bento-feature-item">Dal consistency index</span>
+                      <span class="bento-feature-item">Roti elasticity score</span>
+                      <span class="bento-feature-item">Weekly "miss home" graph</span>
+                    </div>
+                    <div class="bento-tagline">
+                      “Pet bhar gaya. Mann nahi.”
+                    </div>
+                  </div>
+
+                  <!-- Card 14 -->
+                  <div class="bento-card theme-blue span-2" data-category="multilingual">
+                    <div class="bento-card-header">
+                      <div style="display:flex; align-items:center;">
+                        <span class="bento-tag">Multilingual • Campus Translator</span>
+                        <span class="bento-crowd-favourite">★ Signature Project</span>
+                      </div>
+                      <div class="bento-arrow-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="bento-card-body">
+                      <h3 class="bento-title">Bro, Yenu Ra Idi?</h3>
+                      <p class="bento-desc">The universal Indian campus translator. Translates any situation into regional reactions: “Ayyo!”, “Abba!”, “Yen guru?”, “Kya yaar!”, or “Em ra idi?”. Translates the level of disappointment, not the words.</p>
+                    </div>
+                    <div class="bento-features">
+                      <span class="bento-feature-item">Disappointment level translator</span>
+                      <span class="bento-feature-item">4 Languages unified</span>
+                      <span class="bento-feature-item">Instant regional shock generator</span>
+                    </div>
+                    <div class="bento-tagline">
+                      “One campus. Four languages. Same confusion.”
+                    </div>
+                  </div>
+
+                  <!-- Card 15 -->
+                  <div class="bento-card theme-dark" data-category="multilingual">
+                    <div class="bento-card-header">
+                      <span class="bento-tag">Multilingual • AI Delusion</span>
+                      <div class="bento-arrow-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="bento-card-body">
+                      <h3 class="bento-title">Amma Nammakam Undi</h3>
+                      <p class="bento-desc">An AI confidence generator for students who have no idea what they're doing. Upload a screenshot of your broken code. It responds with motivational quotes without fixing anything.</p>
+                    </div>
+                    <div class="bento-features">
+                      <span class="bento-feature-item">0% Code fixes</span>
+                      <span class="bento-feature-item">100% Motivation</span>
+                      <span class="bento-feature-item">Telugu / Kannada / Hindi</span>
+                    </div>
+                    <div class="bento-tagline">
+                      “Code fail aagbahudu. Nammakam fail aagbardu.”
+                    </div>
+                  </div>
+
+                  <!-- Card 16 -->
+                  <div class="bento-card theme-white" data-category="multilingual">
+                    <div class="bento-card-header">
+                      <span class="bento-tag">Multilingual • Canteen AI</span>
+                      <div class="bento-arrow-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="bento-card-body">
+                      <h3 class="bento-title">Queue Mein Kya Hai?</h3>
+                      <p class="bento-desc">A canteen queue intelligence platform that predicts absolutely nothing accurately. Estimates waiting time based on queue length, dosa master's mood, and fictional planetary alignments.</p>
+                    </div>
+                    <div class="bento-features">
+                      <span class="bento-feature-item">Dosa master mood sensor</span>
+                      <span class="bento-feature-item">Planetary alignment AI</span>
+                      <span class="bento-feature-item">Token tracker</span>
+                    </div>
+                    <div class="bento-tagline">
+                      “Token number 47. Hope number zero.”
+                    </div>
+                  </div>
+
+                  <!-- Card 17 -->
+                  <div class="bento-card theme-blue" data-category="multilingual">
+                    <div class="bento-card-header">
+                      <span class="bento-tag">Multilingual • Startup VCs</span>
+                      <div class="bento-arrow-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                      </div>
+                    </div>
+                    <div class="bento-card-body">
+                      <h3 class="bento-title">Bakwaas Ventures</h3>
+                      <p class="bento-desc">A startup pitch generator for ideas that should never receive funding. Enter any random object; it generates a startup name, billion-dollar TAM, fake pitch deck full of buzzwords.</p>
+                    </div>
+                    <div class="bento-features">
+                      <span class="bento-feature-item">Billion-dollar TAM</span>
+                      <span class="bento-feature-item">Unicorn valuation</span>
+                      <span class="bento-feature-item">VC buzzword deck</span>
+                    </div>
+                    <div class="bento-tagline">
+                      “Idea bakwaas hai. Valuation unicorn hai.”
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
-            <div class="ref-origin">Origin: Classic Chindogu #01</div>
           </div>
 
-          <!-- Reference 2 -->
-          <div class="ref-card">
-            <div class="ref-img-placeholder">👶</div>
-            <div>
-              <span class="badge-gitam">DOMESTIC CHAOS</span>
-              <h3 class="ref-title">Baby Mop Onesie</h3>
-              <p class="ref-desc">A baby romper outfit outfitted with microfiber dust mop strings. Cleans hardwood
-                floors while your baby crawls around.</p>
+          <!-- Carousel Controls Footer -->
+          <div class="ref-carousel-nav">
+            <button class="carousel-arrow-btn" id="refPrevBtn" aria-label="Previous Slide">
+              ← PREV SLIDE
+            </button>
+            <div class="carousel-indicators" id="refIndicators">
+              <button class="dot-btn active" data-goto="0" aria-label="Slide 1"></button>
+              <button class="dot-btn" data-goto="1" aria-label="Slide 2"></button>
+              <button class="dot-btn" data-goto="2" aria-label="Slide 3"></button>
             </div>
-            <div class="ref-origin">Origin: Kenji Kawakami Inventions</div>
-          </div>
-
-          <!-- Reference 3 -->
-          <div class="ref-card">
-            <div class="ref-img-placeholder">📸</div>
-            <div>
-              <span class="badge-coral">WEARABLE OVERKILL</span>
-              <h3 class="ref-title">360-Degree Camera Hat</h3>
-              <p class="ref-desc">A 5-pound helmet supporting 12 disposable film cameras in a circle. Take 360 panoramic
-                selfies with 1 string pull.</p>
-            </div>
-            <div class="ref-origin">Origin: Retro Cyber-Artifact</div>
-          </div>
-
-          <!-- Reference 4 -->
-          <div class="ref-card">
-            <div class="ref-img-placeholder">🧈</div>
-            <div>
-              <span class="badge-gitam">KITCHEN FUTILITY</span>
-              <h3 class="ref-title">Butter Stick Dispenser</h3>
-              <p class="ref-desc">Replaces butter knives by putting solid butter inside a glue stick tube for direct
-                application onto toast.</p>
-            </div>
-            <div class="ref-origin">Origin: Chindogu Masterpiece</div>
-          </div>
-
-          <!-- Reference 5 -->
-          <div class="ref-card">
-            <div class="ref-img-placeholder">☂️</div>
-            <div>
-              <span class="badge-coral">FOOTWEAR PROTECTION</span>
-              <h3 class="ref-title">Shoe Umbrellas</h3>
-              <p class="ref-desc">Miniature umbrellas mounted directly onto the toes of your shoes to prevent rain
-                droplets from hitting your sneakers.</p>
-            </div>
-            <div class="ref-origin">Origin: Pointless Innovations Inc</div>
-          </div>
-
-          <!-- Reference 6 -->
-          <div class="ref-card">
-            <div class="ref-img-placeholder">🍲</div>
-            <div>
-              <span class="badge-gitam">PHYSICAL GADGET</span>
-              <h3 class="ref-title">Soup Blower 3000</h3>
-              <p class="ref-desc">A motorized spoon equipped with a tiny jet turbine fan that aggressively blows hot
-                soup onto your face.</p>
-            </div>
-            <div class="ref-origin">Origin: Useless Projects '25 Winner</div>
+            <span class="carousel-counter" id="refCounter">SLIDE 01 / 03</span>
+            <button class="carousel-arrow-btn" id="refNextBtn" aria-label="Next Slide">
+              NEXT SLIDE →
+            </button>
           </div>
         </div>
       </div>

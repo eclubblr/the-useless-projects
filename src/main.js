@@ -167,6 +167,123 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Retractable hanging ropes when scrolling past hero
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 150) {
+      document.body.classList.add('scrolled-down');
+    } else {
+      document.body.classList.remove('scrolled-down');
+    }
+  }, { passive: true });
+
+  // --------------------------------------------------
+  // BENTO CAROUSEL & CAMPUS IDEAS CONTROLLER
+  // --------------------------------------------------
+  const refCarouselTrack = document.getElementById('refCarouselTrack');
+  const refPrevBtn = document.getElementById('refPrevBtn');
+  const refNextBtn = document.getElementById('refNextBtn');
+  const refCounter = document.getElementById('refCounter');
+  const dotBtns = document.querySelectorAll('.carousel-indicators .dot-btn');
+  const tabBtns = document.querySelectorAll('.ref-filter-bar .ref-tab-btn');
+  const slides = document.querySelectorAll('.ref-carousel-slide');
+
+  let currentSlide = 0;
+  const totalSlides = slides.length || 3;
+
+  function goToSlide(index) {
+    if (index < 0) index = 0;
+    if (index >= totalSlides) index = totalSlides - 1;
+    currentSlide = index;
+
+    if (refCarouselTrack) {
+      refCarouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    if (refCounter) {
+      refCounter.textContent = `SLIDE 0${currentSlide + 1} / 0${totalSlides}`;
+    }
+
+    dotBtns.forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === currentSlide);
+    });
+
+    if (refPrevBtn) refPrevBtn.disabled = currentSlide === 0;
+    if (refNextBtn) refNextBtn.disabled = currentSlide === totalSlides - 1;
+  }
+
+  if (refPrevBtn) {
+    refPrevBtn.addEventListener('click', () => {
+      soundFx.playClick(600, 0.03);
+      goToSlide(currentSlide - 1);
+    });
+  }
+
+  if (refNextBtn) {
+    refNextBtn.addEventListener('click', () => {
+      soundFx.playClick(750, 0.03);
+      goToSlide(currentSlide + 1);
+    });
+  }
+
+  dotBtns.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const targetSlide = parseInt(dot.dataset.goto, 10);
+      soundFx.playClick(700, 0.03);
+      goToSlide(targetSlide);
+    });
+  });
+
+  const categoryToSlideMap = {
+    'all': 0,
+    'telugu': 0,
+    'kannada': 1,
+    'hindi': 1,
+    'multilingual': 2
+  };
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      soundFx.playClick(850, 0.03);
+
+      const cat = btn.dataset.category;
+      if (categoryToSlideMap[cat] !== undefined) {
+        goToSlide(categoryToSlideMap[cat]);
+      }
+    });
+  });
+
+  // Touch swipe support for carousel on mobile devices
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const carouselViewport = document.querySelector('.ref-carousel-viewport');
+
+  if (carouselViewport) {
+    carouselViewport.addEventListener('touchstart', (e) => {
+      if (e.changedTouches && e.changedTouches[0]) {
+        touchStartX = e.changedTouches[0].screenX;
+      }
+    }, { passive: true });
+
+    carouselViewport.addEventListener('touchend', (e) => {
+      if (e.changedTouches && e.changedTouches[0]) {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 45) {
+          if (diff > 0 && currentSlide < totalSlides - 1) {
+            goToSlide(currentSlide + 1);
+          } else if (diff < 0 && currentSlide > 0) {
+            goToSlide(currentSlide - 1);
+          }
+        }
+      }
+    }, { passive: true });
+  }
+
+  // Initialize first slide state
+  goToSlide(0);
+
   // --------------------------------------------------
   // 3. FORBIDDEN BUTTON
   // --------------------------------------------------
