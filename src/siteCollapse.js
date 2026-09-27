@@ -121,32 +121,48 @@ export class SiteCollapseEngine {
     setTimeout(() => { document.body.style.animation = ''; }, 700);
     document.body.classList.add('reality-collapsed');
 
-    // 3. Select all text, headings, buttons, cards, ticker, navbar & layout elements
-    const elementsToCollapse = document.querySelectorAll(`
+    // 3. Select all text, headings, buttons, cards, references, games, ticker, navbar & layout elements
+    const rawElements = Array.from(document.querySelectorAll(`
       .ticker-wrap,
       .navbar,
-      .hover-color-word,
-      .btn-primary,
-      .btn-secondary,
-      .btn-chaos,
-      .btn-forbidden,
-      .nav-item,
+      .hanging-tag-unit,
       .brand-logo,
+      .nav-actions,
+      main,
+      main > section,
+      .hero-content,
       .hero-badge,
       .hero-title,
       .hero-subtitle,
       .hero-cta-group,
       .hero-stats-strip,
       .stat-box,
-      .showcase-section,
+      .references-section,
+      .references-grid,
+      .ref-card,
       .games-hub-section,
+      .games-grid,
+      .game-card,
       .generator-section,
+      .slot-machine-console,
       .rules-section,
-      .footer,
-      .section-tag,
+      .rules-grid,
+      .rule-card,
+      .submit-container,
+      .submit-card,
+      .section-header,
       .section-title,
-      .section-desc
-    `);
+      .section-desc,
+      .section-tag,
+      .footer,
+      .btn-primary,
+      .btn-secondary,
+      .btn-chaos,
+      .btn-forbidden
+    `)).filter(el => !el.closest('#realityEmergencyOverlay') && el.id !== 'realityEmergencyOverlay' && el.id !== 'chaosCanvas');
+
+    // Deduplicate elements
+    const elementsToCollapse = [...new Set(rawElements)];
 
     this.collapsedElements = [];
     const vh = window.innerHeight;
@@ -157,7 +173,7 @@ export class SiteCollapseEngine {
 
       const delay = Math.random() * 0.22; // Cascading avalanche delay (0 to 220ms)
       const duration = 0.65 + Math.random() * 0.35; // 650ms to 1000ms fall time
-      const dropDistance = vh + 700 + Math.random() * 400; // Far below the screen viewport
+      const dropDistance = vh + 1000 + Math.random() * 400; // Far below the screen viewport
       const xTumble = (Math.random() - 0.5) * 280; // Slight random sideways drift while falling
       const rotTumble = (Math.random() - 0.5) * 75; // Tumbling tilt
 
@@ -169,12 +185,23 @@ export class SiteCollapseEngine {
       this.collapsedElements.push(el);
     });
 
-    // 4. After all elements plummet and disappear off-screen, hide them completely
+    // 4. After all elements plummet and disappear off-screen, hide them completely into the void
     setTimeout(() => {
       if (!this.isCollapsed) return;
       this.collapsedElements.forEach(el => {
         el.style.visibility = 'hidden';
       });
+
+      // Absolute void guarantee: ensure all core layout containers are hidden
+      const mainEl = document.querySelector('main');
+      const navEl = document.querySelector('.navbar');
+      const footerEl = document.querySelector('footer');
+      const tickerEl = document.querySelector('.ticker-wrap');
+      if (mainEl) mainEl.style.visibility = 'hidden';
+      if (navEl) navEl.style.visibility = 'hidden';
+      if (footerEl) footerEl.style.visibility = 'hidden';
+      if (tickerEl) tickerEl.style.visibility = 'hidden';
+
       // Show the Rebuild Button centered in the empty void
       this.showRebuildWidget();
     }, 950);
@@ -218,6 +245,16 @@ export class SiteCollapseEngine {
     if (overlay) {
       overlay.classList.remove('show');
     }
+
+    // Unhide core layout containers
+    const mainEl = document.querySelector('main');
+    const navEl = document.querySelector('.navbar');
+    const footerEl = document.querySelector('footer');
+    const tickerEl = document.querySelector('.ticker-wrap');
+    if (mainEl) mainEl.style.visibility = '';
+    if (navEl) navEl.style.visibility = '';
+    if (footerEl) footerEl.style.visibility = '';
+    if (tickerEl) tickerEl.style.visibility = '';
 
     // 3. Make all elements visible again and animate them back up into place
     this.collapsedElements.forEach((el, index) => {
