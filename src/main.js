@@ -180,6 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // BENTO CAROUSEL & CAMPUS IDEAS CONTROLLER
   // --------------------------------------------------
   const refCarouselTrack = document.getElementById('refCarouselTrack');
+  const carouselViewport = document.querySelector('.ref-carousel-viewport');
   const refPrevBtn = document.getElementById('refPrevBtn');
   const refNextBtn = document.getElementById('refNextBtn');
   const refCounter = document.getElementById('refCounter');
@@ -187,8 +188,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabBtns = document.querySelectorAll('.ref-filter-bar .ref-tab-btn');
   const slides = document.querySelectorAll('.ref-carousel-slide');
 
+  const DRIVE_PROJECTS_URL = 'https://drive.google.com/file/d/1ZyYM88FG7usQgE7jokoCNcF3-XBQQD3W/view?usp=sharing';
+
   let currentSlide = 0;
   const totalSlides = slides.length || 3;
+
+  function updateCarouselHeight() {
+    const activeSlide = slides[currentSlide];
+    if (activeSlide && carouselViewport) {
+      const slideHeight = activeSlide.offsetHeight;
+      if (slideHeight > 0) {
+        carouselViewport.style.height = `${slideHeight}px`;
+      }
+    }
+  }
 
   function goToSlide(index) {
     if (index < 0) index = 0;
@@ -208,7 +221,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (refPrevBtn) refPrevBtn.disabled = currentSlide === 0;
-    if (refNextBtn) refNextBtn.disabled = currentSlide === totalSlides - 1;
+
+    // Last slide (Slide 3/3): morph button into MORE IDEAS link!
+    if (refNextBtn) {
+      if (currentSlide === totalSlides - 1) {
+        refNextBtn.disabled = false;
+        refNextBtn.innerHTML = 'MORE IDEAS 📂 ↗';
+        refNextBtn.title = 'Open More Projects in Google Drive';
+        refNextBtn.classList.add('btn-more-ideas-nav');
+      } else {
+        refNextBtn.disabled = false;
+        refNextBtn.innerHTML = 'NEXT SLIDE →';
+        refNextBtn.title = 'Go to next slide';
+        refNextBtn.classList.remove('btn-more-ideas-nav');
+      }
+    }
+
+    // Adapt viewport height dynamically to eliminate awkward gaps in Slide 1 and 2
+    updateCarouselHeight();
   }
 
   if (refPrevBtn) {
@@ -220,8 +250,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (refNextBtn) {
     refNextBtn.addEventListener('click', () => {
-      soundFx.playClick(750, 0.03);
-      goToSlide(currentSlide + 1);
+      if (currentSlide === totalSlides - 1) {
+        // Last slide: redirect to Google Drive
+        soundFx.playClick(900, 0.05);
+        window.open(DRIVE_PROJECTS_URL, '_blank', 'noopener,noreferrer');
+      } else {
+        soundFx.playClick(750, 0.03);
+        goToSlide(currentSlide + 1);
+      }
     });
   }
 
@@ -232,6 +268,11 @@ document.addEventListener('DOMContentLoaded', () => {
       goToSlide(targetSlide);
     });
   });
+
+  // Adjust height on window resize and initial asset load
+  window.addEventListener('resize', updateCarouselHeight);
+  setTimeout(updateCarouselHeight, 150);
+  setTimeout(updateCarouselHeight, 500);
 
   const categoryToSlideMap = {
     'all': 0,
@@ -257,7 +298,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Touch swipe support for carousel on mobile devices
   let touchStartX = 0;
   let touchEndX = 0;
-  const carouselViewport = document.querySelector('.ref-carousel-viewport');
 
   if (carouselViewport) {
     carouselViewport.addEventListener('touchstart', (e) => {

@@ -50,6 +50,8 @@ html {
   background-color: var(--bg-dark);
   color: var(--text-main);
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 body {
@@ -62,6 +64,9 @@ body {
     linear-gradient(rgba(139, 203, 183, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(139, 203, 183, 0.04) 1px, transparent 1px);
   background-size: 100% 100%, 36px 36px, 36px 36px;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /* Chaos Canvas overlay */
@@ -1247,38 +1252,187 @@ body {
 
 @media (max-width: 768px) {
   .landing-stage-section {
-    padding-top: 155px;
-    padding-bottom: 45px;
+    padding-top: 20px;
+    padding-bottom: 36px;
+  }
+  .landing-stage-container {
+    padding: 0 12px;
   }
   .landing-billboard {
-    padding: 28px 18px;
+    padding: 20px 14px;
+    border-radius: 16px;
+    box-shadow: 4px 4px 0px #00120f;
+    box-sizing: border-box;
   }
   .billboard-content-grid {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 16px;
   }
   .billboard-mascot-col {
     justify-content: center;
   }
+  .duck-stage-wrapper {
+    max-width: 180px;
+    margin: 0 auto 4px auto;
+  }
+  .floating-duck-container {
+    width: 160px;
+    height: 205px;
+  }
+  .duck-comic-burst {
+    width: 190px;
+    height: 190px;
+  }
+  .duck-ground-shadow {
+    width: 120px;
+  }
+  .duck-speech-bubble {
+    top: -6px;
+    right: -8px;
+    padding: 5px 9px;
+  }
+  .bubble-text {
+    font-size: 0.76rem;
+  }
   .billboard-title-col {
     align-items: center;
+    width: 100%;
   }
   .hero-brand-typography {
     align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+  .brand-line-useless,
+  .brand-line-projects {
+    font-size: clamp(1.8rem, 8.2vw, 2.5rem);
+    letter-spacing: -0.5px;
+    text-shadow: 
+      2px 2px 0px rgba(0, 0, 0, 0.8),
+      3.5px 3.5px 0px #00120f;
+  }
+  .brand-line-competition {
+    font-size: clamp(0.95rem, 4.4vw, 1.25rem);
+    letter-spacing: 1.5px;
+    text-shadow: 
+      1.5px 1.5px 0px #000,
+      2.5px 2.5px 0px rgba(0, 0, 0, 0.55);
+  }
+  .brand-sub-banner {
+    font-size: 0.72rem;
+    padding: 6px 12px;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
   }
   .billboard-cta-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
     justify-content: center;
+  }
+  .btn-billboard-main {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 12px 14px;
+    font-size: 0.88rem;
+    white-space: normal;
+  }
+  .btn-billboard-sub {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 14px;
+    font-size: 0.80rem;
+    white-space: normal;
   }
   .billboard-partners-col {
     grid-column: span 1;
+    width: 100%;
   }
   .partners-stack-box {
     flex-direction: column;
     align-items: stretch;
+    padding: 14px 12px;
+    gap: 10px;
   }
   .billboard-partner-divider {
     width: 100%;
     height: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-stage-section {
+    padding-top: 14px;
+    padding-bottom: 24px;
+  }
+  .landing-stage-container {
+    padding: 0 8px;
+  }
+  .landing-billboard {
+    padding: 16px 10px;
+    border-radius: 14px;
+  }
+  .duck-stage-wrapper {
+    max-width: 140px;
+  }
+  .floating-duck-container {
+    width: 130px;
+    height: 170px;
+  }
+  .duck-comic-burst {
+    width: 145px;
+    height: 145px;
+  }
+  .duck-ground-shadow {
+    width: 90px;
+  }
+  .duck-speech-bubble {
+    top: -4px;
+    right: -4px;
+    padding: 4px 7px;
+  }
+  .bubble-text {
+    font-size: 0.68rem;
+  }
+  .bubble-sub {
+    font-size: 0.54rem;
+  }
+  .brand-line-useless,
+  .brand-line-projects {
+    font-size: clamp(1.45rem, 7.8vw, 1.95rem);
+    letter-spacing: -0.5px;
+    text-shadow: 
+      1.5px 1.5px 0px rgba(0, 0, 0, 0.8),
+      2.5px 2.5px 0px #00120f;
+  }
+  .brand-line-competition {
+    font-size: clamp(0.78rem, 3.8vw, 0.98rem);
+    letter-spacing: 1px;
+  }
+  .brand-sub-banner {
+    font-size: 0.64rem;
+    padding: 5px 8px;
+    letter-spacing: 0.2px;
+  }
+  .btn-billboard-main {
+    font-size: 0.80rem;
+    padding: 11px 10px;
+    white-space: normal;
+    width: 100%;
+  }
+  .btn-billboard-sub {
+    font-size: 0.75rem;
+    padding: 9px 10px;
+    white-space: normal;
+    width: 100%;
   }
 }
 
@@ -2120,10 +2274,12 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   overflow: hidden;
   width: 100%;
   position: relative;
+  transition: height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .ref-carousel-track {
   display: flex;
+  align-items: flex-start;
   width: 100%;
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
@@ -2134,7 +2290,8 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   width: 100%;
   flex-shrink: 0;
   box-sizing: border-box;
-  padding: 4px 4px;
+  padding: 12px 14px;
+  overflow: hidden;
 }
 
 /* BENTO GRID (3 COLUMNS) */
@@ -2172,57 +2329,96 @@ body.scrolled-down .hanging-tag-unit .tag-card {
 
 /* BENTO CARD THEMES (GITAM NEO-BRUTALIST BRAND SYSTEM) */
 
-/* 1. GITAM Kind Coral / Terracotta Theme (Replacing harsh electric blue) */
-.bento-card.theme-coral,
-.bento-card.theme-blue {
+/* 1. GITAM Kind Coral / Terracotta Theme */
+.bento-card.theme-coral {
   background: linear-gradient(135deg, #DD736E 0%, #C45752 100%);
   color: #FFF9F0;
   border: 2px solid #5a1e1b;
   box-shadow: 5px 5px 0px #001814;
 }
 
-.bento-card.theme-coral:hover,
-.bento-card.theme-blue:hover {
+.bento-card.theme-coral:hover {
   transform: translateY(-4px);
   box-shadow: 7px 7px 0px #001814;
 }
 
-.bento-card.theme-coral .bento-tag,
-.bento-card.theme-blue .bento-tag {
+.bento-card.theme-coral .bento-tag {
   background: #FFF2ED;
   color: #8c2420;
 }
 
-.bento-card.theme-coral .bento-arrow-icon,
-.bento-card.theme-blue .bento-arrow-icon {
+.bento-card.theme-coral .bento-arrow-icon {
   border: 2px solid #FFF8EE;
   color: #FFF8EE;
   background: rgba(255, 255, 255, 0.15);
 }
 
-.bento-card.theme-coral .bento-title,
-.bento-card.theme-blue .bento-title {
+.bento-card.theme-coral .bento-title {
   color: #FFF8EE;
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
 }
 
-.bento-card.theme-coral .bento-desc,
-.bento-card.theme-blue .bento-desc {
+.bento-card.theme-coral .bento-desc {
   color: #FFE6E1;
 }
 
-.bento-card.theme-coral .bento-feature-item,
-.bento-card.theme-blue .bento-feature-item {
+.bento-card.theme-coral .bento-feature-item {
   background: rgba(255, 255, 255, 0.2);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
-.bento-card.theme-coral .bento-tagline,
-.bento-card.theme-blue .bento-tagline {
+.bento-card.theme-coral .bento-tagline {
   background: rgba(0, 0, 0, 0.28);
   color: #FFE79A;
   border-left: 3.5px solid #FFE79A;
+}
+
+/* 1b. GITAM Wide Blue Theme (Blue Ticks / Romance AI) */
+.bento-card.theme-blue {
+  background: linear-gradient(135deg, #234b73 0%, #152d47 100%);
+  color: #F4E4C9;
+  border: 2px solid #5E95CD;
+  box-shadow: 5px 5px 0px #001814;
+}
+
+.bento-card.theme-blue:hover {
+  transform: translateY(-4px);
+  box-shadow: 7px 7px 0px #001814;
+  border-color: #8bcbb7;
+}
+
+.bento-card.theme-blue .bento-tag {
+  background: #5E95CD;
+  color: #001f1b;
+  font-weight: 800;
+}
+
+.bento-card.theme-blue .bento-arrow-icon {
+  border: 2px solid #5E95CD;
+  color: #5E95CD;
+  background: rgba(94, 149, 205, 0.2);
+}
+
+.bento-card.theme-blue .bento-title {
+  color: #ffffff;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.35);
+}
+
+.bento-card.theme-blue .bento-desc {
+  color: #d6e7f7;
+}
+
+.bento-card.theme-blue .bento-feature-item {
+  background: rgba(94, 149, 205, 0.22);
+  color: #ffffff;
+  border: 1px solid rgba(94, 149, 205, 0.4);
+}
+
+.bento-card.theme-blue .bento-tagline {
+  background: rgba(0, 0, 0, 0.35);
+  color: #5E95CD;
+  border-left: 3.5px solid #5E95CD;
 }
 
 /* 2. Antique Parchment / Warm Vintage Cream (Replacing harsh hospital white) */
@@ -2321,14 +2517,16 @@ body.scrolled-down .hanging-tag-unit .tag-card {
 .bento-card.theme-gold .bento-feature-item {
   background: rgba(0, 46, 41, 0.15);
   color: #002e29;
-  border: 1px solid rgba(0, 46, 41, 0.25);
+  border: 1.5px solid rgba(0, 46, 41, 0.35);
+  font-weight: 800;
 }
 
 .bento-card.theme-yellow .bento-tagline,
 .bento-card.theme-gold .bento-tagline {
-  background: rgba(0, 46, 41, 0.18);
-  color: #002823;
-  border-left: 3.5px solid #004740;
+  background: rgba(0, 46, 41, 0.82);
+  color: #F8EDE0;
+  border-left: 3.5px solid #00201b;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* 4. Deep Midnight Emerald / Forest Jade Theme */
@@ -2491,16 +2689,12 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   position: relative;
 }
 
-/* B. Cyber-Schematic Punchcard (Chamfered angular cut corners) */
+/* B. Cyber-Schematic Punchcard / Tech Folder Tab (Clean continuous vector edges) */
 .bento-card.shape-cyber {
-  border-radius: 0 !important;
-  clip-path: polygon(
-    0 16px, 16px 0,
-    calc(100% - 16px) 0, 100% 16px,
-    100% calc(100% - 16px), calc(100% - 16px) 100%,
-    16px 100%, 0 calc(100% - 16px)
-  );
+  border-radius: 8px 30px 8px 8px !important;
+  clip-path: none !important;
   position: relative;
+  overflow: hidden;
 }
 
 /* Blueprint watermark grid on cyber cards */
@@ -2526,8 +2720,16 @@ body.scrolled-down .hanging-tag-unit .tag-card {
 /* C. Ticket / Token Cutout */
 .bento-card.shape-ticket {
   border-radius: 12px !important;
-  border-top: 4px solid var(--mellow-yellow) !important;
   position: relative;
+}
+
+.bento-card.theme-dark.shape-ticket,
+.bento-card.theme-emerald.shape-ticket {
+  border-top: 4px solid var(--mellow-yellow) !important;
+}
+
+.bento-card.theme-coral.shape-ticket {
+  border-top: 2px solid #5a1e1b !important;
 }
 
 /* 2. DYNAMIC CHAOTIC TILTS */
@@ -2663,7 +2865,7 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
-/* 6. CAUTION HAZARD STRIPE */
+/* 6. CAUTION HAZARD STRIPE (Only for green/emerald cards) */
 .card-hazard-strip {
   position: absolute;
   top: 0;
@@ -2672,6 +2874,11 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   height: 6px;
   background: repeating-linear-gradient(45deg, #E0B541, #E0B541 8px, #002e29 8px, #002e29 16px);
   z-index: 4;
+}
+
+.bento-card.theme-coral .card-hazard-strip,
+.theme-coral .card-hazard-strip {
+  display: none !important;
 }
 
 /* 7. TECHNICAL BARCODE & FUTILITY FOOTER */
@@ -2776,6 +2983,25 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   box-shadow: 2px 2px 0px var(--dark-green);
 }
 
+.carousel-arrow-btn.btn-more-ideas-nav {
+  background: var(--kind-coral, #dd736e);
+  color: #ffffff;
+  border-color: #5a1e1b;
+  box-shadow: 4px 4px 0px #001814, 0 0 15px rgba(221, 115, 110, 0.4);
+  animation: pulseMoreBtn 2.2s infinite ease-in-out;
+}
+
+.carousel-arrow-btn.btn-more-ideas-nav:hover {
+  background: #ff4a75;
+  box-shadow: 6px 6px 0px #001814, 0 0 22px rgba(255, 74, 117, 0.6);
+  transform: translate(-2px, -2px);
+}
+
+@keyframes pulseMoreBtn {
+  0%, 100% { box-shadow: 4px 4px 0px #001814, 0 0 8px rgba(221, 115, 110, 0.3); }
+  50% { box-shadow: 4px 4px 0px #001814, 0 0 20px rgba(221, 115, 110, 0.6); }
+}
+
 .carousel-indicators {
   display: flex;
   align-items: center;
@@ -2823,10 +3049,26 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   .bento-grid {
     grid-template-columns: 1fr;
     gap: 14px;
+    width: 100%;
+  }
+  .tilt-n1, .tilt-p1, .tilt-n2, .tilt-p2, .tilt-n0, .tilt-p0 {
+    transform: none !important;
   }
   .bento-card {
-    padding: 20px 18px;
+    padding: 18px 16px;
     min-height: auto;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .bento-card:hover {
+    transform: translateY(-2px) !important;
+  }
+  .ref-carousel-slide {
+    padding: 8px 4px;
+    width: 100%;
+    box-sizing: border-box;
   }
   .bento-title {
     font-size: 1.25rem;
@@ -2841,11 +3083,54 @@ body.scrolled-down .hanging-tag-unit .tag-card {
     justify-content: center;
   }
   .ref-filter-bar {
-    gap: 8px;
+    gap: 7px;
   }
   .ref-tab-btn {
     font-size: 0.78rem;
-    padding: 6px 14px;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bento-title {
+    font-size: 1.15rem;
+  }
+  .bento-tag {
+    font-size: 0.68rem;
+    padding: 4px 8px;
+  }
+  .bento-desc {
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+  .bento-feature-item {
+    font-size: 0.66rem;
+    padding: 3px 6px;
+  }
+  .bento-tagline {
+    font-size: 0.78rem;
+    padding: 6px 10px;
+  }
+  .card-futility-tag {
+    font-size: 0.66rem;
+  }
+  .card-rubber-stamp {
+    font-size: 0.58rem;
+    bottom: 14px;
+    right: 12px;
+    letter-spacing: 0.6px;
+  }
+  .card-duct-tape {
+    width: 65px;
+    height: 16px;
+    right: 12px;
+  }
+  .ref-filter-bar {
+    gap: 6px;
+  }
+  .ref-tab-btn {
+    font-size: 0.72rem;
+    padding: 5px 10px;
   }
 }
 
@@ -3069,10 +3354,9 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   top: 100%;
   left: 0;
   right: 0;
-  background: rgba(0, 31, 27, 0.98);
-  backdrop-filter: blur(18px);
-  border-bottom: 3px solid var(--kind-coral);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.85);
+  background: #00221e;
+  border-bottom: 3.5px solid var(--mellow-yellow);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.95);
   padding: 16px 18px 24px 18px;
   display: flex;
   flex-direction: column;
@@ -3081,7 +3365,7 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   visibility: hidden;
   transform: translateY(-10px);
   transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
-  z-index: 9999;
+  z-index: 99999;
   max-height: calc(100vh - 60px);
   overflow-y: auto;
 }
@@ -3143,8 +3427,11 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   }
 
   .navbar .nav-container {
-    padding: 0 16px;
-    gap: 10px;
+    padding: 0 12px;
+    gap: 8px;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
   }
 
   /* Prevent dangling ropes from obscuring mobile content */
@@ -3153,16 +3440,20 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   }
 
   .mobile-menu-btn {
-    display: flex;
+    display: flex !important;
+  }
+
+  .nav-actions {
+    gap: 6px;
   }
 
   .nav-actions .btn-chaos,
   .nav-actions .btn-primary {
-    display: none; /* Moved into mobile drawer */
+    display: none !important; /* Moved into mobile drawer */
   }
 
   .header-logo-img {
-    height: 36px;
+    height: 34px;
   }
 
   /* Hero Section */
@@ -3449,13 +3740,14 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .hero-title {
-    font-size: 1.75rem;
+    font-size: clamp(1.5rem, 6.5vw, 1.85rem);
   }
 
   .section-title {
-    font-size: 1.45rem;
+    font-size: clamp(1.2rem, 5.2vw, 1.55rem);
+    letter-spacing: -0.3px;
   }
 
   .btn-lg,
@@ -3464,3 +3756,74 @@ body.scrolled-down .hanging-tag-unit .tag-card {
     font-size: 0.9rem;
   }
 }
+
+/* ==========================================================================
+   CARD: MORE IDEAS VAULT (SLIDE 3/3 GOOGLE DRIVE REDIRECT)
+   ========================================================================== */
+a.bento-card.card-more-ideas {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  background: linear-gradient(135deg, #004740 0%, #002e29 100%);
+  border: 2.5px solid var(--mellow-yellow, #e0b541);
+  box-shadow: 6px 6px 0px #00120f;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 0.2s ease, 
+              border-color 0.2s ease;
+}
+
+a.bento-card.card-more-ideas:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 8px 8px 0px #00120f, 0 0 25px rgba(224, 181, 65, 0.25);
+  border-color: #ffe677;
+}
+
+a.bento-card.card-more-ideas .bento-tag {
+  background: var(--mellow-yellow, #e0b541);
+  color: #002e29;
+  font-weight: 800;
+}
+
+a.bento-card.card-more-ideas .bento-title {
+  color: var(--antique-white, #f4e4c9);
+}
+
+a.bento-card.card-more-ideas .bento-desc {
+  color: var(--light-green, #8bcbb7);
+}
+
+a.bento-card.card-more-ideas .bento-arrow-icon {
+  background: var(--mellow-yellow, #e0b541);
+  color: #002e29;
+  border-color: var(--mellow-yellow, #e0b541);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+a.bento-card.card-more-ideas:hover .bento-arrow-icon {
+  transform: translate(3px, -3px) rotate(45deg);
+  background: #fff;
+}
+
+a.bento-card.card-more-ideas .bento-feature-item {
+  background: rgba(224, 181, 65, 0.12);
+  border: 1px solid rgba(224, 181, 65, 0.35);
+  color: var(--antique-white, #f4e4c9);
+}
+
+a.bento-card.card-more-ideas .bento-tagline {
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--mellow-yellow, #e0b541);
+  border-left: 3.5px solid var(--mellow-yellow, #e0b541);
+}
+
+a.bento-card.card-more-ideas .card-futility-tag {
+  color: var(--mellow-yellow, #e0b541);
+  font-weight: 800;
+}
+
+
+
+
