@@ -3190,6 +3190,75 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   gap: 20px;
 }
 
+.footer-contacts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 4px 0;
+}
+
+.footer-contact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(0, 32, 28, 0.75);
+  border: 1.5px solid rgba(139, 203, 183, 0.4);
+  border-radius: 8px;
+  color: var(--antique-white);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: all 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 2.5px 2.5px 0px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.footer-contact-chip svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  color: var(--mellow-yellow);
+  transition: transform 0.22s ease, color 0.22s ease;
+}
+
+.footer-contact-chip .contact-role {
+  color: var(--light-green);
+  font-weight: 800;
+  opacity: 0.9;
+}
+
+.footer-contact-chip .contact-val {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.footer-contact-chip:hover {
+  transform: translate(-2px, -2px);
+  border-color: var(--mellow-yellow);
+  background: rgba(224, 181, 65, 0.15);
+  box-shadow: 4px 4px 0px #00120f, 0 0 14px rgba(224, 181, 65, 0.3);
+}
+
+.footer-contact-chip:hover svg {
+  transform: scale(1.15);
+  color: #FFFFFF;
+}
+
+.footer-contact-chip.contact-email:hover {
+  border-color: #2ecc71;
+  background: rgba(46, 204, 113, 0.16);
+  box-shadow: 4px 4px 0px #00120f, 0 0 14px rgba(46, 204, 113, 0.3);
+}
+
+.footer-contact-chip.contact-email:hover svg {
+  color: #2ecc71;
+}
+
 .footer-socials {
   display: flex;
   align-items: center;
