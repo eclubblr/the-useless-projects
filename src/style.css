@@ -3870,8 +3870,9 @@ a.bento-card.card-more-ideas .card-futility-tag {
    ========================================================================== */
 .useless-chat-widget {
   position: fixed;
-  bottom: 22px;
-  right: 22px;
+  bottom: 24px;
+  left: 28px;
+  right: auto;
   z-index: 9990;
   cursor: pointer;
   user-select: none;
@@ -4095,7 +4096,8 @@ a.bento-card.card-more-ideas .card-futility-tag {
 @media (max-width: 768px) {
   .useless-chat-widget {
     bottom: 16px;
-    right: 14px;
+    left: 14px;
+    right: auto;
   }
   .bot-character-container {
     width: 115px;
@@ -4113,7 +4115,8 @@ a.bento-card.card-more-ideas .card-futility-tag {
 @media (max-width: 480px) {
   .useless-chat-widget {
     bottom: 12px;
-    right: 10px;
+    left: 10px;
+    right: auto;
   }
   .bot-character-container {
     width: 100px;
