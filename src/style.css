@@ -766,13 +766,13 @@ body {
 
 .duck-speech-bubble {
   position: absolute;
-  top: -12px;
-  right: -12px;
+  top: -48px;
+  right: -15px;
   background: #FFF9E6;
   color: #002e29;
   border: 2.5px solid #000;
   border-radius: 10px;
-  padding: 7px 13px;
+  padding: 6px 12px;
   box-shadow: 3px 3px 0px #000;
   font-family: var(--font-heading);
   display: flex;
@@ -788,7 +788,7 @@ body {
   content: "";
   position: absolute;
   bottom: -8px;
-  left: 18px;
+  left: 24px;
   width: 0;
   height: 0;
   border-left: 8px solid transparent;
@@ -800,7 +800,7 @@ body {
   content: "";
   position: absolute;
   bottom: -11px;
-  left: 16px;
+  left: 22px;
   width: 0;
   height: 0;
   border-left: 10px solid transparent;
@@ -1274,7 +1274,7 @@ body {
   }
   .duck-stage-wrapper {
     max-width: 180px;
-    margin: 0 auto 4px auto;
+    margin: 40px auto 4px auto;
   }
   .floating-duck-container {
     width: 160px;
@@ -1288,8 +1288,8 @@ body {
     width: 120px;
   }
   .duck-speech-bubble {
-    top: -6px;
-    right: -8px;
+    top: -46px;
+    right: -10px;
     padding: 5px 9px;
   }
   .bubble-text {
@@ -1382,6 +1382,7 @@ body {
   }
   .duck-stage-wrapper {
     max-width: 140px;
+    margin: 38px auto 4px auto;
   }
   .floating-duck-container {
     width: 130px;
@@ -1395,9 +1396,9 @@ body {
     width: 90px;
   }
   .duck-speech-bubble {
-    top: -4px;
-    right: -4px;
-    padding: 4px 7px;
+    top: -42px;
+    right: -6px;
+    padding: 3px 8px;
   }
   .bubble-text {
     font-size: 0.68rem;
