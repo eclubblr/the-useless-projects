@@ -665,6 +665,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 26px;
 }
 
 .duck-comic-burst {
@@ -766,8 +767,8 @@ body {
 
 .duck-speech-bubble {
   position: absolute;
-  top: -48px;
-  right: -15px;
+  top: -24px;
+  right: -10px;
   background: #FFF9E6;
   color: #002e29;
   border: 2.5px solid #000;
@@ -1274,7 +1275,8 @@ body {
   }
   .duck-stage-wrapper {
     max-width: 180px;
-    margin: 40px auto 4px auto;
+    margin: 0 auto 4px auto;
+    padding-top: 28px;
   }
   .floating-duck-container {
     width: 160px;
@@ -1288,12 +1290,12 @@ body {
     width: 120px;
   }
   .duck-speech-bubble {
-    top: -46px;
-    right: -10px;
-    padding: 5px 9px;
+    top: -24px;
+    right: -8px;
+    padding: 4px 9px;
   }
   .bubble-text {
-    font-size: 0.76rem;
+    font-size: 0.74rem;
   }
   .billboard-title-col {
     align-items: center;
@@ -1382,7 +1384,8 @@ body {
   }
   .duck-stage-wrapper {
     max-width: 140px;
-    margin: 38px auto 4px auto;
+    margin: 0 auto 4px auto;
+    padding-top: 26px;
   }
   .floating-duck-container {
     width: 130px;
@@ -1396,8 +1399,8 @@ body {
     width: 90px;
   }
   .duck-speech-bubble {
-    top: -42px;
-    right: -6px;
+    top: -22px;
+    right: -4px;
     padding: 3px 8px;
   }
   .bubble-text {
