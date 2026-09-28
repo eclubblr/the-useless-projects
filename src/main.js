@@ -9,6 +9,7 @@ import { initMiniGames } from './games.js';
 import { initHammerCursor } from './hammerCursor.js';
 import { initTextColorChaos } from './textColorChaos.js';
 import { siteCollapse } from './siteCollapse.js';
+import { initUselessChatbot } from './uselessChatbot.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize animated hammer cursor with sound and swing physics
@@ -16,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize dynamic random text color shift on hover
   initTextColorChaos();
+
+  // Initialize the elusive unhelpful AI chatbot widget
+  initUselessChatbot();
 
   const chaos = new ChaosEngine('chaosCanvas');
 

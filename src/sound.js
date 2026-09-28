@@ -518,6 +518,42 @@ class SoundEngine {
       });
     } catch (e) {}
   }
+
+  // Comical robotic warp dodge sound for elusive chatbot
+  playBotEvade() {
+    if (this.muted) return;
+    this.init();
+    try {
+      const now = this.ctx.currentTime;
+      // High-pitched cartoon boing / warp sweep
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(320, now);
+      osc.frequency.exponentialRampToValueAtTime(1450, now + 0.12);
+      osc.frequency.exponentialRampToValueAtTime(520, now + 0.28);
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.3);
+
+      // Mechanical chatter click
+      const chirp = this.ctx.createOscillator();
+      const chirpGain = this.ctx.createGain();
+      chirp.type = 'square';
+      chirp.frequency.setValueAtTime(880, now + 0.04);
+      chirp.frequency.setValueAtTime(1350, now + 0.09);
+      chirp.frequency.setValueAtTime(650, now + 0.15);
+      chirpGain.gain.setValueAtTime(0.07, now + 0.04);
+      chirpGain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+      chirp.connect(chirpGain);
+      chirpGain.connect(this.ctx.destination);
+      chirp.start(now + 0.04);
+      chirp.stop(now + 0.22);
+    } catch (e) {}
+  }
 }
 
 export const soundFx = new SoundEngine();
