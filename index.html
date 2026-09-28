@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@500;700;900&family=Syne:wght@700;800;900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="src/style.css?v=3.7">
+  <link rel="stylesheet" href="src/style.css?v=3.8">
 </head>
 
 <body>
@@ -150,6 +150,12 @@
             <!-- COLUMN 1: INTERACTIVE FLOATING DUCK MASCOT -->
             <div class="billboard-mascot-col">
               <div class="duck-stage-wrapper" id="duckInteractiveZone">
+                <!-- Comic Speech Bubble (Positioned cleanly above duck in flow) -->
+                <div class="duck-speech-bubble" id="duckSpeechBubble">
+                  <span class="bubble-text">JUST VIBES! 🦆💨</span>
+                  <span class="bubble-sub">Click to Quack!</span>
+                </div>
+
                 <!-- Comic Starburst Ambient Glow Behind Duck -->
                 <div class="duck-comic-burst" aria-hidden="true"></div>
 
@@ -162,12 +168,6 @@
                   <img src="src/duck-mascot.png"
                     alt="GITAM Useless Projects Mascot - Jet Engine Duck with Propeller Beanie and Sunglasses"
                     class="duck-mascot-img" id="duckMascotImg" />
-
-                  <!-- Comic Speech Bubble (Interactive on Click & Hover) -->
-                  <div class="duck-speech-bubble" id="duckSpeechBubble">
-                    <span class="bubble-text">JUST VIBES! 🦆💨</span>
-                    <span class="bubble-sub">Click to Quack!</span>
-                  </div>
 
                   <!-- Jet Engine Exhaust Thruster Smoke Particles -->
                   <div class="jet-exhaust-particles" aria-hidden="true">

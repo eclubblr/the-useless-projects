@@ -585,7 +585,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
     let phraseIdx = 0;
 
-    duckContainer.addEventListener('click', () => {
+    const triggerDuckQuack = () => {
       // Play synthesized duck squeak sound
       soundFx.playDuckSqueak();
 
@@ -601,7 +601,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const subEl = duckSpeechBubble.querySelector('.bubble-sub');
       if (textEl) textEl.textContent = phrase.text;
       if (subEl) subEl.textContent = phrase.sub;
-    });
+    };
+
+    duckContainer.addEventListener('click', triggerDuckQuack);
+    duckSpeechBubble.addEventListener('click', triggerDuckQuack);
 
     // 3D Parallax tilt tracking mouse position inside zone
     if (duckZone) {
