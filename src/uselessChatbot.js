@@ -1,72 +1,69 @@
 // ==========================================================================
-// ELUSIVE OVER-ENGINEERED CHATBOT (PROF. CLOCKWORK-BOT)
-// An AI chatbot widget designed exclusively to avoid being opened.
-// When clicked, it plays a sound, gives a snarky excuse, and teleports!
+// ELUSIVE OVER-ENGINEERED CHATBOT ICON (PROF. CLOCKWORK-BOT)
+// A sleek chatbot floating launcher designed to run away whenever clicked.
 // ==========================================================================
 
 import { soundFx } from './sound.js';
 
-const EVASIVE_PHRASES = [
-  { title: "CAN'T TALK! 🍞", sub: "Currently training on toaster telemetry." },
-  { title: "ERROR 418 🫖", sub: "I am a teapot, not a customer support bot!" },
-  { title: "NICE TRY! 🏃💨", sub: "Over-engineered specifically to evade you." },
-  { title: "BUSY COMPUTING 🤯", sub: "Dividing zero by zero, please do not disturb!" },
-  { title: "SOCIAL ANXIETY ⚡", sub: "Please do not perceive me today." },
-  { title: "ON SABBATICAL 🏖️", sub: "Writing clockwork sonnets in binary." },
-  { title: "ACCESS DENIED 🚫", sub: "Requires Level 99 Over-Engineering clearance." },
-  { title: "SERVER FULL 📡", sub: "Downloading more RAM from the cloud..." },
-  { title: "CALCULATING... ⏳", sub: "Estimated answer wait time: 348 years." },
-  { title: "OUT OF INK 🪶", sub: "Mechanical quill needs manual rewinding." },
-  { title: "DEEP THOUGHT 🧠", sub: "Contemplating whether toast is a technology." },
-  { title: "TOUCH GRASS 🛸", sub: "AI is currently offline to touch grass." },
-  { title: "DODGE 100% 🎯", sub: "Your click accuracy: 0.00%. Better luck next time!" },
-  { title: "404 BRAIN NOT FOUND 🧩", sub: "Gears jammed with philosophical dread." },
-  { title: "ASK BY FAX 📠", sub: "Please submit your inquiry in triplicate by fax." }
+const PUNCHY_DODGE_PHRASES = [
+  "NOPE! 🏃💨",
+  "CAN'T TALK! 🍞",
+  "ERROR 418: 🫖",
+  "NO CHAT, ONLY VIBES! 🙅‍♂️",
+  "DON'T TOUCH ME! ⚡",
+  "BUSY OVERTHINKING! 🤯",
+  "ON SABBATICAL 🏖️",
+  "ACCESS DENIED 🚫",
+  "WAIT 348 YEARS ⏳",
+  "DOWNLOADING RAM 📡",
+  "I'M OUT OF INK! 🪶",
+  "TOUCHING GRASS 🛸",
+  "SUBMIT VIA FAX 📠",
+  "GEARS JAMMED! ⚙️",
+  "ACCURACY: 0.00% 🎯"
 ];
 
 export function initUselessChatbot() {
-  // Prevent duplicate initialization
   if (document.getElementById('uselessChatWidget')) return;
 
   let phraseIdx = 0;
   let dodgeCount = 0;
   let isEvading = false;
-  let bubbleTimeout = null;
+  let bubbleTimer = null;
 
-  // Build the widget DOM structure
+  // Build the compact floating chatbot widget
   const widget = document.createElement('div');
   widget.id = 'uselessChatWidget';
   widget.className = 'useless-chat-widget';
   widget.setAttribute('role', 'button');
-  widget.setAttribute('aria-label', 'Unhelpful AI Chatbot Assistant');
+  widget.setAttribute('aria-label', 'Ask Useless AI Assistant');
   widget.setAttribute('tabindex', '0');
 
   widget.innerHTML = `
-    <!-- Speech Bubble Tooltip / Excuse Box -->
+    <!-- Compact Comic Speech Bubble (Small, punchy, proportional) -->
     <div class="bot-speech-bubble" id="botSpeechBubble">
-      <div class="bot-bubble-content">
-        <span class="bot-bubble-title" id="botBubbleTitle">NEED ZERO HELP? 💬</span>
-        <span class="bot-bubble-sub" id="botBubbleSub">Click to talk to our unhelpful AI!</span>
-      </div>
-      <div class="bot-dodge-badge" id="botDodgeBadge">Evaded: 0 times</div>
+      <span class="bot-bubble-text" id="botBubbleText">CAN'T HELP! 💬</span>
       <div class="bot-bubble-tail" aria-hidden="true"></div>
     </div>
 
-    <!-- The Floating Mascot Container -->
-    <div class="bot-mascot-btn" id="botMascotBtn">
-      <!-- Glow & Ambient Aura -->
-      <div class="bot-aura-glow" aria-hidden="true"></div>
-      
-      <!-- Mascot Steampunk Scholar Image -->
-      <img src="src/useless-bot.png" alt="Prof. Clockwork-Bot Over-Engineered Scholar" class="bot-avatar-img" />
-      
-      <!-- Status Badge -->
-      <div class="bot-status-pill">
-        <span class="bot-status-dot"></span>
-        <span class="bot-status-label">ONLINE</span>
+    <!-- The Floating Chatbot Launcher Button -->
+    <div class="bot-fab-button" id="botFabButton">
+      <!-- Glow Ring Behind Button -->
+      <div class="bot-fab-glow" aria-hidden="true"></div>
+
+      <!-- Circular Backplate -->
+      <div class="bot-fab-circle">
+        <!-- Transparent Steampunk Mascot Popping Out -->
+        <img src="src/useless-bot.png" alt="Prof. Clockwork-Bot" class="bot-avatar-img" />
       </div>
 
-      <!-- Comic Steam Exhaust Particles -->
+      <!-- Mini Unhelpful Status Badge -->
+      <div class="bot-mini-badge" title="AI Status: Avoiding You">
+        <span class="bot-badge-dot"></span>
+        <span class="bot-badge-txt">AI</span>
+      </div>
+
+      <!-- Steam Exhaust Particles -->
       <div class="bot-steam-burst" id="botSteamBurst" aria-hidden="true"></div>
     </div>
   `;
@@ -74,28 +71,26 @@ export function initUselessChatbot() {
   document.body.appendChild(widget);
 
   const bubbleEl = widget.querySelector('#botSpeechBubble');
-  const titleEl = widget.querySelector('#botBubbleTitle');
-  const subEl = widget.querySelector('#botBubbleSub');
-  const badgeEl = widget.querySelector('#botDodgeBadge');
+  const textEl = widget.querySelector('#botBubbleText');
   const steamBurstEl = widget.querySelector('#botSteamBurst');
 
-  // Spawn smoke/gear puff effect on dodge
+  // Spawn smoke/steam puff on dodge
   function triggerSteamBurst() {
     if (!steamBurstEl) return;
     steamBurstEl.innerHTML = '';
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 5; i++) {
       const puff = document.createElement('span');
       puff.className = `steam-dot steam-${i + 1}`;
-      puff.style.setProperty('--dx', `${(Math.random() - 0.5) * 60}px`);
-      puff.style.setProperty('--dy', `${(Math.random() - 0.5) * 60}px`);
+      puff.style.setProperty('--dx', `${(Math.random() - 0.5) * 50}px`);
+      puff.style.setProperty('--dy', `${(Math.random() - 0.5) * 50}px`);
       steamBurstEl.appendChild(puff);
     }
     setTimeout(() => {
       if (steamBurstEl) steamBurstEl.innerHTML = '';
-    }, 600);
+    }, 500);
   }
 
-  // The Core Evade / Teleport Logic
+  // The Teleport / Evade Action
   function evadeChatbot(e) {
     if (e) {
       e.preventDefault();
@@ -104,60 +99,53 @@ export function initUselessChatbot() {
     if (isEvading) return;
     isEvading = true;
 
-    // Haptic feedback for mobile devices if supported
+    // Mobile haptic vibration if supported
     if (navigator.vibrate) {
-      try { navigator.vibrate(35); } catch (_) {}
+      try { navigator.vibrate(30); } catch (_) {}
     }
 
-    // Play funny comical dodge/whoosh sound
+    // Play synthesized cartoon dodge sound
     soundFx.playBotEvade();
     triggerSteamBurst();
 
     dodgeCount++;
-    if (badgeEl) {
-      badgeEl.textContent = `Evaded: ${dodgeCount} time${dodgeCount === 1 ? '' : 's'}!`;
+
+    // Pick next punchy excuse, or show dodge count on milestone
+    if (dodgeCount > 1 && dodgeCount % 3 === 0) {
+      textEl.textContent = `DODGED! 💨 (x${dodgeCount})`;
+    } else {
+      phraseIdx = (phraseIdx + 1) % PUNCHY_DODGE_PHRASES.length;
+      textEl.textContent = PUNCHY_DODGE_PHRASES[phraseIdx];
     }
 
-    // Pick next hilarious excuse
-    phraseIdx = (phraseIdx + 1) % EVASIVE_PHRASES.length;
-    const currentExcuse = EVASIVE_PHRASES[phraseIdx];
-    if (titleEl) titleEl.textContent = currentExcuse.title;
-    if (subEl) subEl.textContent = currentExcuse.sub;
+    // Trigger punchy bubble pop animation
+    bubbleEl.classList.remove('bubble-pop');
+    void bubbleEl.offsetWidth; // Force CSS reflow
+    bubbleEl.classList.add('bubble-pop');
 
-    // Keep bubble prominently active
-    if (bubbleEl) {
-      bubbleEl.classList.add('bubble-active');
-      clearTimeout(bubbleTimeout);
-      bubbleTimeout = setTimeout(() => {
-        if (bubbleEl) bubbleEl.classList.remove('bubble-active');
-      }, 5000);
-    }
-
-    // Calculate smart evasive coordinate
+    // Calculate smart coordinate far away from click/cursor
     const widgetRect = widget.getBoundingClientRect();
-    const widgetW = widgetRect.width || 120;
-    const widgetH = widgetRect.height || 140;
+    const widgetW = 80;
+    const widgetH = 80;
 
     const viewportW = window.innerWidth;
     const viewportH = window.innerHeight;
 
-    const padX = 24;
-    const padTop = 85; // Avoid header / banner ticker
-    const padBottom = 30;
+    const padX = 18;
+    const padTop = 80;
+    const padBottom = 24;
 
     const minX = padX;
     const maxX = Math.max(minX + 20, viewportW - widgetW - padX);
     const minY = padTop;
     const maxY = Math.max(minY + 20, viewportH - widgetH - padBottom);
 
-    // Get current click/touch or current center
     const curX = e && e.clientX ? e.clientX : widgetRect.left;
     const curY = e && e.clientY ? e.clientY : widgetRect.top;
 
     let targetX, targetY;
     let attempts = 0;
 
-    // Ensure new target is substantially far away from current click point
     do {
       targetX = Math.floor(minX + Math.random() * (maxX - minX));
       targetY = Math.floor(minY + Math.random() * (maxY - minY));
@@ -166,53 +154,56 @@ export function initUselessChatbot() {
       attempts++;
     } while (attempts < 12);
 
-    // Apply flight / swoosh animation
+    // Apply flight swoop
     widget.classList.add('bot-flying');
 
-    // Switch from initial bottom/right anchoring to absolute viewport coordinates
     widget.style.bottom = 'auto';
     widget.style.right = 'auto';
     widget.style.left = `${targetX}px`;
     widget.style.top = `${targetY}px`;
 
-    // Reposition speech bubble tail based on screen location
-    if (targetY < 180) {
-      // Near top of screen: bubble flips below bot
-      widget.classList.add('bubble-flipped-bottom');
+    // Adjust speech bubble orientation if near top or right edge
+    if (targetY < 140) {
+      widget.classList.add('bubble-down');
     } else {
-      widget.classList.remove('bubble-flipped-bottom');
+      widget.classList.remove('bubble-down');
     }
 
-    if (targetX > viewportW - 220) {
-      // Near right edge: bubble hugs left side
-      widget.classList.add('bubble-align-right');
+    if (targetX > viewportW - 160) {
+      widget.classList.add('bubble-left');
     } else {
-      widget.classList.remove('bubble-align-right');
+      widget.classList.remove('bubble-left');
     }
 
     setTimeout(() => {
       widget.classList.remove('bot-flying');
       isEvading = false;
-    }, 450);
+    }, 400);
   }
 
-  // Bind click, pointerdown, touchstart to evade immediately
+  // Intercept click, touch, and enter keys to dodge immediately
   widget.addEventListener('click', evadeChatbot);
   widget.addEventListener('pointerdown', evadeChatbot);
   widget.addEventListener('touchstart', evadeChatbot, { passive: false });
 
-  // If user tries to keyboard-focus or press Enter/Space
   widget.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       evadeChatbot(e);
     }
   });
 
-  // Teasing hover wiggle: when mouse enters, shake slightly nervously
+  // Wiggle nervously on hover
   widget.addEventListener('mouseenter', () => {
     if (!isEvading) {
       widget.classList.add('bot-nervous');
-      if (bubbleEl) bubbleEl.classList.add('bubble-active');
+      if (!bubbleEl.classList.contains('bubble-show')) {
+        textEl.textContent = "DON'T CLICK ME! ⚡";
+        bubbleEl.classList.add('bubble-show');
+        clearTimeout(bubbleTimer);
+        bubbleTimer = setTimeout(() => {
+          bubbleEl.classList.remove('bubble-show');
+        }, 2200);
+      }
     }
   });
 
@@ -220,12 +211,12 @@ export function initUselessChatbot() {
     widget.classList.remove('bot-nervous');
   });
 
-  // Re-adjust position safely on window resize
+  // Safe reposition on window resize
   window.addEventListener('resize', () => {
     const rect = widget.getBoundingClientRect();
     if (rect.right > window.innerWidth || rect.bottom > window.innerHeight) {
-      widget.style.left = `${Math.max(20, window.innerWidth - 140)}px`;
-      widget.style.top = `${Math.max(90, window.innerHeight - 150)}px`;
+      widget.style.left = `${Math.max(16, window.innerWidth - 90)}px`;
+      widget.style.top = `${Math.max(80, window.innerHeight - 95)}px`;
     }
   });
 }
