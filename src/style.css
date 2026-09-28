@@ -3866,12 +3866,12 @@ a.bento-card.card-more-ideas .card-futility-tag {
 }
 
 /* ==========================================================================
-   ELUSIVE OVER-ENGINEERED CHATBOT ICON (PROF. CLOCKWORK-BOT)
+   ELUSIVE OVER-ENGINEERED CHATBOT (PROF. CLOCKWORK-BOT)
    ========================================================================== */
 .useless-chat-widget {
   position: fixed;
   bottom: 22px;
-  right: 24px;
+  right: 22px;
   z-index: 9990;
   cursor: pointer;
   user-select: none;
@@ -3879,85 +3879,80 @@ a.bento-card.card-more-ideas .card-futility-tag {
   flex-direction: column;
   align-items: center;
   transition: 
-    top 0.42s cubic-bezier(0.34, 1.45, 0.64, 1),
-    left 0.42s cubic-bezier(0.34, 1.45, 0.64, 1),
+    top 0.44s cubic-bezier(0.34, 1.45, 0.64, 1),
+    left 0.44s cubic-bezier(0.34, 1.45, 0.64, 1),
     transform 0.25s ease;
   touch-action: manipulation;
 }
 
-.bot-fab-button {
+.bot-character-container {
   position: relative;
-  width: 64px;
-  height: 64px;
+  width: 150px;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: botMascotHover 4s ease-in-out infinite;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.bot-fab-circle {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #0f483d 0%, #03231d 100%);
-  border: 2.5px solid var(--mellow-yellow, #e0b541);
-  box-shadow: 3px 3px 0px #000, 0 6px 16px rgba(0, 0, 0, 0.5);
-  position: relative;
-  overflow: visible;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
+@keyframes botMascotHover {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  30% {
+    transform: translateY(-8px) rotate(-2deg);
+  }
+  70% {
+    transform: translateY(-4px) rotate(2deg);
+  }
 }
 
-.useless-chat-widget:hover .bot-fab-circle {
-  transform: scale(1.08) translateY(-2px);
-  box-shadow: 4px 4px 0px #000, 0 8px 24px rgba(224, 181, 65, 0.35);
+.useless-chat-widget:hover .bot-character-container {
+  transform: scale(1.08) translateY(-6px);
 }
 
 .bot-avatar-img {
-  position: absolute;
-  width: 78px;
-  height: 78px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   pointer-events: none;
-  top: -11px;
-  left: -9px;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.75));
-  transition: transform 0.2s ease;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 14px rgba(224, 181, 65, 0.3));
+  transition: filter 0.25s ease;
 }
 
 .useless-chat-widget:hover .bot-avatar-img {
-  transform: scale(1.06);
+  filter: drop-shadow(0 16px 30px rgba(0, 0, 0, 0.88)) drop-shadow(0 0 20px rgba(224, 181, 65, 0.6));
 }
 
-.bot-fab-glow {
+.bot-character-glow {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 72px;
-  height: 72px;
-  background: radial-gradient(circle, rgba(224, 181, 65, 0.35) 0%, transparent 70%);
+  width: 125px;
+  height: 125px;
+  background: radial-gradient(circle, rgba(224, 181, 65, 0.28) 0%, rgba(46, 204, 113, 0.12) 50%, transparent 70%);
   border-radius: 50%;
-  filter: blur(6px);
+  filter: blur(10px);
   pointer-events: none;
   z-index: -1;
-  animation: botFabPulse 3s ease-in-out infinite;
+  animation: botAuraPulse 3.5s ease-in-out infinite;
 }
 
-@keyframes botFabPulse {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.85; }
+@keyframes botAuraPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.9; }
 }
 
 .bot-mini-badge {
   position: absolute;
-  top: -2px;
-  right: -2px;
+  top: 10px;
+  right: 14px;
   background: #c0392b;
   border: 1.5px solid #000;
   border-radius: 12px;
-  padding: 1px 6px;
+  padding: 1.5px 7px;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -3978,7 +3973,7 @@ a.bento-card.card-more-ideas .card-futility-tag {
 
 .bot-badge-txt {
   font-family: var(--font-mono);
-  font-size: 0.50rem;
+  font-size: 0.52rem;
   font-weight: 900;
   color: #FFF;
   letter-spacing: 0.5px;
@@ -3987,8 +3982,9 @@ a.bento-card.card-more-ideas .card-futility-tag {
 /* Compact Comic Speech Bubble (Small, punchy, proportional) */
 .bot-speech-bubble {
   position: absolute;
-  bottom: 74px;
-  right: -4px;
+  bottom: 146px;
+  left: 50%;
+  transform: translateX(-50%);
   background: #FFF9E6;
   color: #002e29;
   border: 2px solid #000;
@@ -3997,11 +3993,9 @@ a.bento-card.card-more-ideas .card-futility-tag {
   box-shadow: 2.5px 2.5px 0px #000;
   pointer-events: none;
   opacity: 1;
-  transform: scale(1) translateY(0);
-  transform-origin: bottom right;
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 10;
   white-space: nowrap;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .bot-speech-bubble.bubble-pop {
@@ -4009,9 +4003,9 @@ a.bento-card.card-more-ideas .card-futility-tag {
 }
 
 @keyframes botBubblePop {
-  0% { transform: scale(0.65) translateY(4px); }
-  60% { transform: scale(1.15) translateY(-2px); }
-  100% { transform: scale(1) translateY(0); }
+  0% { transform: translateX(-50%) scale(0.65) translateY(4px); }
+  60% { transform: translateX(-50%) scale(1.15) translateY(-2px); }
+  100% { transform: translateX(-50%) scale(1) translateY(0); }
 }
 
 .bot-bubble-text {
@@ -4026,7 +4020,8 @@ a.bento-card.card-more-ideas .card-futility-tag {
 .bot-speech-bubble .bot-bubble-tail {
   position: absolute;
   bottom: -6px;
-  right: 24px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 0;
   height: 0;
   border-left: 6px solid transparent;
@@ -4047,11 +4042,10 @@ a.bento-card.card-more-ideas .card-futility-tag {
   z-index: -1;
 }
 
-/* Position adjustments when near top or right */
+/* Position adjustments when near top */
 .useless-chat-widget.bubble-down .bot-speech-bubble {
   bottom: auto;
-  top: 74px;
-  transform-origin: top right;
+  top: 146px;
 }
 
 .useless-chat-widget.bubble-down .bot-speech-bubble .bot-bubble-tail {
@@ -4068,20 +4062,9 @@ a.bento-card.card-more-ideas .card-futility-tag {
   border-bottom: 8px solid #000;
 }
 
-.useless-chat-widget.bubble-left .bot-speech-bubble {
-  right: auto;
-  left: -60px;
-  transform-origin: bottom left;
-}
-
-.useless-chat-widget.bubble-left .bot-speech-bubble .bot-bubble-tail {
-  right: auto;
-  left: 60px;
-}
-
 /* Animations */
 .useless-chat-widget.bot-flying {
-  transform: scale(0.88) rotate(14deg);
+  transform: scale(0.88) rotate(12deg);
 }
 
 .useless-chat-widget.bot-nervous {
@@ -4111,25 +4094,15 @@ a.bento-card.card-more-ideas .card-futility-tag {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .useless-chat-widget {
-    bottom: 18px;
-    right: 16px;
+    bottom: 16px;
+    right: 14px;
   }
-  .bot-fab-button {
-    width: 56px;
-    height: 56px;
-  }
-  .bot-fab-circle {
-    width: 52px;
-    height: 52px;
-  }
-  .bot-avatar-img {
-    width: 68px;
-    height: 68px;
-    top: -9px;
-    left: -8px;
+  .bot-character-container {
+    width: 115px;
+    height: 110px;
   }
   .bot-speech-bubble {
-    bottom: 64px;
+    bottom: 114px;
     padding: 3px 8px;
   }
   .bot-bubble-text {
@@ -4139,25 +4112,15 @@ a.bento-card.card-more-ideas .card-futility-tag {
 
 @media (max-width: 480px) {
   .useless-chat-widget {
-    bottom: 14px;
-    right: 12px;
+    bottom: 12px;
+    right: 10px;
   }
-  .bot-fab-button {
-    width: 52px;
-    height: 52px;
-  }
-  .bot-fab-circle {
-    width: 48px;
-    height: 48px;
-  }
-  .bot-avatar-img {
-    width: 62px;
-    height: 62px;
-    top: -8px;
-    left: -7px;
+  .bot-character-container {
+    width: 100px;
+    height: 95px;
   }
   .bot-speech-bubble {
-    bottom: 58px;
+    bottom: 100px;
     padding: 3px 7px;
   }
   .bot-bubble-text {

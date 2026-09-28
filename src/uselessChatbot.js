@@ -1,6 +1,6 @@
 // ==========================================================================
 // ELUSIVE OVER-ENGINEERED CHATBOT ICON (PROF. CLOCKWORK-BOT)
-// A sleek chatbot floating launcher designed to run away whenever clicked.
+// A prominent floating mascot designed to run away whenever clicked.
 // ==========================================================================
 
 import { soundFx } from './sound.js';
@@ -29,9 +29,8 @@ export function initUselessChatbot() {
   let phraseIdx = 0;
   let dodgeCount = 0;
   let isEvading = false;
-  let bubbleTimer = null;
 
-  // Build the compact floating chatbot widget
+  // Build the floating mascot chatbot widget
   const widget = document.createElement('div');
   widget.id = 'uselessChatWidget';
   widget.className = 'useless-chat-widget';
@@ -46,18 +45,15 @@ export function initUselessChatbot() {
       <div class="bot-bubble-tail" aria-hidden="true"></div>
     </div>
 
-    <!-- The Floating Chatbot Launcher Button -->
-    <div class="bot-fab-button" id="botFabButton">
-      <!-- Glow Ring Behind Button -->
-      <div class="bot-fab-glow" aria-hidden="true"></div>
+    <!-- The Floating Mascot Character Container (Large & Detailed) -->
+    <div class="bot-character-container" id="botFabButton">
+      <!-- Glow Aura Behind Mascot -->
+      <div class="bot-character-glow" aria-hidden="true"></div>
 
-      <!-- Circular Backplate -->
-      <div class="bot-fab-circle">
-        <!-- Transparent Steampunk Mascot Popping Out -->
-        <img src="src/useless-bot.png" alt="Prof. Clockwork-Bot" class="bot-avatar-img" />
-      </div>
+      <!-- Transparent Steampunk Mascot Image -->
+      <img src="src/useless-bot.png" alt="Prof. Clockwork-Bot" class="bot-avatar-img" />
 
-      <!-- Mini Unhelpful Status Badge -->
+      <!-- Mini Status Badge -->
       <div class="bot-mini-badge" title="AI Status: Avoiding You">
         <span class="bot-badge-dot"></span>
         <span class="bot-badge-txt">AI</span>
@@ -78,16 +74,16 @@ export function initUselessChatbot() {
   function triggerSteamBurst() {
     if (!steamBurstEl) return;
     steamBurstEl.innerHTML = '';
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
       const puff = document.createElement('span');
       puff.className = `steam-dot steam-${i + 1}`;
-      puff.style.setProperty('--dx', `${(Math.random() - 0.5) * 50}px`);
-      puff.style.setProperty('--dy', `${(Math.random() - 0.5) * 50}px`);
+      puff.style.setProperty('--dx', `${(Math.random() - 0.5) * 60}px`);
+      puff.style.setProperty('--dy', `${(Math.random() - 0.5) * 60}px`);
       steamBurstEl.appendChild(puff);
     }
     setTimeout(() => {
       if (steamBurstEl) steamBurstEl.innerHTML = '';
-    }, 500);
+    }, 550);
   }
 
   // The Teleport / Evade Action
@@ -125,14 +121,14 @@ export function initUselessChatbot() {
 
     // Calculate smart coordinate far away from click/cursor
     const widgetRect = widget.getBoundingClientRect();
-    const widgetW = 80;
-    const widgetH = 80;
+    const widgetW = 160;
+    const widgetH = 170;
 
     const viewportW = window.innerWidth;
     const viewportH = window.innerHeight;
 
-    const padX = 18;
-    const padTop = 80;
+    const padX = 20;
+    const padTop = 85;
     const padBottom = 24;
 
     const minX = padX;
@@ -150,7 +146,7 @@ export function initUselessChatbot() {
       targetX = Math.floor(minX + Math.random() * (maxX - minX));
       targetY = Math.floor(minY + Math.random() * (maxY - minY));
       const dist = Math.hypot(targetX - curX, targetY - curY);
-      if (dist > 180 || attempts > 10) break;
+      if (dist > 200 || attempts > 10) break;
       attempts++;
     } while (attempts < 12);
 
@@ -169,7 +165,7 @@ export function initUselessChatbot() {
       widget.classList.remove('bubble-down');
     }
 
-    if (targetX > viewportW - 160) {
+    if (targetX > viewportW - 180) {
       widget.classList.add('bubble-left');
     } else {
       widget.classList.remove('bubble-left');
@@ -178,7 +174,7 @@ export function initUselessChatbot() {
     setTimeout(() => {
       widget.classList.remove('bot-flying');
       isEvading = false;
-    }, 400);
+    }, 420);
   }
 
   // Intercept click, touch, and enter keys to dodge immediately
@@ -196,14 +192,10 @@ export function initUselessChatbot() {
   widget.addEventListener('mouseenter', () => {
     if (!isEvading) {
       widget.classList.add('bot-nervous');
-      if (!bubbleEl.classList.contains('bubble-show')) {
-        textEl.textContent = "DON'T CLICK ME! ⚡";
-        bubbleEl.classList.add('bubble-show');
-        clearTimeout(bubbleTimer);
-        bubbleTimer = setTimeout(() => {
-          bubbleEl.classList.remove('bubble-show');
-        }, 2200);
-      }
+      textEl.textContent = "DON'T CLICK ME! ⚡";
+      bubbleEl.classList.remove('bubble-pop');
+      void bubbleEl.offsetWidth;
+      bubbleEl.classList.add('bubble-pop');
     }
   });
 
@@ -215,8 +207,8 @@ export function initUselessChatbot() {
   window.addEventListener('resize', () => {
     const rect = widget.getBoundingClientRect();
     if (rect.right > window.innerWidth || rect.bottom > window.innerHeight) {
-      widget.style.left = `${Math.max(16, window.innerWidth - 90)}px`;
-      widget.style.top = `${Math.max(80, window.innerHeight - 95)}px`;
+      widget.style.left = `${Math.max(16, window.innerWidth - 180)}px`;
+      widget.style.top = `${Math.max(85, window.innerHeight - 190)}px`;
     }
   });
 }
