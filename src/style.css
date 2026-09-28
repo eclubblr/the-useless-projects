@@ -579,22 +579,28 @@ body {
 
 .landing-stage-section {
   position: relative;
-  padding: 90px 0 18px 0; /* Elevated billboard hero to guarantee clean separation from viewport controls */
+  min-height: 100vh;
+  min-height: 100dvh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 85px 0 85px 0;
   scroll-margin-top: 75px;
   background: 
-    radial-gradient(ellipse at 50% 20%, rgba(0, 71, 64, 0.35) 0%, transparent 70%),
+    radial-gradient(ellipse at 50% 25%, rgba(0, 71, 64, 0.4) 0%, transparent 70%),
     #002420;
   overflow: hidden;
 }
 
-/* Subtle background blueprint grid */
+/* Subtle background blueprint grid - richer visibility */
 .landing-stage-section::before {
   content: "";
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(139, 203, 183, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(139, 203, 183, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(139, 203, 183, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 203, 183, 0.09) 1px, transparent 1px);
   background-size: 32px 32px;
   pointer-events: none;
   z-index: 1;
@@ -604,6 +610,7 @@ body {
   position: relative;
   z-index: 2;
   max-width: 1440px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -1480,15 +1487,7 @@ body {
 /* HERO SECTION (ENGINEERING SOLUTIONS NOBODY ASKED FOR) */
 .hero-section {
   position: relative;
-  padding: 65px 0 70px 0;
-  overflow: hidden;
-  border-top: 2px dashed rgba(139, 203, 183, 0.2);
-}
-
-/* HERO SECTION (ENGINEERING SOLUTIONS NOBODY ASKED FOR) */
-.hero-section {
-  position: relative;
-  padding: 70px 0 70px 0;
+  padding: 80px 0 70px 0;
   overflow: hidden;
   border-top: 2px dashed rgba(139, 203, 183, 0.2);
 }
