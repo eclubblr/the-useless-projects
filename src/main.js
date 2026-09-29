@@ -333,7 +333,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // --------------------------------------------------
   const forbiddenBtn = document.getElementById('forbiddenBtn');
   if (forbiddenBtn) {
+    forbiddenBtn.addEventListener('mouseenter', () => {
+      soundFx.playClick(900, 0.035);
+    });
     forbiddenBtn.addEventListener('click', () => {
+      soundFx.playSiren();
       // Trigger full gravity collapse: all text & elements plummet off-screen into the void
       siteCollapse.triggerCollapse();
     });

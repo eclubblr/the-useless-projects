@@ -530,28 +530,270 @@ body {
   box-shadow: 8px 8px 0px var(--kind-coral);
 }
 
-.btn-forbidden {
-  background: var(--kind-coral);
-  color: #fff;
-  font-family: var(--font-mono);
-  font-weight: 800;
-  font-size: 0.95rem;
-  padding: 12px 22px;
-  border: 3px solid var(--antique-white);
-  box-shadow: 4px 4px 0px var(--dark-green);
-  cursor: pointer;
+/* ==========================================================================
+   TRIANGULAR HAZARD WARNING SIGN DETONATOR (INDUSTRIAL CAUTION PLAQUE)
+   ========================================================================== */
+.nuclear-hazard-rig.triangle-mode {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  line-height: 1;
-  text-transform: uppercase;
-  animation: pulseForbidden 1.5s infinite;
+  width: 220px;
+  height: 165px;
+  user-select: none;
+  filter: drop-shadow(4px 4px 0px #00120f) drop-shadow(0 10px 24px rgba(0, 0, 0, 0.65));
+  transition: filter 0.25s ease, transform 0.2s ease;
+  vertical-align: middle;
+  flex-shrink: 0;
 }
 
-@keyframes pulseForbidden {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.04); }
+/* Outer Hazard Caution Stripe Triangle Plate */
+.hazard-triangle-plate {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #141618;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* 3 Symmetrical Per-Edge Hazard Strips (Clean 45 deg diagonals on ALL sides) */
+.hazard-edge-strip {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  background-size: 34px 34px;
+}
+
+.hazard-edge-strip.edge-left {
+  top: 82.5px;
+  left: 55px;
+  width: 34px;
+  height: 240px;
+  transform: translate(-50%, -50%) rotate(33.7deg);
+  background-image: repeating-linear-gradient(
+    45deg,
+    #FFD700 0px,
+    #FFD700 12px,
+    #141618 12px,
+    #141618 24px
+  );
+  animation: hazardStripeDrift 16s linear infinite;
+}
+
+.hazard-edge-strip.edge-right {
+  top: 82.5px;
+  left: 165px;
+  width: 34px;
+  height: 240px;
+  transform: translate(-50%, -50%) rotate(-33.7deg);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #FFD700 0px,
+    #FFD700 12px,
+    #141618 12px,
+    #141618 24px
+  );
+  animation: hazardStripeDrift 16s linear infinite;
+}
+
+.hazard-edge-strip.edge-bottom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #FFD700 0px,
+    #FFD700 12px,
+    #141618 12px,
+    #141618 24px
+  );
+  animation: hazardStripeDrift 16s linear infinite;
+}
+
+@keyframes hazardStripeDrift {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 0; }
+}
+
+/* 3 Heavy Industrial Hex Screws in the Corners */
+.nuclear-hazard-rig.triangle-mode .hazard-screw {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: #ccd2d8;
+  border-radius: 50%;
+  border: 1px solid #14171a;
+  box-shadow: 
+    inset 1px 1px 1.5px #ffffff,
+    inset -1px -1px 1px #3d444b,
+    0 1px 2px rgba(0, 0, 0, 0.9);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.nuclear-hazard-rig.triangle-mode .hazard-screw::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 2px;
+  background: #111417;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.nuclear-hazard-rig.triangle-mode .apex-screw {
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nuclear-hazard-rig.triangle-mode .bot-l-screw {
+  bottom: 8px;
+  left: 22px;
+}
+
+.nuclear-hazard-rig.triangle-mode .bot-r-screw {
+  bottom: 8px;
+  right: 22px;
+}
+
+/* Inner Red Plunger Triangle Button */
+.btn-nuclear-hazard.btn-triangle,
+.btn-forbidden {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  right: 10px;
+  bottom: 8px;
+  background: radial-gradient(circle at 50% 55%, #ff4d4d 0%, #d32f2f 45%, #990000 80%, #4a0000 100%);
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 
+    inset 0 3px 6px rgba(255, 255, 255, 0.45),
+    inset 0 -6px 12px rgba(0, 0, 0, 0.9);
+  transition: transform 0.12s cubic-bezier(0.2, 0.8, 0.3, 1), filter 0.2s ease;
+  user-select: none;
+  z-index: 4;
+}
+
+.triangle-core-surface {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 9px;
+  gap: 2px;
+  position: relative;
+  z-index: 5;
+  box-sizing: border-box;
+}
+
+/* Centered, Prominent Nuclear Hazard Trefoil Emblem */
+.triangle-rad-icon {
+  font-size: 1.85rem;
+  line-height: 1;
+  color: #FFD700;
+  text-shadow: 
+    0 0 10px rgba(255, 215, 0, 0.9),
+    0 0 22px rgba(255, 170, 0, 0.55),
+    1.5px 1.5px 2px #000;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.85));
+  animation: radSpinPulse 3s ease-in-out infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes radSpinPulse {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.12) rotate(12deg); }
+}
+
+.triangle-labels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+  width: 100%;
+}
+
+.triangle-label-main {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: 0.6px;
+  line-height: 1.1;
+  text-shadow: 
+    1.5px 1.5px 0px #000,
+    0 0 8px rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+}
+
+.triangle-label-sub {
+  font-family: var(--font-mono);
+  font-size: 0.42rem;
+  font-weight: 800;
+  color: #FFD700;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  text-shadow: 1px 1px 0px #000;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 0.5px solid rgba(255, 215, 0, 0.4);
+}
+
+/* Hover: Unstable Reactor Rumble & Rapid Warning Glow */
+.nuclear-hazard-rig.triangle-mode:hover {
+  filter: 
+    drop-shadow(6px 6px 0px #00120f)
+    drop-shadow(0 0 25px rgba(255, 30, 30, 0.95))
+    drop-shadow(0 0 55px rgba(255, 140, 0, 0.75));
+  transform: translateY(-2px);
+}
+
+.nuclear-hazard-rig.triangle-mode:hover .hazard-edge-strip {
+  animation-duration: 1.2s;
+}
+
+.nuclear-hazard-rig.triangle-mode:hover .btn-nuclear-hazard.btn-triangle {
+  animation: nuclearRumble 0.12s linear infinite;
+  filter: brightness(1.15) contrast(1.1);
+}
+
+@keyframes nuclearRumble {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-1.5px, 1px) rotate(-0.5deg); }
+  50% { transform: translate(1px, -1.5px) rotate(0.5deg); }
+  75% { transform: translate(-1px, -1px); }
+  100% { transform: translate(1.5px, 1px); }
+}
+
+/* Active Pressed Plunger State */
+.btn-nuclear-hazard.btn-triangle:active,
+.btn-forbidden:active {
+  transform: scale(0.94) translateY(3px) !important;
+  box-shadow: 
+    inset 0 6px 14px rgba(0, 0, 0, 0.95),
+    0 1px 2px rgba(0, 0, 0, 0.5) !important;
+  background: radial-gradient(circle at 50% 60%, #990000 0%, #cc0000 50%, #ff1a1a 100%) !important;
 }
 
 .btn-chaos {
@@ -1168,7 +1410,7 @@ body {
 }
 
 .partner-mark-tinkerhub .th-hub {
-  color: #2ecc71;
+  color: #FFFFFF;
 }
 
 .partner-mark-eclub {
@@ -1213,8 +1455,9 @@ body {
 .eclub-tagline {
   font-family: 'Caveat', cursive, var(--font-body);
   font-style: italic;
-  font-size: 0.84rem;
-  color: var(--mellow-yellow);
+  font-size: 0.86rem;
+  color: #FFFFFF;
+  opacity: 0.95;
   line-height: 1.2;
   white-space: normal;
   word-break: normal;
@@ -1256,9 +1499,10 @@ body {
 
 .makerspace-campus {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 800;
-  color: var(--mellow-yellow);
+  color: #FFFFFF;
+  opacity: 0.95;
   line-height: 1.2;
 }
 
@@ -3934,13 +4178,17 @@ body.scrolled-down .hanging-tag-unit .tag-card {
   }
 
   .hero-cta-group .btn-primary,
-  .hero-cta-group .btn-secondary,
-  .hero-cta-group .btn-forbidden {
+  .hero-cta-group .btn-secondary {
     width: 100%;
     justify-content: center;
     font-size: 0.92rem;
     padding: 13px 18px;
     text-align: center;
+  }
+
+  .nuclear-hazard-rig.triangle-mode {
+    align-self: center;
+    margin: 8px auto;
   }
 
   .hero-stats-strip {
