@@ -1785,19 +1785,99 @@ body {
   .billboard-partners-col {
     grid-column: span 1;
     width: 100%;
-    margin-top: 8px;
+    margin-top: 10px;
   }
   .partners-stack-box {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 20px 18px;
-    gap: 15px;
-    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 10px;
+    background: rgba(0, 24, 20, 0.7);
+    border: 1.5px solid rgba(139, 203, 183, 0.28);
+    border-radius: 14px;
+    box-sizing: border-box;
+    width: 100%;
   }
   .billboard-partner-divider {
+    display: none;
+  }
+  .billboard-partner-unit {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background: rgba(0, 36, 32, 0.5);
+    border: 1px solid rgba(139, 203, 183, 0.16);
+    border-radius: 10px;
+    padding: 9px 10px;
+    min-width: 0;
+    box-sizing: border-box;
+    justify-content: flex-start;
+  }
+  .partner-meta-label {
+    font-size: 0.54rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
+  .partner-mark-vdc,
+  .partner-mark-makerspace,
+  .partner-mark-eclub,
+  .partner-mark-tinkerhub {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+    gap: 2px;
+    min-width: 0;
     width: 100%;
-    height: 1px;
-    background: rgba(139, 203, 183, 0.2);
+  }
+  .vdc-title {
+    font-size: 0.88rem;
+    line-height: 1.15;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .vdc-univ {
+    font-size: 0.54rem;
+    line-height: 1.2;
+    white-space: normal;
+    margin-top: 2px;
+    display: block;
+  }
+  .makerspace-title {
+    font-size: 0.84rem;
+    line-height: 1.15;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+  }
+  .makerspace-campus {
+    font-size: 0.65rem;
+    line-height: 1.2;
+    display: block;
+  }
+  .eclub-name {
+    font-size: 0.86rem;
+    line-height: 1.15;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .eclub-tagline {
+    font-size: 0.68rem;
+    line-height: 1.2;
+    white-space: normal;
+    margin-top: 1px;
+    display: block;
+  }
+  .partner-mark-tinkerhub {
+    font-size: 1.15rem;
+    line-height: 1.1;
+    white-space: nowrap;
   }
 }
 
@@ -1869,24 +1949,40 @@ body {
     width: 100%;
   }
   .partners-stack-box {
-    padding: 16px 14px;
-    gap: 13px;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    padding: 8px;
+    border-radius: 12px;
   }
-  .partner-mark-tinkerhub {
-    font-size: 1.55rem;
+  .billboard-partner-unit {
+    padding: 8px;
+    border-radius: 8px;
   }
-  .eclub-name {
-    font-size: 1.22rem;
+  .partner-meta-label {
+    font-size: 0.50rem;
+    letter-spacing: 0.3px;
+    margin-bottom: 2px;
   }
-  .eclub-tagline {
+  .vdc-title {
     font-size: 0.82rem;
   }
-  .makerspace-title {
-    font-size: 0.90rem;
+  .vdc-univ {
+    font-size: 0.50rem;
   }
-  .makerspace-dept,
-  .makerspace-univ {
-    white-space: normal;
+  .makerspace-title {
+    font-size: 0.78rem;
+  }
+  .makerspace-campus {
+    font-size: 0.60rem;
+  }
+  .eclub-name {
+    font-size: 0.80rem;
+  }
+  .eclub-tagline {
+    font-size: 0.64rem;
+  }
+  .partner-mark-tinkerhub {
+    font-size: 1.05rem;
   }
 }
 
