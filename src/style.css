@@ -1149,6 +1149,30 @@ body {
   margin-bottom: 2px;
 }
 
+.brand-presents-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(0, 20, 17, 0.85);
+  border: 1.5px solid #E0B541;
+  color: #FFE79A;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 2.2px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  box-shadow: 2.5px 2.5px 0px #00120f;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.brand-presents-tag .presents-spark {
+  color: #E0B541;
+  font-size: 0.74rem;
+}
+
 .brand-line-useless {
   font-family: var(--font-heading);
   font-size: clamp(3.2rem, 4.3vw, 4.2rem);
@@ -1371,13 +1395,13 @@ body {
 .partners-stack-box {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   background: rgba(0, 26, 22, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1.5px solid rgba(139, 203, 183, 0.32);
   border-radius: 16px;
-  padding: 14px 18px;
+  padding: 12px 16px;
   box-shadow: 4px 4px 0px #00120f;
   box-sizing: border-box;
   width: 100%;
@@ -1391,18 +1415,59 @@ body {
 
 .partner-meta-label {
   font-family: var(--font-mono);
-  font-size: 0.64rem;
+  font-size: 0.62rem;
   font-weight: 700;
   color: var(--light-green);
   text-transform: uppercase;
   letter-spacing: 0.8px;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
   opacity: 0.9;
+}
+
+.partner-mark-vdc {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.vdc-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.vdc-title {
+  font-family: var(--font-heading);
+  font-size: 1.10rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.12;
+  letter-spacing: 0.3px;
+}
+
+.vdc-dept {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--light-green);
+  opacity: 0.95;
+  white-space: nowrap;
+  line-height: 1.25;
+}
+
+.vdc-univ {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--light-green);
+  opacity: 0.8;
+  white-space: nowrap;
+  line-height: 1.25;
 }
 
 .partner-mark-tinkerhub {
   font-family: var(--font-heading);
-  font-size: 1.55rem;
+  font-size: 1.45rem;
   font-weight: 900;
   color: #FFFFFF;
   line-height: 1.05;
@@ -1416,7 +1481,7 @@ body {
 .partner-mark-eclub {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   min-width: 0;
 }
 
@@ -1446,7 +1511,7 @@ body {
 
 .eclub-name {
   font-family: var(--font-heading);
-  font-size: 1.22rem;
+  font-size: 1.15rem;
   font-weight: 900;
   color: #FFFFFF;
   line-height: 1.1;
@@ -1455,7 +1520,7 @@ body {
 .eclub-tagline {
   font-family: 'Caveat', cursive, var(--font-body);
   font-style: italic;
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   color: #FFFFFF;
   opacity: 0.95;
   line-height: 1.2;
@@ -1466,13 +1531,13 @@ body {
 .partner-mark-makerspace {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   min-width: 0;
 }
 
 .makerspace-seal-badge {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   background: #FFF;
   border-radius: 50%;
   padding: 2px;
