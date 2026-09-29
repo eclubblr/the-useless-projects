@@ -10,8 +10,12 @@ import { initHammerCursor } from './hammerCursor.js';
 import { initTextColorChaos } from './textColorChaos.js';
 import { siteCollapse } from './siteCollapse.js';
 import { initUselessChatbot } from './uselessChatbot.js';
+import { initExperienceAdvisory } from './experienceAdvisory.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize experience advisory & bootloader screen
+  initExperienceAdvisory();
+
   // Initialize animated hammer cursor with sound and swing physics
   initHammerCursor();
 

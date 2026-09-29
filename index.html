@@ -29,10 +29,35 @@
   <link
     href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@500;700;900&family=Syne:wght@700;800;900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="src/style.css?v=5.0">
+  <link rel="stylesheet" href="src/style.css?v=6.0">
 </head>
 
 <body>
+  <!-- Floating Experience Advisory Notification Toast & Backdrop -->
+  <div id="experienceBackdrop" class="experience-backdrop" aria-hidden="true"></div>
+  <aside id="experienceToast" class="experience-toast" role="alert" aria-live="polite">
+    <div class="toast-hazard-rim"></div>
+    <div class="toast-inner">
+      <img src="src/duck-mascot.png" alt="Duck Mascot" class="toast-duck-avatar" />
+
+      <div class="toast-content">
+        <h3 class="toast-main-msg">
+          Best viewed on <span class="highlight-laptop">💻 Laptop / PC</span> with <span class="highlight-volume">🔊
+            Full Volume</span>!
+        </h3>
+        <p class="toast-sub-msg">
+          Small screens kill the hover chaos, and muted audio ruins the synthesized sound effects.
+        </p>
+        <div class="toast-footer-bar">
+          <span class="toast-dismiss-hint">✨ Click anywhere to continue</span>
+          <button id="toastGotItBtn" class="btn-toast-ack" type="button">Got It ⚡</button>
+        </div>
+      </div>
+
+      <button id="toastCloseBtn" class="btn-toast-x" type="button" aria-label="Dismiss advisory">✕</button>
+    </div>
+  </aside>
+
   <!-- Chaos Physics Canvas Overlay -->
   <canvas id="chaosCanvas"></canvas>
 
@@ -317,7 +342,7 @@
             with maximum futility.
             <br>
             <span class="manifesto-rule-badge">
-              ⚡ <strong>Rule #1:</strong> If your project actually saves time or makes money, you're doing it wrong!
+              <strong>Rule #1:</strong> If your project actually saves time or makes money, you're doing it wrong!
             </span>
           </p>
 
@@ -1331,11 +1356,13 @@
       </div>
       <div class="footer-copy">
         © 2026 GITAM Useless Projects. All rights reserved. Absolutely useless.
+        <br>
+        <button id="reopenAdvisoryBtn" type="button" class="footer-advisory-btn">⚙️ Hardware & Audio Advisory</button>
       </div>
     </div>
   </footer>
 
-  <script type="module" src="src/main.js?v=4.0"></script>
+  <script type="module" src="src/main.js?v=6.0"></script>
 </body>
 
 </html>
