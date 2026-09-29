@@ -86,7 +86,7 @@ export function initUselessChatbot() {
     }, 550);
   }
 
-  // The Teleport / Evade Action
+  // Vanish and Teleport Action (Triggered on click/tap)
   function evadeChatbot(e) {
     if (e) {
       e.preventDefault();
@@ -97,32 +97,23 @@ export function initUselessChatbot() {
 
     // Mobile haptic vibration if supported
     if (navigator.vibrate) {
-      try { navigator.vibrate(30); } catch (_) {}
+      try { navigator.vibrate(35); } catch (_) {}
     }
 
-    // Play synthesized cartoon dodge sound
+    // Play cartoon dodge sound & trigger steam burst at departure spot
     soundFx.playBotEvade();
     triggerSteamBurst();
 
     dodgeCount++;
 
-    // Pick next punchy excuse, or show dodge count on milestone
-    if (dodgeCount > 1 && dodgeCount % 3 === 0) {
-      textEl.textContent = `DODGED! 💨 (x${dodgeCount})`;
-    } else {
-      phraseIdx = (phraseIdx + 1) % PUNCHY_DODGE_PHRASES.length;
-      textEl.textContent = PUNCHY_DODGE_PHRASES[phraseIdx];
-    }
+    // Vanish animation (shrink + spin + blur to 0)
+    widget.classList.remove('bot-reappear', 'bot-flying', 'bot-nervous');
+    widget.classList.add('bot-vanish');
 
-    // Trigger punchy bubble pop animation
-    bubbleEl.classList.remove('bubble-pop');
-    void bubbleEl.offsetWidth; // Force CSS reflow
-    bubbleEl.classList.add('bubble-pop');
-
-    // Calculate smart coordinate far away from click/cursor
+    // Calculate smart coordinate far away from current spot
     const widgetRect = widget.getBoundingClientRect();
-    const widgetW = 160;
-    const widgetH = 170;
+    const widgetW = 150;
+    const widgetH = 160;
 
     const viewportW = window.innerWidth;
     const viewportH = window.innerHeight;
@@ -136,8 +127,8 @@ export function initUselessChatbot() {
     const minY = padTop;
     const maxY = Math.max(minY + 20, viewportH - widgetH - padBottom);
 
-    const curX = e && e.clientX ? e.clientX : widgetRect.left;
-    const curY = e && e.clientY ? e.clientY : widgetRect.top;
+    const curX = widgetRect.left;
+    const curY = widgetRect.top;
 
     let targetX, targetY;
     let attempts = 0;
@@ -146,41 +137,173 @@ export function initUselessChatbot() {
       targetX = Math.floor(minX + Math.random() * (maxX - minX));
       targetY = Math.floor(minY + Math.random() * (maxY - minY));
       const dist = Math.hypot(targetX - curX, targetY - curY);
-      if (dist > 200 || attempts > 10) break;
+      if (dist > 260 || attempts > 12) break;
       attempts++;
-    } while (attempts < 12);
+    } while (attempts < 15);
 
-    // Apply flight swoop
-    widget.classList.add('bot-flying');
+    // After vanishing, move coordinates and reappear with a pop
+    setTimeout(() => {
+      widget.style.bottom = 'auto';
+      widget.style.right = 'auto';
+      widget.style.left = `${targetX}px`;
+      widget.style.top = `${targetY}px`;
 
-    widget.style.bottom = 'auto';
-    widget.style.right = 'auto';
-    widget.style.left = `${targetX}px`;
-    widget.style.top = `${targetY}px`;
+      updateBubbleOrientation(targetX, targetY);
 
-    // Adjust speech bubble orientation if near top or right edge
-    if (targetY < 140) {
+      // Pick next punchy excuse, or show dodge count on milestone
+      if (dodgeCount > 1 && dodgeCount % 3 === 0) {
+        textEl.textContent = `VANISHED! 💨 (x${dodgeCount})`;
+      } else {
+        phraseIdx = (phraseIdx + 1) % PUNCHY_DODGE_PHRASES.length;
+        textEl.textContent = PUNCHY_DODGE_PHRASES[phraseIdx];
+      }
+
+      // Trigger punchy bubble pop animation
+      bubbleEl.classList.remove('bubble-pop');
+      void bubbleEl.offsetWidth; // Force reflow
+      bubbleEl.classList.add('bubble-pop');
+
+      // Reappear at the new location
+      widget.classList.remove('bot-vanish');
+      widget.classList.add('bot-reappear');
+      triggerSteamBurst();
+
+      setTimeout(() => {
+        widget.classList.remove('bot-reappear');
+        isEvading = false;
+      }, 150);
+    }, 75);
+  }
+
+  function updateBubbleOrientation(x, y) {
+    if (y < 140) {
       widget.classList.add('bubble-down');
     } else {
       widget.classList.remove('bubble-down');
     }
 
-    if (targetX > viewportW - 180) {
+    if (x > window.innerWidth - 180) {
       widget.classList.add('bubble-left');
     } else {
       widget.classList.remove('bubble-left');
     }
-
-    setTimeout(() => {
-      widget.classList.remove('bot-flying');
-      isEvading = false;
-    }, 420);
   }
 
-  // Intercept click, touch, and enter keys to dodge immediately
-  widget.addEventListener('click', evadeChatbot);
-  widget.addEventListener('pointerdown', evadeChatbot);
-  widget.addEventListener('touchstart', evadeChatbot, { passive: false });
+  // ==========================================================================
+  // DRAGGABLE MECHANICS (Pointer Events for Touch + Mouse)
+  // ==========================================================================
+  let isPointerDown = false;
+  let isDragging = false;
+  let startX = 0;
+  let startY = 0;
+  let offsetX = 0;
+  let offsetY = 0;
+  let activePointerId = null;
+
+  widget.addEventListener('pointerdown', (e) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    if (isEvading) return;
+
+    isPointerDown = true;
+    isDragging = false;
+    activePointerId = e.pointerId;
+    startX = e.clientX;
+    startY = e.clientY;
+
+    const rect = widget.getBoundingClientRect();
+    widget.style.bottom = 'auto';
+    widget.style.right = 'auto';
+    widget.style.left = `${rect.left}px`;
+    widget.style.top = `${rect.top}px`;
+
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+
+    try {
+      widget.setPointerCapture(e.pointerId);
+    } catch (_) {}
+  });
+
+  widget.addEventListener('pointermove', (e) => {
+    if (!isPointerDown || e.pointerId !== activePointerId || isEvading) return;
+
+    const dist = Math.hypot(e.clientX - startX, e.clientY - startY);
+    if (!isDragging && dist > 6) {
+      isDragging = true;
+      widget.classList.add('bot-dragging');
+      widget.classList.remove('bot-nervous', 'bot-reappear', 'bot-vanish');
+      textEl.textContent = "WHEEE! 🛸";
+      bubbleEl.classList.remove('bubble-pop');
+      void bubbleEl.offsetWidth;
+      bubbleEl.classList.add('bubble-pop');
+    }
+
+    if (isDragging) {
+      e.preventDefault();
+      const widgetW = widget.offsetWidth || 140;
+      const widgetH = widget.offsetHeight || 150;
+
+      const rawX = e.clientX - offsetX;
+      const rawY = e.clientY - offsetY;
+
+      // Keep within viewport boundaries
+      const minX = 10;
+      const maxX = Math.max(minX, window.innerWidth - widgetW - 10);
+      const minY = 55;
+      const maxY = Math.max(minY, window.innerHeight - widgetH - 10);
+
+      const clampedX = Math.max(minX, Math.min(maxX, rawX));
+      const clampedY = Math.max(minY, Math.min(maxY, rawY));
+
+      widget.style.left = `${clampedX}px`;
+      widget.style.top = `${clampedY}px`;
+
+      updateBubbleOrientation(clampedX, clampedY);
+    }
+  });
+
+  function finishPointer(e) {
+    if (!isPointerDown || e.pointerId !== activePointerId) return;
+    isPointerDown = false;
+
+    try {
+      widget.releasePointerCapture(e.pointerId);
+    } catch (_) {}
+
+    if (isDragging) {
+      isDragging = false;
+      widget.classList.remove('bot-dragging');
+
+      const DROP_PHRASES = [
+        "I GUESS I LIVE HERE NOW 🛋️",
+        "NICE SPOT! 📍",
+        "NEW HOME FOUND! 🏡",
+        "DON'T DROP ME! 📦",
+        "STATIONARY... FOR NOW ⏱️"
+      ];
+      textEl.textContent = DROP_PHRASES[Math.floor(Math.random() * DROP_PHRASES.length)];
+      bubbleEl.classList.remove('bubble-pop');
+      void bubbleEl.offsetWidth;
+      bubbleEl.classList.add('bubble-pop');
+    } else {
+      // It was a quick tap/click without dragging -> Vanish to another place!
+      evadeChatbot(e);
+    }
+  }
+
+  widget.addEventListener('pointerup', finishPointer);
+  widget.addEventListener('pointercancel', (e) => {
+    if (isPointerDown && e.pointerId === activePointerId) {
+      isPointerDown = false;
+      isDragging = false;
+      widget.classList.remove('bot-dragging');
+    }
+  });
+
+  // Prevent default native click since pointerup handles it
+  widget.addEventListener('click', (e) => {
+    e.preventDefault();
+  });
 
   widget.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -188,9 +311,9 @@ export function initUselessChatbot() {
     }
   });
 
-  // Wiggle nervously on hover
+  // Wiggle nervously on hover when not dragging or evading
   widget.addEventListener('mouseenter', () => {
-    if (!isEvading) {
+    if (!isEvading && !isDragging && !isPointerDown) {
       widget.classList.add('bot-nervous');
       textEl.textContent = "DON'T CLICK ME! ⚡";
       bubbleEl.classList.remove('bubble-pop');
