@@ -1173,6 +1173,37 @@ body {
   font-size: 0.74rem;
 }
 
+.brand-line-build {
+  font-family: var(--font-heading);
+  font-size: clamp(3.2rem, 4.3vw, 4.2rem);
+  font-weight: 900;
+  margin: 0 0 2px 0;
+  letter-spacing: -0.5px;
+  line-height: 0.95;
+  display: block;
+}
+
+.brand-line-build .brick-word {
+  display: inline-block;
+  background-color: #c84828;
+  background-image: url('brick-texture.svg');
+  background-size: 58px 29px;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.5px #260e09;
+  filter: drop-shadow(3.5px 3.5px 0px #5c1815) drop-shadow(6px 6px 0px #00120f);
+  position: relative;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.brand-line-build .brick-word:hover {
+  transform: translateY(-2px) rotate(-0.5deg);
+  filter: drop-shadow(5px 5px 0px #5c1815) drop-shadow(8px 8px 0px #00120f);
+}
+
 .brand-line-useless {
   font-family: var(--font-heading);
   font-size: clamp(3.2rem, 4.3vw, 4.2rem);
@@ -1716,6 +1747,7 @@ body {
     width: 100%;
     text-align: center;
   }
+  .brand-line-build,
   .brand-line-useless,
   .brand-line-projects {
     font-size: clamp(1.8rem, 8.2vw, 2.5rem);
@@ -1930,6 +1962,7 @@ body {
   .bubble-sub {
     font-size: 0.54rem;
   }
+  .brand-line-build,
   .brand-line-useless,
   .brand-line-projects {
     font-size: clamp(1.45rem, 7.8vw, 1.95rem);

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="48" viewBox="0 0 96 48">
+  <defs>
+    <!-- Mortar base -->
+    <linearGradient id="mortarGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1c0d0a"/>
+      <stop offset="100%" stop-color="#2a1612"/>
+    </linearGradient>
+
+    <!-- Brick 1 Gradient (Classic Terracotta) -->
+    <linearGradient id="b1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e25d3b"/>
+      <stop offset="15%" stop-color="#ce4a2a"/>
+      <stop offset="85%" stop-color="#ba391c"/>
+      <stop offset="100%" stop-color="#8a230d"/>
+    </linearGradient>
+
+    <!-- Brick 2 Gradient (Rich Burnt Clay) -->
+    <linearGradient id="b2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d65130"/>
+      <stop offset="15%" stop-color="#c14122"/>
+      <stop offset="85%" stop-color="#ab3216"/>
+      <stop offset="100%" stop-color="#7a1c09"/>
+    </linearGradient>
+
+    <!-- Brick 3 Gradient (Warm Orange-Red) -->
+    <linearGradient id="b3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ea6845"/>
+      <stop offset="15%" stop-color="#d55231"/>
+      <stop offset="85%" stop-color="#be3f21"/>
+      <stop offset="100%" stop-color="#912710"/>
+    </linearGradient>
+
+    <!-- Brick 4 Gradient (Deep Roasted) -->
+    <linearGradient id="b4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#cc4a2b"/>
+      <stop offset="15%" stop-color="#b4391e"/>
+      <stop offset="85%" stop-color="#9c2a13"/>
+      <stop offset="100%" stop-color="#6e1706"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Mortar background (grout joints) -->
+  <rect width="96" height="48" fill="url(#mortarGrad)"/>
+  
+  <!-- Subtle mortar texture / sand flecks -->
+  <circle cx="12" cy="23" r="0.8" fill="#52322b" opacity="0.6"/>
+  <circle cx="48" cy="23" r="0.7" fill="#52322b" opacity="0.6"/>
+  <circle cx="80" cy="24" r="0.9" fill="#52322b" opacity="0.6"/>
+  <circle cx="24" cy="47" r="0.8" fill="#52322b" opacity="0.6"/>
+  <circle cx="72" cy="47" r="0.7" fill="#52322b" opacity="0.6"/>
+
+  <!-- ================= ROW 1 (y: 2 to 21, height 19) ================= -->
+  <!-- Brick 1A (x: 2 to 46, width 44) -->
+  <rect x="2" y="2" width="44" height="19" rx="2" fill="url(#b1)"/>
+  <!-- Bevel highlights -->
+  <path d="M 3 3 L 45 3" stroke="#ffa385" stroke-width="1.2" stroke-linecap="round" opacity="0.65"/>
+  <path d="M 3 3 L 3 20" stroke="#ffa385" stroke-width="1" opacity="0.5"/>
+  <path d="M 3 20 L 45 20" stroke="#521206" stroke-width="1.2" opacity="0.7"/>
+  <!-- Brick surface texture dots -->
+  <circle cx="14" cy="9" r="1" fill="#751c09" opacity="0.35"/>
+  <circle cx="28" cy="14" r="0.8" fill="#ffe2d9" opacity="0.3"/>
+  <circle cx="36" cy="7" r="1.2" fill="#751c09" opacity="0.3"/>
+
+  <!-- Brick 1B (x: 50 to 94, width 44) -->
+  <rect x="50" y="2" width="44" height="19" rx="2" fill="url(#b2)"/>
+  <path d="M 51 3 L 93 3" stroke="#ffa385" stroke-width="1.2" stroke-linecap="round" opacity="0.65"/>
+  <path d="M 51 3 L 51 20" stroke="#ffa385" stroke-width="1" opacity="0.5"/>
+  <path d="M 51 20 L 93 20" stroke="#521206" stroke-width="1.2" opacity="0.7"/>
+  <circle cx="62" cy="13" r="1.1" fill="#661605" opacity="0.35"/>
+  <circle cx="78" cy="8" r="0.8" fill="#ffd5c7" opacity="0.35"/>
+
+  <!-- ================= ROW 2 (y: 26 to 45, height 19, STAGGERED by 24px) ================= -->
+  <!-- Brick 2A (x: -22 to 22, visible: 2 to 22, width 20) -->
+  <rect x="-22" y="26" width="44" height="19" rx="2" fill="url(#b3)"/>
+  <path d="M 0 27 L 21 27" stroke="#ffb199" stroke-width="1.2" opacity="0.65"/>
+  <path d="M 0 44 L 21 44" stroke="#521206" stroke-width="1.2" opacity="0.7"/>
+  <path d="M 21 27 L 21 44" stroke="#521206" stroke-width="1" opacity="0.6"/>
+  <circle cx="10" cy="34" r="1" fill="#ffd9ce" opacity="0.3"/>
+
+  <!-- Brick 2B (x: 26 to 70, width 44) -->
+  <rect x="26" y="26" width="44" height="19" rx="2" fill="url(#b4)"/>
+  <path d="M 27 27 L 69 27" stroke="#ff9f82" stroke-width="1.2" stroke-linecap="round" opacity="0.65"/>
+  <path d="M 27 27 L 27 44" stroke="#ff9f82" stroke-width="1" opacity="0.5"/>
+  <path d="M 27 44 L 69 44" stroke="#480f03" stroke-width="1.2" opacity="0.7"/>
+  <circle cx="42" cy="37" r="1.2" fill="#571104" opacity="0.4"/>
+  <circle cx="56" cy="31" r="0.9" fill="#ffcfc2" opacity="0.35"/>
+
+  <!-- Brick 2C (x: 74 to 118, visible: 74 to 94, width 20) -->
+  <rect x="74" y="26" width="44" height="19" rx="2" fill="url(#b3)"/>
+  <path d="M 75 27 L 96 27" stroke="#ffb199" stroke-width="1.2" opacity="0.65"/>
+  <path d="M 75 27 L 75 44" stroke="#ffb199" stroke-width="1" opacity="0.5"/>
+  <path d="M 75 44 L 96 44" stroke="#521206" stroke-width="1.2" opacity="0.7"/>
+  <circle cx="86" cy="35" r="1.1" fill="#691605" opacity="0.35"/>
+</svg>
