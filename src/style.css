@@ -1180,7 +1180,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: clamp(8px, 1.4vw, 16px);
-  margin: 4px 0 6px 0;
+  margin: clamp(6px, 1vw, 10px) 0 clamp(8px, 1.2vw, 12px) 0;
   line-height: 1;
   position: relative;
 }
