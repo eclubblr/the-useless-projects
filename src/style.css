@@ -1219,6 +1219,7 @@ body {
 /* Punch 3: Signature Kind Coral (Dishoom #3 - Matches US3L3SS) */
 .dishoom-punch.p3 {
   color: #DD736E;
+  margin-left: clamp(8px, 1vw, 14px);
   transform: rotate(-2.5deg) scale(1.14);
   text-shadow: 
     3px 3px 0px #5c1815,
