@@ -1198,50 +1198,47 @@ body {
   transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.18s ease;
 }
 
-/* Punch 1: Retro Action Lemon Yellow (Dishoom #1) */
+/* Punch 1: Crisp Clean White (Dishoom #1 - High Contrast Pop) */
 .dishoom-punch.p1 {
-  color: #FFE600;
+  color: #FFFFFF;
   transform: rotate(-3.5deg);
   text-shadow: 
-    2px 2px 0px #000,
-    3.5px 3.5px 0px #705800,
+    3px 3px 0px #0a1f1b,
     5.5px 5.5px 0px #00120f;
 }
 
-/* Punch 2: Electric Action Amber (Dishoom #2) */
+/* Punch 2: Radiant Warm Gold (Dishoom #2 - Matches PR0J3CTS) */
 .dishoom-punch.p2 {
-  color: #FFA23A;
+  color: #E0B541;
   transform: rotate(2.5deg) scale(1.07);
   text-shadow: 
-    2px 2px 0px #000,
-    3.5px 3.5px 0px #753300,
+    3px 3px 0px #4a3800,
     5.5px 5.5px 0px #00120f;
 }
 
-/* Punch 3: Explosive Action Red-Coral (Dishoom #3 - Maximum Impact!) */
+/* Punch 3: Signature Kind Coral (Dishoom #3 - Matches US3L3SS) */
 .dishoom-punch.p3 {
-  color: #FF473A;
+  color: #DD736E;
   transform: rotate(-2.5deg) scale(1.14);
   text-shadow: 
-    2px 2px 0px #000,
-    3.5px 3.5px 0px #6b0c03,
+    3px 3px 0px #5c1815,
     5.5px 5.5px 0px #00120f;
 }
 
 /* Comic punch hover & active states */
 .dishoom-punch.p1:hover {
   transform: rotate(-6deg) scale(1.22);
-  filter: drop-shadow(0 0 10px rgba(255, 230, 0, 0.7));
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.75));
 }
 
 .dishoom-punch.p2:hover {
   transform: rotate(5deg) scale(1.25);
-  filter: drop-shadow(0 0 10px rgba(255, 162, 58, 0.7));
+  filter: drop-shadow(0 0 12px rgba(224, 181, 65, 0.75));
 }
 
 .dishoom-punch.p3:hover {
   transform: rotate(-5deg) scale(1.28);
-  filter: drop-shadow(0 0 12px rgba(255, 71, 58, 0.7));
+  filter: drop-shadow(0 0 12px rgba(221, 115, 110, 0.75));
 }
 
 .dishoom-punch:active {
