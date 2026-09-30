@@ -635,6 +635,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Dishoom! Dishoom! Dishoom! Punch Audio & Recoil
+  document.querySelectorAll('.dishoom-punch').forEach((punch, index) => {
+    punch.addEventListener('click', () => {
+      const freqs = [380, 540, 780];
+      soundFx.playClick(freqs[index] || 600, 0.09);
+      const rot = index === 1 ? 12 : -12;
+      punch.style.transform = `scale(1.35) rotate(${rot}deg)`;
+      setTimeout(() => {
+        punch.style.transform = '';
+      }, 180);
+    });
+  });
+
   // Generic Button Sound FX
   document.querySelectorAll('button, a').forEach(el => {
     el.addEventListener('mouseenter', () => soundFx.playClick(1000, 0.02));

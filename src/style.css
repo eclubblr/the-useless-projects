@@ -1173,35 +1173,79 @@ body {
   font-size: 0.74rem;
 }
 
-.brand-line-build {
-  font-family: var(--font-heading);
-  font-size: clamp(3.2rem, 4.3vw, 4.2rem);
-  font-weight: 900;
-  margin: 0 0 2px 0;
-  letter-spacing: -0.5px;
-  line-height: 0.95;
-  display: block;
-}
-
-.brand-line-build .brick-word {
-  display: inline-block;
-  background-color: #c84828;
-  background-image: url('brick-texture.svg');
-  background-size: 58px 29px;
-  background-repeat: repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1.5px #260e09;
-  filter: drop-shadow(3.5px 3.5px 0px #5c1815) drop-shadow(6px 6px 0px #00120f);
+/* --------------------------------------------------
+   DISHOOM! DISHOOM! DISHOOM! BUILD TRIPLE PUNCH
+   -------------------------------------------------- */
+.brand-line-dishoom {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(8px, 1.4vw, 16px);
+  margin: 4px 0 6px 0;
+  line-height: 1;
   position: relative;
-  transition: transform 0.2s ease, filter 0.2s ease;
 }
 
-.brand-line-build .brick-word:hover {
-  transform: translateY(-2px) rotate(-0.5deg);
-  filter: drop-shadow(5px 5px 0px #5c1815) drop-shadow(8px 8px 0px #00120f);
+.dishoom-punch {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: clamp(1.45rem, 2.3vw, 2.35rem);
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.18s ease;
+}
+
+/* Punch 1: Retro Action Lemon Yellow (Dishoom #1) */
+.dishoom-punch.p1 {
+  color: #FFE600;
+  transform: rotate(-3.5deg);
+  text-shadow: 
+    2px 2px 0px #000,
+    3.5px 3.5px 0px #705800,
+    5.5px 5.5px 0px #00120f;
+}
+
+/* Punch 2: Electric Action Amber (Dishoom #2) */
+.dishoom-punch.p2 {
+  color: #FFA23A;
+  transform: rotate(2.5deg) scale(1.07);
+  text-shadow: 
+    2px 2px 0px #000,
+    3.5px 3.5px 0px #753300,
+    5.5px 5.5px 0px #00120f;
+}
+
+/* Punch 3: Explosive Action Red-Coral (Dishoom #3 - Maximum Impact!) */
+.dishoom-punch.p3 {
+  color: #FF473A;
+  transform: rotate(-2.5deg) scale(1.14);
+  text-shadow: 
+    2px 2px 0px #000,
+    3.5px 3.5px 0px #6b0c03,
+    5.5px 5.5px 0px #00120f;
+}
+
+/* Comic punch hover & active states */
+.dishoom-punch.p1:hover {
+  transform: rotate(-6deg) scale(1.22);
+  filter: drop-shadow(0 0 10px rgba(255, 230, 0, 0.7));
+}
+
+.dishoom-punch.p2:hover {
+  transform: rotate(5deg) scale(1.25);
+  filter: drop-shadow(0 0 10px rgba(255, 162, 58, 0.7));
+}
+
+.dishoom-punch.p3:hover {
+  transform: rotate(-5deg) scale(1.28);
+  filter: drop-shadow(0 0 12px rgba(255, 71, 58, 0.7));
+}
+
+.dishoom-punch:active {
+  transform: scale(0.92) !important;
 }
 
 .brand-line-useless {
@@ -1747,7 +1791,15 @@ body {
     width: 100%;
     text-align: center;
   }
-  .brand-line-build,
+  .brand-line-dishoom {
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 6px;
+    width: 100%;
+  }
+  .dishoom-punch {
+    font-size: clamp(1.15rem, 4.4vw, 1.6rem);
+  }
   .brand-line-useless,
   .brand-line-projects {
     font-size: clamp(1.8rem, 8.2vw, 2.5rem);
@@ -1962,7 +2014,16 @@ body {
   .bubble-sub {
     font-size: 0.54rem;
   }
-  .brand-line-build,
+  .brand-line-dishoom {
+    justify-content: center;
+    gap: 7px;
+    margin-bottom: 4px;
+    width: 100%;
+  }
+  .dishoom-punch {
+    font-size: clamp(0.95rem, 4vw, 1.25rem);
+    letter-spacing: -0.5px;
+  }
   .brand-line-useless,
   .brand-line-projects {
     font-size: clamp(1.45rem, 7.8vw, 1.95rem);
