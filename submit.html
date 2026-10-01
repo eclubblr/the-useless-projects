@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BSGQ9BSEYY"></script>
+  <script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments)}
+  gtag('js',new Date());gtag('config','G-BSGQ9BSEYY');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Submit Your Useless Idea — THE USELESS PROJECTS 2026</title>
@@ -234,5 +240,12 @@
   </footer>
 
   <script type="module" src="src/main.js"></script>
+  <script>
+  document.addEventListener('click',e=>{
+    const a=e.target.closest('a[href]'); if(!a) return;
+    if(a.href.includes('docs.google.com/forms')) gtag('event','register_click',{link_url:a.href});
+    else if(a.href.includes('drive.google.com')) gtag('event','vault_click',{link_url:a.href});
+  });
+  </script>
 </body>
 </html>
