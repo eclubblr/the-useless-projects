@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@500;700;900&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="src/style.css">
+  <link rel="stylesheet" href="src/style.css?v=13.0">
 </head>
 <body>
   <canvas id="chaosCanvas"></canvas>
@@ -84,6 +84,10 @@
       <div class="nav-actions">
         <button id="soundToggleBtn" class="btn-icon" title="Toggle Sound FX"><span id="soundIcon">🔊</span></button>
         <button id="chaosToggleBtn" class="btn-chaos">⚡ CHAOS MODE</button>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfM1HYsGj77rdQBDKxfXaotgDMe8FfdZID7ACvgoriOGtEE_A/viewform?usp=dialog" target="_blank"
+          rel="noopener noreferrer" class="btn-primary" id="headerSubmitBtn">
+          Submit Idea
+        </a>
         <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle Navigation Menu">
           <span></span>
           <span></span>
@@ -106,7 +110,8 @@
         <span>🎰 Idea Slot</span>
         <span>→</span>
       </a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfM1HYsGj77rdQBDKxfXaotgDMe8FfdZID7ACvgoriOGtEE_A/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfM1HYsGj77rdQBDKxfXaotgDMe8FfdZID7ACvgoriOGtEE_A/viewform?usp=dialog" target="_blank" rel="noopener noreferrer"
+        class="mobile-nav-link mobile-nav-link-highlight" id="drawerSubmitBtn">
         <span>🚀 Submit Idea</span>
         <span>↗</span>
       </a>

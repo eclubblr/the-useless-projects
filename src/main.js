@@ -175,6 +175,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Header & Drawer Submit Buttons Sound FX
+  ['headerSubmitBtn', 'drawerSubmitBtn'].forEach(id => {
+    const btn = document.getElementById(id);
+    if (btn) {
+      btn.addEventListener('click', () => {
+        soundFx.playClick(850, 0.05);
+      });
+    }
+  });
+
   // Retractable hanging ropes when scrolling past hero
   window.addEventListener('scroll', () => {
     if (window.scrollY > 150) {
